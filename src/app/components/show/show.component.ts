@@ -8,15 +8,15 @@ import { DataService ,Connection} from '../../connected.service';
   styleUrls: ['./show.component.css']
 })
 export class ShowComponent implements OnInit {
-  id: number;
-  private sub: any;
-  data;
-  title = '';
-  description = '';
-  start_time;
-  end_time;
-  connectivity;
-  expanded :boolean = false;
+  public id: number;
+  public sub: any;
+  public data;
+  public title = '';
+  public description = '';
+  public start_time;
+  public end_time;
+  public connectivity;
+  public expanded :boolean = false;
   
   constructor(private route: ActivatedRoute,public dataService: DataService,private apiService:Connection) { this.expanded = this.dataService.hide;}
   

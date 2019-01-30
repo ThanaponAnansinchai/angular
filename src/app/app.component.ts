@@ -8,14 +8,14 @@ import { Connection, DataService } from './connected.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private present;
-  private rooms: any[] = [];
-  private Stime: string[][] = [];
-  private Etime: string[][] = [];
-  private status: any[] = [];
-  private time_status: any[] = [];
+  public present;
+  public rooms: any[] = [];
+  public Stime: string[][] = [];
+  public Etime: string[][] = [];
+  public status: any[] = [];
+  public time_status: any[] = [];
   public searchText: string;
-  private status_color: any;
+  public status_color: any;
 
   constructor(private apiService: Connection, private route: Router, public dataService: DataService) {}
   
