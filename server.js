@@ -5,12 +5,11 @@ const path = require('path');
 const cors = require('cors');
 const app = express();
 
-
-
+app.use(cors());
 // Serve only the static files form the dist directory
 
 app.use(express.static('./dist/abc'));
-app.use(cors());
+
 app.get('/*', function (req, res) {
     res.header("Access-Control-Allow-Origin", '*');
     res.header("Access-Control-Allow-Credentials", true);
