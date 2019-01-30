@@ -1,0 +1,22 @@
+<div class="main">
+  <h2>{{title}} </h2>
+  <p>{{start_time[1]}} - {{end_time[1]}}</p>
+  <h3>{{description}}</h3>
+  <hr>
+  <ng-container>
+      <span *ngIf="expanded == false">
+          <button (click)="expanded = true" style="width: 100px;height: 100px;"><b>Watch</b></button>
+      </span>
+      <span *ngIf="expanded == true"><video width="320" height="240" controls></video>
+        <button (click)="expanded = false" style="float:right;width: 100px;height: 100px;">Close</button>
+        <br>
+        {{connectivity.host}}<br>
+        {{connectivity.queue_port}}<br>
+        {{connectivity.webrtc_proxy_port}}<br>
+        {{connectivity.text_stream_port}}<br>
+        {{connectivity.rtp_start_port}}<br>
+        {{connectivity.rtp_end_port}}<br>
+        {{data.short_keys}}
+      </span>
+  </ng-container>
+</div>

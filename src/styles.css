@@ -1,1 +1,80 @@
 /* You can add global styles to this file, and also import other style files */
+@import "w3.css";
+
+.sidenav {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+
+  .sidenav .rooms div{
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-left: 0;
+    left: 0;
+    text-decoration: none;
+    font-size: 20px;
+    color: #FFFFFF;
+    display: block;
+    cursor: pointer;
+  }
+
+  .sidenav .rooms :hover {
+    color: #000000;
+    background-color: white;
+    cursor: pointer;
+  }
+
+  .main {
+    margin: 50px 0px 0px 150px;
+    font-size: 28px; 
+    padding: 0px 10px;
+  }
+
+  .head{
+    font-size: 30px;
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+
+
+/* Search Bar */
+  input[type="text"]{
+    font: 15px/24px 'Muli', sans-serif; 
+    color: #333; 
+    width: 100%; 
+    box-sizing: border-box; 
+    letter-spacing: 1px;
+  }:focus{outline: none;}
+  
+  .col{
+    float: center; 
+    width: 90%; 
+    margin: 40px 3%; 
+    position: relative;
+    display: block;
+  } 
+
+  input[type="text"]{
+    font: 15px/24px "Lato", Arial, sans-serif; 
+    color: #FFFFFF; 
+    width: 100%; 
+    box-sizing: border-box; 
+    letter-spacing: 1px;
+  }
+  
+.text_effect{border: 0; padding: 4px 0; border-bottom: 1px solid #ccc; background-color: transparent;}
+.text_effect ~ .focus-border{position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #4caf50; transition: 0.4s;}
+.text_effect:focus ~ .focus-border,
+.has-content.text_effect ~ .focus-border{width: 100%; transition: 0.4s;}
+.text_effect ~ label{position: absolute; left: 0; width: 100%; top: 9px; color: #aaa; transition: 0.3s; z-index: -1; letter-spacing: 0.5px;}
+.text_effect:focus ~ label, .has-content.text_effect ~ label{top: -16px; font-size: 12px; color: #4caf50; transition: 0.3s;}
+
+
