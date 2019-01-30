@@ -7,8 +7,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class Connection {
     
-  API_URL  =  '35.247.189.242:8080/v2/rooms';
-  test_url = 'api.rtt.in.th';
+  API_URL  =  '//35.247.189.242:8080/v2/rooms';
+  test_url = '//api.rtt.in.th';
   test_port = ':12119'
 
   constructor(private  httpClient:  HttpClient) {}
