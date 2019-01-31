@@ -62,7 +62,7 @@ export class AppComponent {
       }
       else if (start.total <= 0) {
         this.status[index] = 'Live ';
-        this.time_status[index] = end.hour + " ชั่วโมง " + end.minute + " นาทีจะสิ้นสุดการถ่ายทอกสด";
+        this.time_status[index] = end.hour + " ชั่วโมง " + end.minute + " นาทีจะสิ้นสุดการถ่ายทอดสด";
         this.status_color = "#5cb85c"
       }
       else {
@@ -98,7 +98,7 @@ export class AppComponent {
     }
     else if (start.total <= 0) {
       this.status[index] = 'กำลังถ่ายทอดสด';
-      this.time_status[index] = end.hour + " ชั่วโมง " + end.minute + " นาทีจะสิ้นสุดการถ่ายทอกสด";
+      this.time_status[index] = end.hour + " ชั่วโมง " + end.minute + " นาทีจะสิ้นสุดการถ่ายทอดสด";
       this.status_color = "#5cb85c"
     }
     else {

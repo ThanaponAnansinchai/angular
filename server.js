@@ -16,8 +16,6 @@ app.use(function (req, res, next){
     }
   });
 
-
-
 app.use(express.static('./dist/abc'));
 
 // Start the app by listening on the default Heroku port
