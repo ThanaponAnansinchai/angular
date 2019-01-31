@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Http, Response } from '@angular/http';
+
 
 
 @Injectable({
@@ -11,7 +13,8 @@ export class Connection {
   test_url = 'http://api.rtt.in.th';
   test_port = ':12119'
 
-  constructor(private  httpClient:  HttpClient) {}
+  constructor(private  httpClient:  HttpClient,private http: Http
+    ) {}
 
   getAllData(){
     return  this.httpClient.get(`${this.API_URL}`)
