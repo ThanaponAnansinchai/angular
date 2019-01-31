@@ -7,7 +7,7 @@ const app = express();
 
 app.use(cors());
 // Serve only the static files form the dist directory
-
+/*
 app.use(function (req, res, next){
     if (req.headers['x-forwarded-proto'] === 'https') {
       res.redirect('http://' + req.hostname + req.url);
@@ -16,7 +16,7 @@ app.use(function (req, res, next){
     }
   });
 
-
+*/
 
 app.use(express.static('./dist/abc'));
 
