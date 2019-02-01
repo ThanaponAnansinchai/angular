@@ -18,11 +18,7 @@ export class Connection {
     ) {}
 
   getAllData(){
-    return this.http.get(`${this.API_URL}`)
-       
-    
-    
-    //return this.httpClient.get(`${this.API_URL}`)
+    return this.httpClient.get(`${this.API_URL}`)
   }
   getData(id){
     return  this.httpClient.get(`${this.API_URL}/`+id)
