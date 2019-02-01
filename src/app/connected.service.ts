@@ -4,6 +4,7 @@ import { Http, Response } from '@angular/http';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,15 +18,16 @@ export class Connection {
     ) {}
 
   getAllData(){
-    return  this.httpClient.get(`${this.API_URL}`)
-}
+    return this.http.get(`${this.API_URL}`)
+       
+    
+    
+    //return this.httpClient.get(`${this.API_URL}`)
+  }
   getData(id){
     return  this.httpClient.get(`${this.API_URL}/`+id)
-}
-  
-  testapi(){
-    return this.httpClient.get(`${this.test_url}`+this.test_port)
   }
+  
 }
 
 @Injectable() 

@@ -26,9 +26,11 @@ export class AppComponent {
   getAllData() {
     let a: string;
     let b: any;
-    this.apiService.getAllData().subscribe((data: any[]) => {
-      a = JSON.stringify(data);
-      b = JSON.parse(a);
+    
+    this.apiService.getAllData().subscribe((data: any) => {
+      //a = JSON.stringify(data);
+      b = JSON.parse(data._body);
+     
       let index = 0;
       this.dataService.serviceData = this.rooms = b.result;
       this.rooms.forEach(room => {

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RoomComponent } from './components/room/room.component';
@@ -24,6 +25,7 @@ import { FilterPipe} from './filter.pipe';
     FormsModule,
     HttpClientModule,
     HttpModule,
+  
   ],
   providers: [Connection,DataService],
   bootstrap: [AppComponent]
