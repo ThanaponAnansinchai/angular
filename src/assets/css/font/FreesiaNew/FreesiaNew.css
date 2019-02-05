@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'FreesiaUPC';
+  src: url('FreesiaUPC.woff') format('woff'),
+       url('FreesiaUPC.ttf') format('truetype'),
+       url('FreesiaUPC.svg#FreesiaUPC') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'upcfl';
+  src: url('upcfl.eot');
+  src: url('upcfl.woff2') format('woff2'),
+       url('upcfl.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+  
+}
+

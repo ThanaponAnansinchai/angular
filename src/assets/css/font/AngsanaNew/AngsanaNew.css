@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'AngsanaNew-Bold';
+  src: url('AngsanaNew-Bold.eot');
+  src: url('AngsanaNew-Bold.woff2') format('woff2'),
+       url('AngsanaNew-Bold.woff') format('woff'),
+       url('AngsanaNew-Bold.ttf') format('truetype'),
+       url('AngsanaNew-Bold.svg#AngsanaNew-Bold') format('svg'),
+       url('AngsanaNew-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: bold;
+  font-style: normal;
+  unicode-range:U+0025-00FF;
+}
+
+@font-face {
+  font-family: 'AngsanaNew-BoldItalic';
+  src: url('AngsanaNew-BoldItalic.eot');
+  src: url('AngsanaNew-BoldItalic.woff2') format('woff2'),
+       url('AngsanaNew-BoldItalic.woff') format('woff'),
+       url('AngsanaNew-BoldItalic.ttf') format('truetype'),
+       url('AngsanaNew-BoldItalic.svg#AngsanaNew-BoldItalic') format('svg'),
+       url('AngsanaNew-BoldItalic.eot?#iefix') format('embedded-opentype');
+  font-weight: bold;
+  font-style: Italic;
+  unicode-range:U+0025-00FF;
+}
+
+@font-face {
+  font-family: 'AngsanaNew-Italic';
+  src: url('AngsanaNew-Italic.eot');
+  src: url('AngsanaNew-Italic.woff2') format('woff2'),
+       url('AngsanaNew-Italic.woff') format('woff'),
+       url('AngsanaNew-Italic.ttf') format('truetype'),
+       url('AngsanaNew-Italic.svg#AngsanaNew-Italic') format('svg'),
+       url('AngsanaNew-Italic.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: Italic;
+  unicode-range:U+0025-00FF;
+}
+
+@font-face {
+  font-family: 'AngsanaNew';
+  src: url('AngsanaNew.eot');
+  src: url('AngsanaNew.woff2') format('woff2'),
+       url('AngsanaNew.woff') format('woff'),
+       url('AngsanaNew.ttf') format('truetype'),
+       url('AngsanaNew.svg#AngsanaNew') format('svg'),
+       url('AngsanaNew.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+  
+}
+
+@font-face {
+  font-family: 'AngsanaUPC-Bold';
+  src: url('AngsanaUPC-Bold.eot');
+  src: url('AngsanaUPC-Bold.woff2') format('woff2'),
+       url('AngsanaUPC-Bold.woff') format('woff'),
+       url('AngsanaUPC-Bold.ttf') format('truetype'),
+       url('AngsanaUPC-Bold.svg#AngsanaUPC-Bold') format('svg'),
+       url('AngsanaUPC-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: Bold;
+  font-style: normal;
+  unicode-range:U+0025-00FF;
+}
+
+@font-face {
+  font-family: 'AngsanaUPC-BoldItalic';
+  src: url('AngsanaUPC-BoldItalic.eot');
+  src: url('AngsanaUPC-BoldItalic.woff2') format('woff2'),
+       url('AngsanaUPC-BoldItalic.woff') format('woff'),
+       url('AngsanaUPC-BoldItalic.ttf') format('truetype'),
+       url('AngsanaUPC-BoldItalic.svg#AngsanaUPC-BoldItalic') format('svg'),
+       url('AngsanaUPC-BoldItalic.eot?#iefix') format('embedded-opentype');
+  font-weight: Bold;
+  font-style: Italic;
+  unicode-range:U+0025-00FF;
+}
+
+@font-face {
+  font-family: 'AngsanaUPC-Italic';
+  src: url('AngsanaUPC-Italic.eot');
+  src: url('AngsanaUPC-Italic.woff2') format('woff2'),
+       url('AngsanaUPC-Italic.woff') format('woff'),
+       url('AngsanaUPC-Italic.ttf') format('truetype'),
+       url('AngsanaUPC-Italic.svg#AngsanaUPC-Italic') format('svg'),
+       url('AngsanaUPC-Italic.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: Italic;
+  unicode-range:U+0025-00FF;
+}
+
+@font-face {
+  font-family: 'AngsanaUPC';
+  src: url('AngsanaUPC.eot');
+  src: url('AngsanaUPC.woff2') format('woff2'),
+       url('AngsanaUPC.woff') format('woff'),
+       url('AngsanaUPC.ttf') format('truetype'),
+       url('AngsanaUPC.svg#AngsanaUPC') format('svg'),
+       url('AngsanaUPC.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+  unicode-range:U+0025-00FF;
+}
+

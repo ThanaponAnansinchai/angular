@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'CordiaNew-Bold';
+  src: url('CordiaNew-Bold.eot');
+  src: url('CordiaNew-Bold.woff2') format('woff2'),
+       url('CordiaNew-Bold.woff') format('woff'),
+       url('CordiaNew-Bold.ttf') format('truetype'),
+       url('CordiaNew-Bold.svg#CordiaNew-Bold') format('svg'),
+       url('CordiaNew-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: Bold;
+  font-style: normal;
+  unicode-range:U+0025-00FF;
+}
+
+@font-face {
+  font-family: 'CordiaNew-BoldItalic';
+  src: url('CordiaNew-BoldItalic.eot');
+  src: url('CordiaNew-BoldItalic.woff2') format('woff2'),
+       url('CordiaNew-BoldItalic.woff') format('woff'),
+       url('CordiaNew-BoldItalic.ttf') format('truetype'),
+       url('CordiaNew-BoldItalic.svg#CordiaNew-BoldItalic') format('svg'),
+       url('CordiaNew-BoldItalic.eot?#iefix') format('embedded-opentype');
+  font-weight: Bold;
+  font-style: Italic;
+  unicode-range:U+0025-00FF;
+}
+
+@font-face {
+  font-family: 'CordiaNew-Italic';
+  src: url('CordiaNew-Italic.eot');
+  src: url('CordiaNew-Italic.woff2') format('woff2'),
+       url('CordiaNew-Italic.woff') format('woff'),
+       url('CordiaNew-Italic.ttf') format('truetype'),
+       url('CordiaNew-Italic.svg#CordiaNew-Italic') format('svg'),
+       url('CordiaNew-Italic.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: Italic;
+  unicode-range:U+0025-00FF;
+}
+
+@font-face {
+  font-family: 'CordiaNew';
+  src: url('CordiaNew.eot');
+  src: url('CordiaNew.woff2') format('woff2'),
+       url('CordiaNew.woff') format('woff'),
+       url('CordiaNew.ttf') format('truetype'),
+       url('CordiaNew.svg#CordiaNew') format('svg'),
+       url('CordiaNew.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+  
+}
+
+@font-face {
+  font-family: 'CordiaUPC-Bold';
+  src: url('CordiaUPC-Bold.eot');
+  src: url('CordiaUPC-Bold.woff2') format('woff2'),
+       url('CordiaUPC-Bold.woff') format('woff'),
+       url('CordiaUPC-Bold.ttf') format('truetype'),
+       url('CordiaUPC-Bold.svg#CordiaUPC-Bold') format('svg'),
+       url('CordiaUPC-Bold.eot?#iefix') format('embedded-opentype');
+  font-weight: Bold;
+  font-style: normal;
+  unicode-range:U+0025-00FF;
+}
+
+@font-face {
+  font-family: 'CordiaUPC-BoldItalic';
+  src: url('CordiaUPC-BoldItalic.eot');
+  src: url('CordiaUPC-BoldItalic.woff2') format('woff2'),
+       url('CordiaUPC-BoldItalic.woff') format('woff'),
+       url('CordiaUPC-BoldItalic.ttf') format('truetype'),
+       url('CordiaUPC-BoldItalic.svg#CordiaUPC-BoldItalic') format('svg'),
+       url('CordiaUPC-BoldItalic.eot?#iefix') format('embedded-opentype');
+  font-weight: Bold;
+  font-style: Italic;
+  unicode-range:U+0025-00FF;
+}
+
+@font-face {
+  font-family: 'CordiaUPC-Italic';
+  src: url('CordiaUPC-Italic.eot');
+  src: url('CordiaUPC-Italic.woff2') format('woff2'),
+       url('CordiaUPC-Italic.woff') format('woff'),
+       url('CordiaUPC-Italic.ttf') format('truetype'),
+       url('CordiaUPC-Italic.svg#CordiaUPC-Italic') format('svg'),
+       url('CordiaUPC-Italic.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: Italic;
+  unicode-range:U+0025-00FF;
+}
+
+@font-face {
+  font-family: 'CordiaUPC';
+  src: url('CordiaUPC.eot');
+  src: url('CordiaUPC.woff2') format('woff2'),
+       url('CordiaUPC.woff') format('woff'),
+       url('CordiaUPC.ttf') format('truetype'),
+       url('CordiaUPC.svg#CordiaUPC') format('svg'),
+       url('CordiaUPC.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+  unicode-range:U+0025-00FF;
+}
+

@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Th Niramit AS';
+  src: url('TH Niramit AS.eot');
+  src: url('TH Niramit AS.woff2') format('woff2'),
+       url('TH Niramit AS.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+ 
+}
+
+@font-face {
+  font-family: 'THNiramitAS';
+  src: url('THNiramitAS.woff') format('woff'),
+       url('THNiramitAS.ttf') format('truetype'),
+       url('THNiramitAS.svg#THNiramitAS') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  
+}
+
