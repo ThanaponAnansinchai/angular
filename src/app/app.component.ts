@@ -100,7 +100,7 @@ export class AppComponent {
       };
     }
     else{
-        hour = hour % 12;
+        //hour = hour % 12;
         return {
           'total': total, 'hour': hour, 'minute': minute,'period':this.pm
         };
@@ -121,7 +121,7 @@ export class AppComponent {
       this.status_color = "#ecd31f"
     }
     else if (start.total <= 0) {
-      this.status[index] = 'กำลังถ่ายทอดสด';
+      this.status[index] = 'กำลังทำการถ่ายทอดสด';
       this.time_status[index] = end.hour + " ชั่วโมง " + end.minute + " นาทีจะสิ้นสุดการถ่ายทอดสด";
       this.status_color = "#5cb85c"
     }
@@ -131,8 +131,6 @@ export class AppComponent {
       this.status_color = "orange"
     }
   }
-
-
   w3_open() {
     document.getElementById("mySidenav").style.display = "block";
     document.getElementById("myOverlay").style.display = "block";
@@ -142,4 +140,6 @@ export class AppComponent {
     document.getElementById("mySidenav").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
   }
+
+  
 }

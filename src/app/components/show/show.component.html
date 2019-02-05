@@ -17,11 +17,11 @@
       <div class="w3-container">
         <div class="w3-row">
           <div class="w3-col m12">
-            <div id="status"><font color="gray">การถ่ายทอดสดสิ้นสุดแล้ว</font></div>
+            <div id="status"><font [style.color]="status_color">{{status}}</font></div>
             <div>
               <i class="fa fa-check"></i> ภาพเคลื่อนไหวเสียงและคำบรรยาย
             </div>
-            <button class="w3-button w3-ripple w3-red w3-hover-black" id="startViewer">เข้าชมตอนนี้</button>
+            <button class="w3-button w3-ripple w3-red w3-hover-black" id="startViewer" (click)="w3_open()">เข้าชมตอนนี้</button>
           </div>
         </div>
         <hr>
@@ -35,7 +35,7 @@
       <div class="w3-display-topright">
         <button class="btn btn-info" id="muteVolume">ปิดเสียง</button>
         <button class="btn btn-info" id="unmuteVolume">เปิดเสียง</button>
-        <button class="btn btn-danger" id="terminateViewer" style="display: none;">สิ้นสุด</button>
+        <button class="btn btn-danger" id="terminateViewer" style="display: none;" (click)="w3_close()">สิ้นสุด</button>
       </div>
 
       <div class="w3-display-topmiddle" id="optionVideoMode" style="display: none;">
@@ -57,9 +57,9 @@
     </section>
 
   <!-- OPTIONS MODE -->
-  <div id="options">
+  <div id="options" style="display: none;">
     <div class="w3-row">
-      <i id="btnSaveText" class="fa fa-floppy-o fa-lg" aria-hidden="true"></i>
+      <i class="fa fa-floppy-o fa-lg" id="btnSaveText" aria-hidden="true"></i>
       <select id="settingCaptionedLine">
         <option value="">จำนวนบรรทัดคำบรรยาย</option>
         <option value="2">2 บรรทัด</option>
@@ -80,9 +80,9 @@
         <option value="AngsanaNew">Angsana New</option>
         <option value="CordiaNew">Cordia New</option>
       </select>
-      <button id="fontColorPicker" class="jscolor {valueElement:null,value: '000000', onFineChange:'setFontColor(this)'}">A</button>
-      <button id="backgroundColorPicker" class="jscolor {valueElement:null,value: '000000', onFineChange:'setBackgroundColor(this)'}">&nbsp;&nbsp;</button>
-      <input id="inputFont" type="text" maxlength="3" list="size" size="1">
+      <button class="jscolor {valueElement:null,value: '000000', onFineChange:'setFontColor(this)'}" id="fontColorPicker" style="background-image: none; color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">A</button>
+      <button class="jscolor {valueElement:null,value: '000000', onFineChange:'setBackgroundColor(this)'}" id="backgroundColorPicker" style="background-image: none; color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);">&nbsp;&nbsp;</button>
+      <input id="inputFont" type="text" size="1" maxlength="3" list="size">
       <datalist id="size">
         <option value="10"></option>
         <option value="16"></option>
