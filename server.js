@@ -13,7 +13,9 @@ app.use(function (req, res, next){
     }
   });
 
-
+app.route('/*').get(function(req,res) {
+  return res.sendFile(path.join(config.root, 'index.html'))
+})
 
 // Serve only the static files form the dist directory
 app.use(express.static('./dist/abc'));
