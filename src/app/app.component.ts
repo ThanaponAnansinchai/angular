@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Connection, DataService } from './connected.service';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -27,10 +29,7 @@ export class AppComponent {
   constructor(private apiService: Connection, private route: Router, public dataService: DataService) {}
   
   ngOnInit() {
-    
-    alert(window.orientation > -1 ? './app.component.mobile.html' : './app.component.html');
-    this.getAllData();
-    
+    window.orientation > -1 ? this.route.navigate(['/v2/viewer/']) : this.getAllData();;  
   }
 
   getAllData() {
