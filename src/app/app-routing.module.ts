@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
-  path: 'v2/room',
+  path: 'v2/viewer',
   component: RoomComponent
   },
   {

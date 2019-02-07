@@ -28,6 +28,6 @@ import { FilterPipe} from './filter.pipe';
   
   ],
   providers: [Connection,DataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,RoomComponent]
 })
 export class AppModule { }

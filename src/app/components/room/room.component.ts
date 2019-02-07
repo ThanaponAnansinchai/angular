@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { DataService } from '../../connected.service';
+import { Router } from '@angular/router';
+import { DataService ,Connection} from '../../connected.service';
+
 
 @Component({
   selector: 'app-room',
@@ -9,14 +10,25 @@ import { DataService } from '../../connected.service';
 })
 export class RoomComponent implements OnInit {
 
-  constructor() { }
+  public present;
+  public rooms: any[] = [];
+  public Stime: string[][] = [];
+  public Etime: string[][] = [];
+  public status: any[] = [];
+  public time_status: any[] = [];
+  public start_period: any[]=[];
+  public end_period: any[]=[];
+  public searchText: string;
+  public status_color: any;
+  public am = "AM";
+  public pm = "PM";
 
+  constructor(private apiService: Connection, private route: Router, public dataService: DataService) {}
+  
   ngOnInit() {
-
+    
   }
 
-  
-    
-  
+
 
 }
