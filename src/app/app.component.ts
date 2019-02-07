@@ -27,8 +27,8 @@ export class AppComponent {
   constructor(private apiService: Connection, private route: Router, public dataService: DataService) {}
   
   ngOnInit() {
-    let isMobile = window.orientation > -1;
-    alert(isMobile ? 'Mobile' : 'Not mobile');
+    
+    alert(window.orientation > -1 ? './app.component.mobile.html' : './app.component.html');
     this.getAllData();
     
   }
