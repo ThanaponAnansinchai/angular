@@ -6,7 +6,6 @@ export const environment = {
   production: false
 };
 
-export const mobile = window.orientation > -1
 
 /*
  * For easier debugging in development mode, you can import the following file

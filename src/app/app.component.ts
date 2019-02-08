@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Connection, DataService } from './connected.service';
-import {mobile} from '../environments/environment';
-
 
 @Component({
   selector: 'app-root',
