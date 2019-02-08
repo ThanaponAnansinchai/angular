@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Connection, DataService } from './connected.service';
-
+import {mobile} from '../environments/environment';
 
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl:  './app.component.html',
   styleUrls: ['./app.component.css']
 })
 
@@ -25,11 +25,15 @@ export class AppComponent {
   public status_color: any;
   public am = "AM";
   public pm = "PM";
+  public isMobile ;
 
   constructor(private apiService: Connection, private route: Router, public dataService: DataService) {}
   
   ngOnInit() {
-    window.orientation > -1 ? this.route.navigate(['/v2/viewer/']) : this.getAllData();;  
+    
+    window.orientation > -1 ? this.isMobile = true : this.isMobile = false;
+    this.getAllData();
+    
   }
 
   getAllData() {
