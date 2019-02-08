@@ -2208,58 +2208,58 @@ input[type=checkbox].w3-check:disabled+.w3-validate, input[type=radio].w3-radio:
 }
 
 @media screen and (min-width: 600px) and (max-width: 1367px) {
-    .w3-sidenav {
+    .mw3-sidenav {
         display: none;
         width: 100% !important;
     }
-    .w3-large {
+    .mw3-sidenav .w3-large {
         font-size: 24px !important;
     }
-    a {
+    .mw3-sidenav a {
         font-size: 30px !important;
     }
-    font {
+    .mw3-sidenav font {
         font-size: 20px !important;
     }
-    #viewer-mode {
+    .mw3-sidenav #viewer-mode {
         display: none;
     }
-    #btnSaveText {
+    .mw3-sidenav #btnSaveText {
         /* display: none; */
     }
-    #change-font-family {
+    .mw3-sidenav #change-font-family {
         display: none;
     }
-    #set_font_color {
+    .mw3-sidenav #set_font_color {
         display: none;
     }
-    #set_background_color {
+    .mw3-sidenav #set_background_color {
         display: none;
     }
-    #size {
+    .mw3-sidenav #size {
         display: none;
     }
-    #input-font {
+    .mw3-sidenav #input-font {
         display: none;
     }
-    #inc-font {
+    .mw3-sidenav #inc-font {
         float: left;
         height: 40px;
         width: 20%;
         margin-right: 0.5%;
     }
-    #dec-font {
+    .mw3-sidenav #dec-font {
         height: 40px;
         float: left;
         width: 20%;
     }
-    #choice {
+    .mw3-sidenav #choice {
         display: block !important;
         height: 40px;
         float: right;
         width: 59%;
     }
-    #size-font-m {
+    .mw3-sidenav #size-font-m {
         background: #FFFFFF;
         height: 40px;
         float: left;
@@ -2268,19 +2268,19 @@ input[type=checkbox].w3-check:disabled+.w3-validate, input[type=radio].w3-radio:
         padding: 10px;
         text-align: center;
     }
-    #AA-m {
+    .mw3-sidenav #AA-m {
         background: #FFFFFF;
         height: 40px;
         float: left;
         width: 20%;
     }
-    #A-m {
+    .mw3-sidenav #A-m {
         background: #FFFFFF;
         height: 40px;
         float: left;
         width: 20%;
     }
-    .gallery-button {
+    .mw3-sidenav .gallery-button {
         background: #FFFFFF;
         width: 25%;
         height: 40px;
@@ -2288,7 +2288,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate, input[type=radio].w3-radio:
         bottom: 3%;
         left: 3%;
     }
-    .gallery-button1 {
+    .mw3-sidenav .gallery-button1 {
         background: #FFFFFF;
         width: 25%;
         height: 40px;
@@ -2296,7 +2296,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate, input[type=radio].w3-radio:
         bottom: 3%;
         left: 29%;
     }
-    .gallery-button2 {
+    .mw3-sidenav .gallery-button2 {
         background: #FFFFFF;
         height: 40px;
         width: 35%;
@@ -2304,7 +2304,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate, input[type=radio].w3-radio:
         bottom: 3%;
         left: 55%;
     }
-    #watch-m {
+    .mw3-sidenav #watch-m {
         background: #FFFFFF;
         height: 40px;
         float: left;
@@ -2312,7 +2312,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate, input[type=radio].w3-radio:
         font-size: 24px;
         padding: 10px;
     }
-    #font-m {
+    .mw3-sidenav #font-m {
         background: #FFFFFF;
         height: 40px;
         float: left;
@@ -2320,7 +2320,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate, input[type=radio].w3-radio:
         font-size: 24px;
         padding: 10px;
     }
-    #font-color-m {
+    .mw3-sidenav #font-color-m {
         background: #FFFFFF;
         height: 40px;
         float: left;
@@ -2328,7 +2328,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate, input[type=radio].w3-radio:
         font-size: 24px;
         padding: 10px;
     }
-    #bgcolor-m {
+    .mw3-sidenav #bgcolor-m {
         background: #FFFFFF;
         height: 40px;
         float: left;
@@ -2336,42 +2336,42 @@ input[type=checkbox].w3-check:disabled+.w3-validate, input[type=radio].w3-radio:
         font-size: 24px;
         padding: 10px;
     }
-    #set_font_color-m {
+    .mw3-sidenav #set_font_color-m {
         float: right;
         margin-right: 10px;
         width: 15%;
     }
-    #set_background_color-m {
+    .mw3-sidenav #set_background_color-m {
         float: right;
         margin-right: 10px;
         width: 15%;
     }
-    #viewer-mode-m {
+    .mw3-sidenav #viewer-mode-m {
         float: right;
         height: 45px;
     }
-    #change-font-family-m {
+    .mw3-sidenav #change-font-family-m {
         float: right;
         margin-right: 10px;
         height: 40px;
     }
-    .ex-m {
+    .mw3-sidenav .ex-m {
         font-size: 20px;
         background-color: #000000;
         color: white;
         padding: 30px;
         text-align: center;
     }
-    #pre_header_page {
+    .mw3-sidenav #pre_header_page {
         display: none;
     }
-    #header {
+    .mw3-sidenav #header {
         display: none;
     }
-    #closemenu {
+    .mw3-sidenav #closemenu {
         display: none;
     }
-    #showmenu {
+    .mw3-sidenav #showmenu {
         display: none;
     }
 }
