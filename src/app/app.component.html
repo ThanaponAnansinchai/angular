@@ -59,7 +59,7 @@
       </div>
     </div>
     <ul *ngFor="let data of rooms | filter : {title: searchText} ;let i = index"  id="menuViewer">
-      <li (click)='getData(data.id)' class="listrooms" style="cursor: pointer;">
+      <li (click)='getData(data.id),w3_close()' class="listrooms" style="cursor: pointer;">
         <a>
         {{data.title}} <br>
         <font size="1"><!-- {{Stime[i][0]}} <br>-->  {{Stime[i][1]}} {{start_period[i]}} - {{Etime[i][1]}} {{end_period[i]}}</font> 
