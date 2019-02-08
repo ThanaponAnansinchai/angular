@@ -50,25 +50,35 @@
 <a *ngIf="isMobile">
   <nav class="w3-sidenav w3-red w3-animate-left w3-collapse w3-top w3-large" id="mySidenav" style="width: 300px; font-weight: bold; display: block; z-index: 3;">
     <div class="w3-container w3-padding-16">
-      <i class="fa fa-remove w3-hide-large w3-closebtn w3-hover-text-red" id="closemenu" (click)="w3_close()"></i>
+      <i (click)="w3_close()" class="fa fa-remove w3-hide-large w3-closebtn w3-hover-text-red"></i>
       <div style="text-align: center;">
         <h3>
-          <b>
-            <span>TRANSCRIPTION</span>
-          </b>
+          <a href="index.html" style="background: no-repeat;">TRANSCRIPTION</a>
         </h3>
-        <input class="w3-input w3-border" id="searchRooms" style="background: rgba(157, 129, 195, 0.03); color: white;" type="text" placeholder="ค้นหาห้อง...">
+        <input [(ngModel)]="searchText" id="searchRooms" class="w3-input w3-border" type="text" placeholder="ค้นหาห้อง...">
       </div>
     </div>
-    <ul id="MenuViewer" style="list-style-type:none;padding-left: 0;"><li class="listrooms" id="695" style="border-bottom: 1px solid rgba(255, 255, 255, 0.19);"><a class="w3-padding w3-hover-white" style="font-size: 16px;" (click)="w3_close()" href="#">ตัวอย่างการแสดงผลข้อความ1<br><font size="1">4:57 PM&nbsp;-&nbsp;4:57 PM</font><div style="font-size: 13px;"><font color="gray">การถ่ายทอดสดสิ้นสุดแล้ว</font></div></a></li></ul>
-    <!-- Error can't get Rooms -->
-    <div class="w3-container" id="errorGetdata" style="text-align: center;display: none;">
-      <h1>
-        <b>อุปส์!</b>
-      </h1>
-      <p>เกิดข้อผิดพลาดระหว่างการเชื่อมต่อ โปรดลองใหม่อีกครั้ง</p>
-      <button id="reconnectRooms">ลองใหม่</button>
-    </div>
+    <ul *ngFor="let data of rooms | filter : {title: searchText} ;let i = index"  id="menuViewer">
+      <li (click)='getData(data.id)' class="listrooms" style="cursor: pointer;">
+        <a>
+        {{data.title}} <br>
+        <font size="1"><!-- {{Stime[i][0]}} <br>-->  {{Stime[i][1]}} {{start_period[i]}} - {{Etime[i][1]}} {{end_period[i]}}</font> 
+        <div [style.color]="status_color" style="font-size: 13px; ">
+            {{status[i]}}
+            <br>
+            {{time_status[i]}}
+        </div>
+        </a>
+        
+      </li>
+     
+
+    </ul>
+    
+    <ul *ngIf="(rooms | filter : {title: searchText}).length == 0" id="menuViewer">
+        <!-- Not found Rooms -->
+            <h4 style="text-align: center">ไม่พบข้อมูล</h4>   
+    </ul>
   </nav>
 <!-- Top menu on small screens -->
 <header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding" id="header" style="z-index:3;">
