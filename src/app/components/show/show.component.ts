@@ -25,6 +25,7 @@ export class ShowComponent implements OnInit {
   public time_status: any;
   public status_color: any;
   public isMobile;
+  public margin
 
   constructor(private route: ActivatedRoute,public dataService: DataService,private apiService:Connection) { }
   
@@ -34,7 +35,16 @@ export class ShowComponent implements OnInit {
     this.route.params.subscribe(params => {
       window.scrollTo(0, 0);
       
-      window.orientation > -1 ? this.isMobile = "0px" : this.isMobile = "300px";
+      if(window.orientation > -1)
+        {
+          this.isMobile = true
+          this.margin = "300px"
+        }
+      else{
+          this.isMobile = false;
+          this.margin = "0px"
+      }
+      
 
       document.getElementById("liveContainer").style.display = "none";
       document.getElementById("statusStreaming").style.display = "none";

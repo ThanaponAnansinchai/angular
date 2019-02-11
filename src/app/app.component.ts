@@ -29,7 +29,8 @@ export class AppComponent {
   
   ngOnInit() {
     
-    window.orientation > -1 ? this.isMobile = true : this.isMobile = false;
+    window.orientation > -1 ? this.isMobile = true 
+    : this.isMobile = false;
     this.getAllData();
     
   }
