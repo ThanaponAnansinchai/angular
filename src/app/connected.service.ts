@@ -29,5 +29,6 @@ export class Connection {
 @Injectable() 
 export class DataService {
   serviceData :any[] = []; 
-  hide: boolean = false;
+  
+  
 }

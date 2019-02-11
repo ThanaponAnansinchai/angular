@@ -21,10 +21,10 @@ export class ShowComponent implements OnInit {
   end_period;
   public am = "AM";
   public pm = "PM";
-  public expanded :boolean = false;
   public status: any;
   public time_status: any;
   public status_color: any;
+  public isMobile;
 
   constructor(private route: ActivatedRoute,public dataService: DataService,private apiService:Connection) { }
   
@@ -33,6 +33,8 @@ export class ShowComponent implements OnInit {
    
     this.route.params.subscribe(params => {
       window.scrollTo(0, 0);
+      
+      window.orientation > -1 ? this.isMobile = "0px" : this.isMobile = "300px";
 
       document.getElementById("liveContainer").style.display = "none";
       document.getElementById("statusStreaming").style.display = "none";
@@ -50,7 +52,7 @@ export class ShowComponent implements OnInit {
         this.title = this.data.title;
         this.connectivity = this.data.connectivity;   
         this.description = this.data.description;
-        this.expanded = this.dataService.hide;
+       
         
         this.dataService.serviceData.forEach(element => {
           if(element.id === this.id){
