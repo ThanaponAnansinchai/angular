@@ -38,11 +38,11 @@ export class ShowComponent implements OnInit {
       if(window.orientation > -1)
         {
           this.isMobile = true
-          this.margin = "300px"
+          this.margin = "0px"
         }
       else{
           this.isMobile = false;
-          this.margin = "0px"
+          this.margin = "300px"
       }
       
 
