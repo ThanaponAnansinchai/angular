@@ -30,8 +30,17 @@ export class ShowComponent implements OnInit {
   
   ngOnInit() {
    
+   
     this.route.params.subscribe(params => {
       window.scrollTo(0, 0);
+
+      document.getElementById("liveContainer").style.display = "none";
+      document.getElementById("statusStreaming").style.display = "none";
+      document.getElementById("terminateViewer").style.display = "none";
+      document.getElementById("optionVideoMode").style.display = "none";
+      document.getElementById("options").style.display = "none";
+      document.getElementById("beforeStreaming").style.display = "block";
+
       this.id = +params['roomid'];
       this.apiService.getData(this.id).subscribe((data: any[]) => {
         let a = JSON.stringify(data);
@@ -55,8 +64,7 @@ export class ShowComponent implements OnInit {
           }          
         });
       });
-   });
-
+    });
   }
 
   initializeClock( startTime, endTime) {

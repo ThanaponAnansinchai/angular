@@ -45,7 +45,10 @@
   
   <router-outlet></router-outlet>
 
+
 </a>
+
+
 <!-- Menu -->
 <a *ngIf="isMobile">
   <nav class="mw3-sidenav w3-red w3-animate-left w3-collapse w3-top w3-large" id="mySidenav" style="width: 300px; font-weight: bold; display: block; z-index: 3;">
@@ -89,5 +92,7 @@
 <!-- Overlay effect when opening sidenav on small screens -->
 <div title="close side menu" class="w3-overlay w3-hide-large" id="myOverlay" style="cursor:pointer" (click)="w3_close()"></div>
 
+
 <router-outlet></router-outlet>
+
 </a>
