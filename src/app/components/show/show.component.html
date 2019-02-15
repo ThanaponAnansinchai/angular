@@ -30,12 +30,12 @@
     </section>
 
   <!-- FOR START VIEWER -->
-  <section #fullScreen id="liveContainer" style="display: none;" on-mouseover='over()'>
+  <section #fullScreen id="liveContainer" style="display: none;" on-mousemove='over()'>
       <div class="w3-display-topleft" id="statusStreaming" style="display: none;"></div>
       <div class="w3-display-topleft" id="views"></div>
       <div class="w3-display-topright">
-        <button class="btn btn-info" id="muteVolume">ปิดเสียง</button>
-        <button class="btn btn-info" id="unmuteVolume">เปิดเสียง</button>
+        <button class="btn btn-info" id="muteVolume" (click)="mute()" >ปิดเสียง</button>
+        <button class="btn btn-info" id="unmuteVolume" (click)="unMute()">เปิดเสียง</button>
         <button class="btn btn-danger" id="terminateViewer" style="display: none;" (click)="w3_close();exitFullScreen()">สิ้นสุด</button>
       </div>
 
@@ -53,8 +53,8 @@
         </div>
       </div>
       <!-- <video id="video" autoplay controls muted></video> -->
-      <video  id="video" autoplay="true" playsinline="true" [style.background]="bgcolor"></video>
-      <div class="captioned-default " [ngClass]="[captioned_line,captioned_width]" id="captioned" [style.color]="color" [style.font-size.px]="size" [style.font-family]="fontStyle">เรามีความเชื่อมั่น ------------------------------------------------------------------------------------------------------</div>
+      <video id="video" playsinline="true" [style.background]="bgcolor" src="../../../assets/video/Ace Combat Infinity - History Lessons.mp4"></video>
+      <div class="captioned-default " [ngClass]="[captioned_line,captioned_width]" id="captioned" [style.color]="color" [style.font-size.px]="size" [style.font-family]="fontStyle">-------------------------------------------------------------------------------------------------------------------------------------------</div>
     </section>
    
   <!-- OPTIONS MODE -->

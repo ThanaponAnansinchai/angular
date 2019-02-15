@@ -74,6 +74,9 @@ export class ShowComponent implements OnInit {
       this.CaptionedLine = "2";
       this.captioned_line = "captioned-line-2";
       this.captioned_width = "captioned-width-70";
+      let videoplayer = <HTMLVideoElement> document.getElementById("video");
+      videoplayer.pause();
+      videoplayer.currentTime = 0;
       
 
       this.id = +params['roomid'];
@@ -183,6 +186,8 @@ export class ShowComponent implements OnInit {
     document.getElementById("optionVideoMode").style.display = "block";
     document.getElementById("options").style.display = "block";
     document.getElementById("beforeStreaming").style.display = "none";
+    let videoplayer = <HTMLVideoElement> document.getElementById("video");
+    videoplayer.play();
   }
 
   w3_close() {
@@ -193,6 +198,9 @@ export class ShowComponent implements OnInit {
     document.getElementById("optionVideoMode").style.display = "none";
     document.getElementById("options").style.display = "none";
     document.getElementById("beforeStreaming").style.display = "block";
+    let videoplayer = <HTMLVideoElement> document.getElementById("video");
+    videoplayer.pause();
+    videoplayer.currentTime = 0;
 
   }
 
@@ -204,6 +212,7 @@ export class ShowComponent implements OnInit {
     document.getElementById("inputFont2").style.display = "inline";
     document.getElementById("viewerMode2").style.display = "inline";
     document.getElementById("fullScreen").style.display = "none";
+    document.getElementById("video").style.height = "100%"
 
     let elem = this.fullScreen.nativeElement;
     if (elem.requestFullscreen) {
@@ -227,6 +236,7 @@ export class ShowComponent implements OnInit {
     document.getElementById("decFont2").style.display = "none";
     document.getElementById("inputFont2").style.display = "none";
     document.getElementById("viewerMode2").style.display = "none";
+    document.getElementById("video").style.height = "550px"
     document.getElementById("fullScreen").style.display = "inline";
 
 
@@ -241,13 +251,25 @@ export class ShowComponent implements OnInit {
     }
   }
 
-test(size){
-    console.log(size)
-}
 
   over() {
-    console.log("Mouseover called");
+
+    document.getElementById("optionVideoMode").style.display = "inline";
+    document.getElementById("statusStreaming").style.display = "inline";
+    document.getElementById("terminateViewer").style.display = "inline";
+    document.getElementById("liveContainer").style.cursor = "auto";
+    setTimeout(() => {
+      document.getElementById("optionVideoMode").style.display = "none";
+      document.getElementById("statusStreaming").style.display = "none";
+      document.getElementById("terminateViewer").style.display = "none";
+      if(document.getElementById("fullScreen").style.display == "none"){
+        document.getElementById("liveContainer").style.cursor = "none";
+      }
+      
+    },5000);
   }
+
+
   toIntPlus(size,cha){
     this.size = parseInt(size)+parseInt(cha)
     if(this.size > 100){
@@ -298,6 +320,20 @@ test(size){
       this.captioned_line = "captioned-line-3"
     }
     else this.captioned_line = "captioned-line-2"
+  }
+
+  mute(){
+    let videoplayer = <HTMLVideoElement> document.getElementById("video");
+    videoplayer.muted = true;
+    document.getElementById("muteVolume").style.display ="none"
+    document.getElementById("unmuteVolume").style.display ="inline"
+    
+  }
+  unMute(){
+    let videoplayer = <HTMLVideoElement> document.getElementById("video");
+    videoplayer.muted = false;
+    document.getElementById("muteVolume").style.display ="inline"
+    document.getElementById("unmuteVolume").style.display ="none"
   }
 }
 
