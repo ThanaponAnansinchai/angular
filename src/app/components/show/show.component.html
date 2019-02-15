@@ -45,7 +45,7 @@
             <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
             <option value="text-only">คำบรรยาย</option>
           </select>
-          <input class="w3-hide-small" id="inputFont2" type="text" size="1" maxlength="3" list="size" style="display: none;" [(ngModel)]="size" (ngModelChange)="test(size)"> 
+          <input class="w3-hide-small" id="inputFont2" type="text" size="1" maxlength="3" list="size" style="display: none;" [(ngModel)]="size"> 
           <button class="w3-hide-small" id="incFont2" (click)="toIntPlus(size,1)" style="display: none;">A+</button>
           <button class="w3-hide-small" id="decFont2" (click)="toIntMinus(size,1)" style="display: none;">A-</button>
           <i class="fa fa-arrows-alt fa-lg" id="fullScreen"  (click)="toFullScreen()"  style="display: inline;"></i>
@@ -83,7 +83,7 @@
       </select>
       <button [(colorPicker)]="color" [style.background]="color" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(255, 255, 255);">A</button>
       <button [(colorPicker)]="bgcolor" [style.background]="bgcolor" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(0, 0, 0);">&nbsp;&nbsp;</button>
-      <input id="inputFont" type="text" size="1" maxlength="3" list="size" [(ngModel)]="size" (ngModelChange)="test(size)">
+      <input id="inputFont" type="text" size="1" maxlength="3" list="size" [(ngModel)]="size">
       <datalist id="size">
         <option *ngFor="let size of atextSize" value="{{size}}"></option>
       </datalist>
