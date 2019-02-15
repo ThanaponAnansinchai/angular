@@ -28,9 +28,14 @@ export class AppComponent {
   constructor(private apiService: Connection, private route: Router, public dataService: DataService) {}
   
   ngOnInit() {
+    if(/Android|iPhone/i.test(window.navigator.userAgent)){
+      this.isMobile = true 
+    }
+    else{
+      this.isMobile = false;
+    }
     
-    window.orientation > -1 ? this.isMobile = true 
-    : this.isMobile = false;
+    
     this.getAllData();
     
   }
