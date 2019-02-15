@@ -29,7 +29,7 @@ export class ShowComponent implements OnInit {
   public margin;
   public atextSize = [10, 16, 18, 22, 24, 26, 28, 36, 48, 72, 84, 96, 100];
   public size = 36;
-  public fontColorPicker;widths;fontsize;fontStyle;bmode;
+  public fontColorPicker;widths;fontsize;fontStyle;bmode;color;bgcolor;
   public font = "FreesiaUPC";
   public mode ="video-text"
   public CaptionedWidth ="70";
