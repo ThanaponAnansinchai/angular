@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +26,7 @@ import { FilterPipe} from './filter.pipe';
     FormsModule,
     HttpClientModule,
     HttpModule,
+    ColorPickerModule
   
   ],
   providers: [Connection,DataService],
