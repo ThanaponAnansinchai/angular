@@ -62,7 +62,7 @@
            
         </div>
     </div>
-    <ul *ngFor="let data of rooms | filter : {title: searchText} ;let i = index"  id="menuViewer" style="z-index: 3;">
+    <ul *ngFor="let data of rooms | filter : {title: searchText} ;let i = index"  id="menuViewer">
       <li (click)='getData(data.id);w3_close()' class="listrooms" style="cursor: pointer;">
         <a>
         {{data.title}} <br>
@@ -85,6 +85,10 @@
     </ul>
   </nav>
 <!-- Top menu on small screens -->
+<header id="header" style="z-index:3;">
+ 
+  
+</header>
 
 
 
