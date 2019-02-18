@@ -26,7 +26,7 @@ export class ShowComponent implements OnInit {
   public time_status: any;
   public status_color: any;
   public isMobile;
-  public margin;
+  public margin;top_margin;
   public atextSize = [10, 16, 18, 22, 24, 26, 28, 36, 48, 72, 84, 96, 100];
   public size = 36;
   public fontColorPicker;widths;fontsize;fontStyle;bmode;color;bgcolor;
@@ -52,10 +52,12 @@ export class ShowComponent implements OnInit {
       if (window.orientation > -1) {
         this.isMobile = true
         this.margin = "0px"
+        this.top_margin = "0px"
       }
       else {
         this.isMobile = false;
         this.margin = "300px"
+        this.top_margin = "70px"
       }
 
 
