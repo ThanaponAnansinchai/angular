@@ -25,6 +25,7 @@ export class AppComponent {
   public pm = "PM";
   public isMobile ;
 
+
   constructor(private apiService: Connection, private route: Router, public dataService: DataService) {}
   
   ngOnInit() {
@@ -33,9 +34,7 @@ export class AppComponent {
     }
     else{
       this.isMobile = false;
-    }
-    
-    
+    }  
     this.getAllData();
     
   }
