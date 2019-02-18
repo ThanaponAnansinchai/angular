@@ -72,6 +72,8 @@ export class ShowComponent implements OnInit {
       this.fontStyle = this.font = "FreesiaUPC";
       this.fontsize = this.size = 36;
       this.mode ="video-text";
+      document.getElementById('video').style.display = 'inline'
+      document.getElementById('video2').style.display = 'none'
       this.CaptionedWidth ="70";
       this.CaptionedLine = "2";
       this.captioned_line = "captioned-line-2";
@@ -298,12 +300,19 @@ export class ShowComponent implements OnInit {
       this.temp[1] = this.captioned_line;
       this.captioned_width  = "captioned-text-only";
       this.captioned_line = ""
+
+      document.getElementById('video').style.display = 'none'
+      document.getElementById('video2').style.display = 'inline'
+      
     }
     if(mode == "video-text"){
       this.captioned_width = this.temp[0];
       this.captioned_line = this.temp[1];
       document.getElementById('settingCaptionedLine').style.display = 'inline'
       document.getElementById('settingCaptionedWidth').style.display = 'inline'
+    
+      document.getElementById('video').style.display = 'block'
+      document.getElementById('video2').style.display = 'none'
       
     }
   }
