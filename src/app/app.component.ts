@@ -65,6 +65,9 @@ export class AppComponent {
   }
   
   getData(id) {
+    if(this.isMobile == true){
+      document.getElementById("header").style.display = "none"
+    }
     this.route.navigate(['v2/room/' + id]);
   }
 
