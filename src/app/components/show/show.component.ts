@@ -10,22 +10,18 @@ import { DataService, Connection } from '../../connected.service';
   styleUrls: ['./show.component.css']
 })
 export class ShowComponent implements OnInit {
-  id: number;
-  data;
-  title = '';
-  description = '';
-  start_time;
-  end_time;
-  connectivity;
-  present;
-  start_period;
-  end_period;
+  public id: number;
+  public data; connectivity;
+  public title = '';
+  public description = '';
+  public start_time;Tstart;end_time;Tend;present;start_period;end_period;a;
+
   public am = "AM";
   public pm = "PM";
   public status: any;
   public time_status: any;
   public status_color: any;
-  public isMobile;
+  public isMobile = false;
   public margin;top_margin;
   public atextSize = [10, 16, 18, 22, 24, 26, 28, 36, 48, 72, 84, 96, 100];
   public size = 36;
@@ -40,27 +36,26 @@ export class ShowComponent implements OnInit {
   private temp: any[] = [];
 
   @ViewChild('fullScreen') fullScreen;
+  @ViewChild('style') style: any;
 
-  constructor(private route: ActivatedRoute, public dataService: DataService, private apiService: Connection) { }
+  constructor(private _route: Router,private route: ActivatedRoute, public dataService: DataService, private apiService: Connection) { }
 
   ngOnInit() {
-
-
-    this.route.params.subscribe(params => {
-      window.scrollTo(0, 0);
-
-      if (window.orientation > -1) {
+  
+    
+    this.route.paramMap.subscribe(paramMap => {
+      
+      if (/Android|iPhone/i.test(window.navigator.userAgent)) {
         this.isMobile = true
         this.margin = "0px"
         this.top_margin = "0px"
       }
       else {
-        this.isMobile = false;
+        this.isMobile = false;   
         this.margin = "300px"
         this.top_margin = "70px"
       }
-
-
+      window.scrollTo(0, 0);
       document.getElementById("liveContainer").style.display = "none";
       document.getElementById("statusStreaming").style.display = "none";
       document.getElementById("terminateViewer").style.display = "none";
@@ -83,7 +78,8 @@ export class ShowComponent implements OnInit {
       videoplayer.currentTime = 0;
       
 
-      this.id = +params['roomid'];
+      this.id = +paramMap.get('roomid');
+      console.log(paramMap.get('roomid'))
       this.apiService.getData(this.id).subscribe((data: any[]) => {
         let a = JSON.stringify(data);
         let b = JSON.parse(a);
@@ -98,6 +94,8 @@ export class ShowComponent implements OnInit {
           if (element.id === this.id) {
             this.start_time = (element.time.start_time).slice(0, -8).split("T");
             this.end_time = (element.time.end_time).slice(0, -8).split("T");
+            this.Tstart = this.start_time[1];
+            this.Tend = this.end_time[1];
             this.initializeClock(this.start_time, this.end_time);
             let start = this.getTimeremaining(this.start_time);
             let end = this.getTimeremaining(this.end_time);
@@ -108,6 +106,11 @@ export class ShowComponent implements OnInit {
       });
     });
   }
+
+  ngOnDestroy() {
+    this._route.navigate(['']);
+  }
+
 
 
   initializeClock(startTime, endTime) {

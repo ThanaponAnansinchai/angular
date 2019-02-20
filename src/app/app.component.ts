@@ -30,7 +30,7 @@ export class AppComponent {
   
   ngOnInit() {
     if(/Android|iPhone/i.test(window.navigator.userAgent)){
-      this.isMobile = true 
+      this.isMobile = true; 
     }
     else{
       this.isMobile = false;

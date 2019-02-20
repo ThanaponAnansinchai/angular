@@ -1,5 +1,6 @@
+
  <!-- !PAGE CONTENT! -->
- <div class="w3-main"  [style.margin-left]="margin">
+ <div  class="w3-main" [hidden]="isMobile"  [style.margin-left]="margin">
   <!-- Push down content on small screens -->
   <div class="w3-hide-large" [style.margin-top]="top_margin"></div>
 
@@ -7,7 +8,7 @@
   <header class="w3-container">
     <h3 id="title">{{title}}</h3>
     <div id="time">
-        {{start_time[1]}} {{start_period}} - {{end_time[1]}} {{end_period}}
+        {{Tstart}} {{start_period}} - {{Tend}} {{end_period}}
     </div>
     <div *ngIf="isMobile" style="float: right"><a  href="index.html">Back</a></div>
     <hr>
@@ -30,7 +31,7 @@
     </section>
 
   <!-- FOR START VIEWER -->
-  <section #fullScreen id="liveContainer" style="display: none;" on-mousemove='over()'>
+  <section  #fullScreen id="liveContainer" style="display: none;" on-mousemove='over()'>
       <div class="w3-display-topleft" id="statusStreaming" style="display: none;"></div>
       <div class="w3-display-topleft" id="views"></div>
       <div class="w3-display-topright">
@@ -99,3 +100,5 @@
   <!-- print log error -->
   <div id="errorLog" class="w3-container"></div>
 </div>
+
+
