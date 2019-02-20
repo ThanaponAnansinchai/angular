@@ -108,7 +108,8 @@ export class ShowComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this._route.navigate(['']);
+    console.log("BOOM")
+    this._route.navigate(['/']);
   }
 
 
