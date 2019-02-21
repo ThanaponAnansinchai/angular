@@ -25,7 +25,7 @@ export class ShowComponent implements OnInit {
   public margin;top_margin;
   public atextSize = [10, 16, 18, 22, 24, 26, 28, 36, 48, 72, 84, 96, 100];
   public size = 36;
-  public fontColorPicker;widths;fontsize;fontStyle;bmode;color;bgcolor;
+  public fontColorPicker;widths;fontsize;fontStyle;bmode;color;bgcolor;caption_bg;
   public font = "FreesiaUPC";
   public mode ="video-text"
   public CaptionedWidth ="70";
@@ -55,15 +55,11 @@ export class ShowComponent implements OnInit {
       document.getElementById("beforeStreaming").style.display = "block";
       document.getElementById('settingCaptionedLine').style.display = 'inline'
       document.getElementById('settingCaptionedWidth').style.display = 'inline'
-      this.fontStyle = this.font = "FreesiaUPC";
-      this.fontsize = this.size = 36;
+     
       this.mode ="video-text";
       document.getElementById('video').style.display = 'inline'
       document.getElementById('video2').style.display = 'none'
-      this.CaptionedWidth ="70";
-      this.CaptionedLine = "2";
-      this.captioned_line = "captioned-line-2";
-      this.captioned_width = "captioned-width-70";
+  
       let videoplayer = <HTMLVideoElement> document.getElementById("video");
       videoplayer.pause();
       videoplayer.currentTime = 0;
@@ -113,7 +109,7 @@ export class ShowComponent implements OnInit {
     });
   }
 
-
+// Detail section //
 
   initializeClock(startTime, endTime) {
     this.updateClock(startTime, endTime);
@@ -188,7 +184,10 @@ export class ShowComponent implements OnInit {
     }
   }
 
-  w3_open() {
+
+// Viewer section //
+
+  viewer_start() {
     document.getElementById("liveContainer").style.display = "block";
     document.getElementById("statusStreaming").style.display = "block";
     document.getElementById("terminateViewer").style.display = "block";
@@ -199,7 +198,7 @@ export class ShowComponent implements OnInit {
     videoplayer.play();
   }
 
-  w3_close() {
+  viewer_stop() {
 
     document.getElementById("liveContainer").style.display = "none";
     document.getElementById("statusStreaming").style.display = "none";
@@ -222,6 +221,7 @@ export class ShowComponent implements OnInit {
     document.getElementById("viewerMode2").style.display = "inline";
     document.getElementById("fullScreen").style.display = "none";
     document.getElementById("video").style.height = "100%"
+    document.getElementById("video2").style.height = "100%"
 
     let elem = this.fullScreen.nativeElement;
     if (elem.requestFullscreen) {
@@ -327,7 +327,10 @@ export class ShowComponent implements OnInit {
     if(CaptionedWidth == 100){
       this.captioned_width = "captioned-width-100"
     }
-    else this.captioned_width = "captioned-width-70"
+    else if (CaptionedWidth == 70){
+      this.captioned_width = "captioned-width-70"
+    }
+     
   }
 
   setCaptionedLine(CaptionedLine){
@@ -335,7 +338,10 @@ export class ShowComponent implements OnInit {
     if(CaptionedLine == 3){
       this.captioned_line = "captioned-line-3"
     }
-    else this.captioned_line = "captioned-line-2"
+    else if(CaptionedLine == 2){
+      this.captioned_line = "captioned-line-2"
+    }
+  
   }
 
   mute(){

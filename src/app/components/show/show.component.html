@@ -23,7 +23,7 @@
             <div>
               <i class="fa fa-check"></i> ภาพเคลื่อนไหวเสียงและคำบรรยาย
             </div>
-            <button class="w3-button w3-ripple w3-red w3-hover-black" id="startViewer" (click)="w3_open()">เข้าชมตอนนี้</button>
+            <button class="w3-button w3-ripple w3-red w3-hover-black" id="startViewer" (click)="viewer_start()">เข้าชมตอนนี้</button>
           </div>
         </div>
         <hr>
@@ -37,7 +37,7 @@
       <div class="w3-display-topright">
         <button class="btn btn-info" id="muteVolume" (click)="mute()" >ปิดเสียง</button>
         <button class="btn btn-info" id="unmuteVolume" (click)="unMute()">เปิดเสียง</button>
-        <button class="btn btn-danger" id="terminateViewer" style="display: none;" (click)="w3_close();exitFullScreen()">สิ้นสุด</button>
+        <button class="btn btn-danger" id="terminateViewer" style="display: none;" (click)="viewer_stop();exitFullScreen()">สิ้นสุด</button>
       </div>
 
       <div class="w3-display-topmiddle" id="optionVideoMode" style="display: none;">
@@ -57,7 +57,7 @@
       <video  id="video"  playsinline="true" [style.background]="bgcolor" src="../../../assets/video/Ace Combat Infinity - History Lessons.mp4"></video>
       <video  id="video2" playsinline="true" [style.background]="bgcolor"></video>
       
-      <div class="captioned-default " [ngClass]="[captioned_line,captioned_width]" id="captioned" [style.color]="color" [style.font-size.px]="size" [style.font-family]="fontStyle">-------------------------------------------------------------------------------------------------------------------------------------------</div>
+      <div class="captioned-default " [ngClass]="[captioned_line,captioned_width]" id="captioned" [style.color]="color" [style.background]="caption_bg" [style.font-size.px]="size" [style.font-family]="fontStyle">Hello world สวัสดีโลก ---------------------------------------------------------------------------------------</div>
     </section>
    
   <!-- OPTIONS MODE WEB-->
@@ -85,6 +85,8 @@
         <option value="CordiaNew">Cordia New</option>
       </select>
       <button [(colorPicker)]="color" [style.background]="color" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(255, 255, 255);">A</button>
+      <button [(colorPicker)]="caption_bg" [style.background]="caption_bg" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(0, 0, 0);">C</button>
+      
       <button [(colorPicker)]="bgcolor" [style.background]="bgcolor" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(0, 0, 0);">&nbsp;&nbsp;</button>
       <input id="inputFont" type="text" size="1" maxlength="3" list="size" [(ngModel)]="size">
       <datalist id="size">
