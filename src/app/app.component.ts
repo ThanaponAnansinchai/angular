@@ -30,11 +30,19 @@ export class AppComponent {
   
   ngOnInit() {
     if(/Android|iPhone/i.test(window.navigator.userAgent)){
+
+    
       this.isMobile = true; 
+      
     }
     else{
+      
+      
+       
       this.isMobile = false;
-    }  
+    }
+
+   
     this.getAllData();
     
   }
@@ -64,7 +72,12 @@ export class AppComponent {
   }
   
   getData(id) {
+    if(this.isMobile){
 
+    }
+    else{
+      
+    }
     this.route.navigate(['v2/room/' + id]);
   }
 

@@ -36,7 +36,7 @@ export class ShowComponent implements OnInit {
   private temp: any[] = [];
 
   @ViewChild('fullScreen') fullScreen;
-  @ViewChild('style') style: any;
+
 
   constructor(private _route: Router,private route: ActivatedRoute, public dataService: DataService, private apiService: Connection) { }
 
@@ -45,16 +45,7 @@ export class ShowComponent implements OnInit {
     
     this.route.paramMap.subscribe(paramMap => {
       
-      if (/Android|iPhone/i.test(window.navigator.userAgent)) {
-        this.isMobile = true
-        this.margin = "0px"
-        this.top_margin = "0px"
-      }
-      else {
-        this.isMobile = false;   
-        this.margin = "300px"
-        this.top_margin = "70px"
-      }
+     
       window.scrollTo(0, 0);
       document.getElementById("liveContainer").style.display = "none";
       document.getElementById("statusStreaming").style.display = "none";
@@ -104,12 +95,22 @@ export class ShowComponent implements OnInit {
           }
         });
       });
-    });
-  }
+    
+      if (/Android|iPhone/i.test(window.navigator.userAgent)) {
+        this.isMobile = true
+        this.margin = "0px"
+        this.top_margin = "0px"
 
-  ngOnDestroy() {
-    console.log("BOOM")
-    this._route.navigate(['/']);
+
+        
+      }
+      else {
+        this.isMobile = false;   
+        this.margin = "300px"
+        this.top_margin = "70px"
+      }
+    
+    });
   }
 
 
