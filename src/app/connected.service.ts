@@ -23,6 +23,9 @@ export class Connection {
   getData(id){
     return  this.httpClient.get(`${this.API_URL}/`+id)
   }
+  searchData(title){
+    return this.httpClient.get(`${this.API_URL}?task=title&search=`+title)
+  }
   
 }
 

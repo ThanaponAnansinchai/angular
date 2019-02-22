@@ -8,11 +8,11 @@
         <h3>
           <a href="index.html" style="background: no-repeat;">TRANSCRIPTION</a>
         </h3>
-        <input [(ngModel)]="searchText" id="searchRooms" class="w3-input w3-border" type="text" placeholder="ค้นหาห้อง...">
+           <input (keyup)="onKeyUp($event)" id="searchRooms" class="w3-input w3-border" type="text" placeholder="ค้นหาห้อง...">
       </div>
     </div>
     <ul id="menuViewer">
-      <li *ngFor="let data of rooms | filter : {title: searchText} ;let i = index" (click)='getData(data.id)' class="listrooms" style="cursor: pointer;">
+      <li *ngFor="let data of rooms ;let i = index" (click)='getData(data.id)' class="listrooms" style="cursor: pointer;">
         <a>
         {{data.title}} <br>
         <font size="1"><!-- {{Stime[i][0]}} <br>-->  {{Stime[i][1]}} {{start_period[i]}} - {{Etime[i][1]}} {{end_period[i]}}</font> 
@@ -28,7 +28,7 @@
 
     </ul>
     
-    <ul *ngIf="(rooms | filter : {title: searchText}).length == 0" id="menuViewer">
+    <ul *ngIf="!rooms" id="menuViewer">
         <!-- Not found Rooms -->
             <h4 style="text-align: center">ไม่พบข้อมูล</h4>   
     </ul>

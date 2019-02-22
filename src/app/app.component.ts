@@ -55,30 +55,29 @@ export class AppComponent {
      
       a = JSON.stringify(data);
       b = JSON.parse(a);
+      this.dataService.serviceData = b.result;
+      this.roomData(b.result)
      
-      let index = 0;
-      this.dataService.serviceData = this.rooms = b.result;
-      this.rooms.forEach(room => {
-        this.Stime.push((room.time.start_time).slice(0, -8).split("T"));
-        this.Etime.push((room.time.end_time).slice(0, -8).split("T"));
-        this.initializeClock(index, room.time.start_time, room.time.end_time);
-        let start = this.getTimeremaining(room.time.start_time);
-        let end = this.getTimeremaining(room.time.end_time);
-        this.start_period.push(start.period);
-        this.end_period.push(end.period);
-        index++;
-      });
     });
   }
   
   getData(id) {
-    if(this.isMobile){
-
-    }
-    else{
-      
-    }
     this.route.navigate(['v2/room/' + id]);
+  }
+
+  roomData(result){
+    this.rooms = result
+    let index = 0;
+    this.rooms.forEach(room => {
+      this.Stime.push((room.time.start_time).slice(0, -8).split("T"));
+      this.Etime.push((room.time.end_time).slice(0, -8).split("T"));
+      this.initializeClock(index, room.time.start_time, room.time.end_time);
+      let start = this.getTimeremaining(room.time.start_time);
+      let end = this.getTimeremaining(room.time.end_time);
+      this.start_period.push(start.period);
+      this.end_period.push(end.period);
+      index++;
+    });
   }
 
  
@@ -111,6 +110,20 @@ export class AppComponent {
     }, 1000 * 60
     )
   }
+
+
+  onKeyUp(event: any) {
+      this.apiService.searchData(event.target.value).subscribe((data :any[]) =>{
+       
+        let a = JSON.stringify(data);
+        let b = JSON.parse(a);
+        this.roomData(b.result)
+      },
+      (error) =>{
+        this.rooms = null;
+      });
+     
+  };
 
   getTimeremaining(time) {
     this.present = new Date();
