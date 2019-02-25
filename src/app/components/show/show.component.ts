@@ -187,19 +187,29 @@ export class ShowComponent implements OnInit {
 
 // Viewer section //
 
-  viewer_start() {
-    document.getElementById("liveContainer").style.display = "block";
+  viewer_start(isMobile) {
+    if(isMobile){
+      document.getElementById("m_liveContainer").style.display = "block";
+      document.getElementById("m_options").style.display = "block";
+    }
+    else{
+      document.getElementById("liveContainer").style.display = "block";
+      document.getElementById("options").style.display = "block";
+    }
     document.getElementById("statusStreaming").style.display = "block";
     document.getElementById("terminateViewer").style.display = "block";
     document.getElementById("optionVideoMode").style.display = "block";
-    document.getElementById("options").style.display = "block";
+    
     document.getElementById("beforeStreaming").style.display = "none";
     let videoplayer = <HTMLVideoElement> document.getElementById("video");
     videoplayer.play();
+    
   }
 
   viewer_stop() {
 
+    document.getElementById("m_liveContainer").style.display = "none";
+    document.getElementById("m_options").style.display = "none";
     document.getElementById("liveContainer").style.display = "none";
     document.getElementById("statusStreaming").style.display = "none";
     document.getElementById("terminateViewer").style.display = "none";

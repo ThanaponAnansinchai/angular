@@ -1,6 +1,6 @@
 
  <!-- !PAGE CONTENT! -->
- <div  class="w3-main" [hidden]="isMobile"  [style.margin-left]="margin">
+ <div  class="w3-main"  [style.margin-left]="margin">
   <!-- Push down content on small screens -->
   <div class="w3-hide-large" [style.margin-top]="top_margin"></div>
 
@@ -23,7 +23,7 @@
             <div>
               <i class="fa fa-check"></i> ภาพเคลื่อนไหวเสียงและคำบรรยาย
             </div>
-            <button class="w3-button w3-ripple w3-red w3-hover-black" id="startViewer" (click)="viewer_start()">เข้าชมตอนนี้</button>
+            <button class="w3-button w3-ripple w3-red w3-hover-black" id="startViewer" (click)="viewer_start(isMobile)">เข้าชมตอนนี้</button>
           </div>
         </div>
         <hr>
@@ -31,7 +31,7 @@
     </section>
 
   <!-- FOR START VIEWER WEB-->
-  <section  #fullScreen [hidden]="isMobile" id="liveContainer" style="display: none;" on-mousemove='over()'>
+  <section  #fullScreen id="liveContainer" style="display: none;" on-mousemove='over()'>
       <div class="w3-display-topleft" id="statusStreaming" style="display: none;"></div>
       <div class="w3-display-topleft" id="views"></div>
       <div class="w3-display-topright">
@@ -61,7 +61,7 @@
     </section>
    
   <!-- OPTIONS MODE WEB-->
-  <div id="options" [hidden]="isMobile"  style="display: none;">
+  <div id="options"  style="display: none;">
     <div class="w3-row">
       <i class="fa fa-floppy-o fa-lg" id="btnSaveText" aria-hidden="true"></i>
       <select id="settingCaptionedLine" [(ngModel)]="CaptionedLine" (ngModelChange)="setCaptionedLine(CaptionedLine)">
@@ -99,7 +99,7 @@
 
 <!-- FOR START VIEWER MOBILE-->
 
- <section  #fullScreen [hidden]="!isMobile" id="live-container" style="width: 100%; height: 100%; position: relative; background-color: rgb(0, 0, 0);">
+ <section  #fullScreen id="m_liveContainer" style="width: 100%; height: 100%; position: relative; background-color: rgb(0, 0, 0); display: none;"  on-mousemove='over()'>
       <div class="w3-display-topleft" id="statusStreaming" style="padding: 2px 6px 0px; color: white; display: none; z-index: 1; background-color: rgba(217, 83, 79, 1);"></div>
       <div class="w3-display-topright" style="z-index: 1;">
         <button class="btn btn-danger" id="terminate_viewer" style="display: none;" (click)="exitFullScreen()">END</button>
@@ -108,11 +108,10 @@
 	  <video  id="video"  playsinline="true" [style.background]="bgcolor" src="../../../assets/video/Ace Combat Infinity - History Lessons.mp4"></video>
       <video  id="video2" playsinline="true" [style.background]="bgcolor"></video>
       
-        pointer-events: none; 
 
       <div class="captioned-default " [ngClass]="[captioned_line,captioned_width]" id="captioned" [style.color]="color" [style.font-size.px]="size" [style.font-family]="fontStyle">-------------------------------------------------------------------------------------------------------------------------------------------</div>
  
-	 <div class="w3-display-bottomright" id="option-video-mode" style="right: 3%; bottom: 3%; display: none;">
+	 <div class="w3_display_bottomright" id="option-video-mode" style="right: 3%; bottom: 3%; display: none;">
         <div class="w3-row  ">
           <select class="w3-hide-small" id="viewerMode2" style="display: none;" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
             <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
@@ -131,7 +130,7 @@
 
 <!-- OPTIONS MODE MOBILE -->
 
-<div id="options" [hidden]="!isMobile" style="text-align: right; margin-bottom: 1%; background-color: rgb(245, 245, 245);">
+<div id="m_options"  style="text-align: right; margin-bottom: 1%; background-color: rgb(245, 245, 245);" style="display: none">
       <div class="w3-row">
       <i class="fa fa-floppy-o fa-lg" id="btnSaveText" aria-hidden="true"></i>
       <select id="settingCaptionedLine" [(ngModel)]="CaptionedLine" (ngModelChange)="setCaptionedLine(CaptionedLine)">
