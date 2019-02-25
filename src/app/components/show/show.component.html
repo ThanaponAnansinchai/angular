@@ -99,147 +99,142 @@
 
 <!-- FOR START VIEWER MOBILE-->
 
-<!--
-
-  <section id="live-container" style="width: 100%; height: 100%; position: relative; background-color: rgb(0, 0, 0);" #fullScreen [hidden]="isMobile" on-mousemove='over()'>
+ <section  #fullScreen [hidden]="!isMobile" id="live-container" style="width: 100%; height: 100%; position: relative; background-color: rgb(0, 0, 0);">
       <div class="w3-display-topleft" id="statusStreaming" style="padding: 2px 6px 0px; color: white; display: none; z-index: 1; background-color: rgba(217, 83, 79, 1);"></div>
       <div class="w3-display-topright" style="z-index: 1;">
-        <button class="btn btn-danger" id="terminate_viewer" style="display: none;">END</button>
+        <button class="btn btn-danger" id="terminate_viewer" style="display: none;" (click)="w3_close();exitFullScreen()">END</button>
       </div>
-      <video id="video" style="width: 100%;height: 550px;" autoplay="">
-        
-        </video>
+      
+	  <video  id="video"  playsinline="true" [style.background]="bgcolor" src="../../../assets/video/Ace Combat Infinity - History Lessons.mp4"></video>
+      <video  id="video2" playsinline="true" [style.background]="bgcolor"></video>
+      
         pointer-events: none; 
-        <div class="captioned-default" id="captioned" style="color: rgb(255, 255, 255); font-family: AngsanaNew; font-size: 44px; text-shadow: 4px 0px black, 0px 4px black, 1px 0px black, 0px -1px black; background-color: rgb(0, 0, 0);"> </div>
-        <div class="w3-display-bottomright" id="option-video-mode" style="right: 3%; bottom: 3%; display: none;">
-          <div class="w3-row  ">
-            <select class="w3-hide-small" id="viewer-mode2" style="display: none;">
-              <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
-              <option value="text-only">คำบรรยาย</option>
-            </select>
-            <input class="w3-hide-small" id="input-font2" style="display: none;" type="text" size="1" maxlength="3" list="size">
-            <button class="gallery-button" id="inc-font2" style="border: none; cursor: pointer;display: none;" onclick="settingIncFont()">A+</button>
-            <button class="gallery-button1" id="dec-font2" style="border: none; cursor: pointer;display: none;" onclick="settingDecFont()">A-</button>
-            <button class="gallery-button2" id="choice2" style="border: none; cursor: pointer;display: none;">ตัวเลือกเพิ่มเติม </button>
-            <i class="fa fa-expand fa-lg" id="Fullscreen" aria-hidden="true" style="cursor: pointer;color: white;-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: rgb(45,56,55);"></i>
-            <i class="fa fa-compress fa-lg" id="exit_Fullscreen" aria-hidden="true" style="cursor: pointer;color: white; display: none;-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: rgb(45,56,55);" onclick="FullscreenEnable()"></i>
-          </div>
-        </div>
-      </section>
-  
--->
-<!-- OPTIONS MODE MOBILE-->
 
-<!--
+      <div class="captioned-default " [ngClass]="[captioned_line,captioned_width]" id="captioned" [style.color]="color" [style.font-size.px]="size" [style.font-family]="fontStyle">-------------------------------------------------------------------------------------------------------------------------------------------</div>
+ 
+	 <div class="w3-display-bottomright" id="option-video-mode" style="right: 3%; bottom: 3%; display: none;">
+        <div class="w3-row  ">
+          <select class="w3-hide-small" id="viewerMode2" style="display: none;" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
+            <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
+            <option value="text-only">คำบรรยาย</option>
+          </select>
+          <input class="w3-hide-small" id="inputFont2" type="text" size="1" maxlength="3" list="size" style="display: none;" [(ngModel)]="size"> 
+          <button class="w3-hide-small" id="incFont2" (click)="toIntPlus(size,1)" style="display: none;">A+</button>
+          <button class="w3-hide-small" id="decFont2" (click)="toIntMinus(size,1)" style="display: none;">A-</button>
+          
+        <button class="gallery-button2" id="choice2" style="border: none; cursor: pointer;display: none;" (click)="open_modal()" >ตัวเลือกเพิ่มเติม </button>
+          <i class="fa fa-arrows-alt fa-lg" id="fullScreen"  (click)="toFullScreen()"  style="display: inline;"></i>
+          <i class="fa fa-compress fa-lg" id="exitFullScreen" (click)="exitFullScreen()" style="display: none;" ></i>  </div>
+      </div>
+    </section>
   
-<div id="options" style="text-align: right; margin-bottom: 1%; background-color: rgb(245, 245, 245);">
+
+<!-- OPTIONS MODE MOBILE -->
+
+<div id="options" [hidden]="!isMobile" style="text-align: right; margin-bottom: 1%; background-color: rgb(245, 245, 245);">
       <div class="w3-row">
-       <i id="btnSaveText" style="cursor: pointer;" class="fa fa-floppy-o fa-lg"></i> 
-        <select id="viewer-mode">
-          <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
-          <option value="text-only">คำบรรยาย</option>
-        </select>
-        <select id="change-font-family" onchange="settingFontFamily(this.value)">
-          <option value="FreesiaUPC">FreesiaUPC</option>
-          <option value="TH Niramit AS">Th Niramit AS</option>
-          <option value="Angsana New">Angsana New</option>
-          <option value="Cordia New">Cordia New</option>
-        </select>
-        <button class="jscolor {valueElement:null,value: '000000', onFineChange:'setTextColorFont(this)'}" id="set_font_color" style="border: medium; border-image: none; background-image: none; color: rgb(255, 255, 255); cursor: pointer; background-color: rgb(255, 255, 255);">A</button>
-        <button class="jscolor {valueElement:null,value: '000000', onFineChange:'setTextColorBackground(this)'}" id="set_background_color" style="border: medium; border-image: none; background-image: none; color: rgb(255, 255, 255); cursor: pointer; background-color: rgb(0, 0, 0);">&nbsp;&nbsp;</button>
-        <input id="input-font" type="text" size="1" maxlength="3" list="size">
-        <datalist id="size">
-          <option value="10"></option>
-          <option value="16"></option>
-          <option value="18"></option>
-          <option value="22"></option>
-          <option value="24"></option>
-          <option value="26"></option>
-          <option value="28"></option>
-          <option value="36"></option>
-          <option value="48"></option>
-          <option value="72"></option>
-          <option value="84"></option>
-          <option value="96"></option>
-          <option value="100"></option>
-        </datalist>
-        <button id="inc-font" style="border: none; cursor: pointer;" onclick="settingIncFont()">A+</button>
-        <button id="dec-font" style="border: none; cursor: pointer;" onclick="settingDecFont()">A-</button>
-        <button id="choice" style="border: none; cursor: pointer;display: none;">ตัวเลือกเพิ่มเติม </button>
+      <i class="fa fa-floppy-o fa-lg" id="btnSaveText" aria-hidden="true"></i>
+      <select id="settingCaptionedLine" [(ngModel)]="CaptionedLine" (ngModelChange)="setCaptionedLine(CaptionedLine)">
+        <option value="">จำนวนบรรทัดคำบรรยาย</option>
+        <option value="2">2 บรรทัด</option>
+        <option value="3">3 บรรทัด</option>
+      </select>
+      <select id="settingCaptionedWidth" [(ngModel)]="CaptionedWidth" (ngModelChange)="setWidth(CaptionedWidth)">
+        <option value="">ความยาวของคำบรรยาย</option>
+        <option value="70">70% ของจอ</option>
+        <option value="100">100% ของจอ</option>
+      </select>
+      <select id="viewerMode" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
+        <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
+        <option value="text-only">คำบรรยาย</option>
+      </select>
+      <select id="changeFontFamily" [(ngModel)]="font" (ngModelChange)="setFont(font)" > 
+        <option value="FreesiaUPC">FreesiaUPC</option>
+        <option value="THNiramitAS">Th Niramit AS</option>
+        <option value="AngsanaNew">Angsana New</option>
+        <option value="CordiaNew">Cordia New</option>
+      </select>
+      <button [(colorPicker)]="color" [style.background]="color" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(255, 255, 255);">A</button>
+      <button [(colorPicker)]="bgcolor" [style.background]="bgcolor" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(0, 0, 0);">&nbsp;&nbsp;</button>
+      <input id="inputFont" type="text" size="1" maxlength="3" list="size" [(ngModel)]="size">
+      <datalist id="size">
+        <option *ngFor="let size of atextSize" value="{{size}}"></option>
+      </datalist>
+      <button id="incFont" (click)="toIntPlus(size,1)">A+</button>
+      <button id="decFont" (click)="toIntMinus(size,1)">A-</button>
+    </div>
+</div>
+	
+<!-- Mobile modal option -->
+<div class="modal" id="myModal" style="display: none;">
+
+  <!--   Modal content -->
+  <div class="modal-content">
+    <header class="modal-header">
+      <span class="close" id="close_setting" (click)="close_modal()">×</span>
+      <h3 align="left">ตัวเลือกเพิ่มเติม</h3>
+    </header>
+
+    <div class="ex-m" id="ex-bg-m" style="position: relative;width: 100%; height: 100px;" [style.background]="caption_bg"  >
+      <div id="ex-font-m" [style.color]="color" [style.font-size.px]="size" [style.font-family]="fontStyle"> ตัวอย่างการแสดงผล </div>
+    </div>
+
+
+    <footer class="w3-container">
+      <div class="w3-row">
+        <div id="size-font-m" style="border: none; cursor: pointer;">ขนาดตัวอักษร</div>
+
+        <button id="incFont" (click)="toIntPlus(size,1)">A+</button>
+  <button id="decFont" (click)="toIntMinus(size,1)">A-</button>
+      </div>
+      <br>
+
+      <div class="w3-row">
+        <div id="watch-m" style="border: none; cursor: pointer;">การรับชม</div>
+        <select id="viewerMode" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
+    <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
+    <option value="text-only">คำบรรยาย</option>
+  </select>
+      </div>
+      <br>
+
+
+      <div class="w3-row">
+        <div id="font-m" style="border: none; cursor: pointer;">ตัวอักษร</div>
+          <select id="changeFontFamily" [(ngModel)]="font" (ngModelChange)="setFont(font)" > 
+        <option value="FreesiaUPC">FreesiaUPC</option>
+      <option value="THNiramitAS">Th Niramit AS</option>
+      <option value="AngsanaNew">Angsana New</option>
+      <option value="CordiaNew">Cordia New</option>
+    </select>
 
       </div>
-    </div>
-	
-	
-	<div class="modal" id="myModal" style="display: block;">
 
-        --Modal content--
-      <div class="modal-content">
-        <header class="modal-header">
-          <span class="close" id="close_setting">×</span>
-          <h3 align="left">ตัวเลือกเพิ่มเติม</h3>
-        </header>
-
-        <div class="ex-m" id="ex-bg-m" style="background-color: black; border: solid; position: relative;width: 100%; height: 100px;">
-          <div id="ex-font-m" style="font-size: 30px;pointer-events: none;  color: white;"> ตัวอย่างการแสดงผล </div>
-        </div>
+      <br>
 
 
-        <footer class="w3-container">
-          <div class="w3-row">
-            <div id="size-font-m" style="border: none; cursor: pointer;">ขนาดตัวอักษร</div>
-
-            <button id="AA-m" style="border: none; cursor: pointer;" onclick="settingIncFont()">A+</button>
-            <button id="A-m" style="border: none; cursor: pointer;" onclick="settingDecFont()">A-</button>
-          </div>
-          <br>
-
-          <div class="w3-row">
-            <div id="watch-m" style="border: none; cursor: pointer;">การรับชม</div>
-            <select id="viewer-mode-m" style="border: none; cursor: pointer;">
-              <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
-              <option value="text-only">คำบรรยาย</option>
-            </select>
-          </div>
-          <br>
-
-
-          <div class="w3-row">
-            <div id="font-m" style="border: none; cursor: pointer;">ตัวอักษร</div>
-            <select id="change-font-family-m" style="border: none; cursor: pointer;" onchange="settingFontFamily(this.value)">
-              <option value="FreesiaUPC">FreesiaUPC</option>
-              <option value="THNiramitAS">Th Niramit AS</option>
-              <option value="AngsanaNew">Angsana New</option>
-              <option value="CordiaNew">Cordia New</option>
-            </select>
-          </div>
-
-          <br>
-
-
-          <div class="w3-row">
-            <div id="font-color-m" style="border: none; cursor: pointer;">สีอักษร</div>
-            <button class="jscolor {valueElement:null,value: '#FFFFFF', onFineChange:'setTextColorFont(this)'}" id="set_font_color-m" style="border: ridge; border-image: none; background-image: none; color: rgb(0, 0, 0); cursor: pointer; background-color: rgb(255, 255, 255);">&nbsp;&nbsp;</button>
-          </div>
-
-          <br>
-
-          <div class="w3-row">
-            <div id="bgcolor-m" style="border: none; cursor: pointer;">สีพื้นหลัง</div>
-            <button class="jscolor {valueElement:null,value: '000000', onFineChange:'setTextColorBackground(this)'}" id="set_background_color-m" style="border: medium; border-image: none; background-image: none; color: rgb(255, 255, 255); cursor: pointer; background-color: rgb(0, 0, 0);">&nbsp;&nbsp;</button>
-
-          </div>
-          <br>
-
-          <div class="w3-row">
-            <button class="w3-button w3-black" id="btnSaveText" style="border: none;cursor: pointer;font-size:18px;">save text</button>
-          </div>
-          <br>
-        </footer>
+      <div class="w3-row">
+        <div id="font-color-m" style="border: none; cursor: pointer;">สีอักษร</div>
+  <button [(colorPicker)]="color" [style.background]="color" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(255, 255, 255);">&nbsp;&nbsp;</button>
       </div>
 
-    </div>
--->
+      <br>
+
+      <div class="w3-row">
+        <div id="bgcolor-m" style="border: none; cursor: pointer;">สีพื้นหลัง</div>
+        <button [(colorPicker)]="bgcolor" [style.background]="bgcolor" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(0, 0, 0);">&nbsp;&nbsp;</button>
+
+      </div>
+      <br>
+
+      <div class="w3-row">
+        <button class="w3-button w3-black" id="btnSaveText" style="border: none;cursor: pointer;font-size:18px;">save text</button>
+      </div>
+      <br>
+    </footer>
+  </div>
+
+</div>
 
   <!-- Description -->
   

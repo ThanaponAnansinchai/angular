@@ -357,5 +357,13 @@ export class ShowComponent implements OnInit {
     document.getElementById("muteVolume").style.display ="inline"
     document.getElementById("unmuteVolume").style.display ="none"
   }
+
+  open_modal(){
+    document.getElementById("myModal").style.display = "block"
+  }
+
+  close_modal(){
+    document.getElementById("myModal").style.display = "none"
+  }
 }
 
