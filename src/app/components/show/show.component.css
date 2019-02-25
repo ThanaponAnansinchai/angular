@@ -46,3 +46,27 @@
     background-color: #FCFCFC;
     color: black;
 }
+.gallery-button {
+    background: #FFFFFF;
+    width: 25%;
+    height: 40px;
+    position: fixed;
+    bottom: 3%;
+    left: 3%;
+}
+.gallery-button1 {
+    background: #FFFFFF;
+    width: 25%;
+    height: 40px;
+    position: fixed;
+    bottom: 3%;
+    left: 29%;
+}
+.gallery-button2 {
+    background: #FFFFFF;
+    height: 40px;
+    width: 35%;
+    position: fixed;
+    bottom: 3%;
+    left: 55%;
+}
