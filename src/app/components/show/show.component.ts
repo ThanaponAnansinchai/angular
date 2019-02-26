@@ -191,6 +191,7 @@ export class ShowComponent implements OnInit {
     if(isMobile){
       document.getElementById("m_liveContainer").style.display = "block";
       document.getElementById("m_options").style.display = "block";
+      document.getElementById("gallery-button2").style.display =" block";
     }
     else{
       document.getElementById("liveContainer").style.display = "block";
