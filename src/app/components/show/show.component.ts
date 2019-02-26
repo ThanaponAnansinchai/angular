@@ -48,11 +48,10 @@ export class ShowComponent implements OnInit {
      
       window.scrollTo(0, 0);
     
-      document.getElementById("liveContainer").style.display = "none";
+      
       document.getElementById("statusStreaming").style.display = "none";
       document.getElementById("terminateViewer").style.display = "none";
-      document.getElementById("optionVideoMode").style.display = "none";
-      document.getElementById("options").style.display = "none";
+
       document.getElementById("beforeStreaming").style.display = "block";
       document.getElementById('settingCaptionedLine').style.display = 'inline'
       document.getElementById('settingCaptionedWidth').style.display = 'inline'
@@ -77,6 +76,10 @@ export class ShowComponent implements OnInit {
         this.isMobile = false;   
         this.margin = "300px"
         this.top_margin = "70px"
+        
+      document.getElementById("optionVideoMode").style.display = "none";
+      document.getElementById("options").style.display = "none";
+      document.getElementById("liveContainer").style.display = "none";
       }
 
 
