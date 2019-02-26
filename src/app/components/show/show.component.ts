@@ -199,7 +199,7 @@ export class ShowComponent implements OnInit {
       document.getElementById("m_options").style.display = "block";
       document.getElementById("gallery-button2").style.display = "inline";
     }
-    else{
+    if(!this.isMobile){
       document.getElementById("liveContainer").style.display = "block";
       document.getElementById("options").style.display = "block";
       document.getElementById("optionVideoMode").style.display = "block"; 
