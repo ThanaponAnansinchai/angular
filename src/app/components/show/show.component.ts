@@ -198,19 +198,26 @@ export class ShowComponent implements OnInit {
       document.getElementById("m_liveContainer").style.display = "block";
       document.getElementById("m_options").style.display = "block";
       document.getElementById("gallery-button2").style.display = "inline";
-    }
-    if(!this.isMobile){
-      document.getElementById("liveContainer").style.display = "block";
-      document.getElementById("options").style.display = "block";
-      document.getElementById("optionVideoMode").style.display = "block"; 
-    }
-
-    document.getElementById("statusStreaming").style.display = "block";
+      document.getElementById("statusStreaming").style.display = "block";
     document.getElementById("terminateViewer").style.display = "block";
     
     document.getElementById("beforeStreaming").style.display = "none";
     let videoplayer = <HTMLVideoElement> document.getElementById("video");
     videoplayer.play();
+    }
+    if(!this.isMobile){
+      document.getElementById("liveContainer").style.display = "block";
+      document.getElementById("options").style.display = "block";
+      document.getElementById("optionVideoMode").style.display = "block"; 
+      document.getElementById("statusStreaming").style.display = "block";
+    document.getElementById("terminateViewer").style.display = "block";
+    
+    document.getElementById("beforeStreaming").style.display = "none";
+    let videoplayer = <HTMLVideoElement> document.getElementById("video");
+    videoplayer.play();
+    }
+
+    
     
   }
 
