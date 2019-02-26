@@ -47,11 +47,17 @@ export class ShowComponent implements OnInit {
       
      
       window.scrollTo(0, 0);
-    
-      
-      document.getElementById("statusStreaming").style.display = "none";
-      document.getElementById("terminateViewer").style.display = "none";
 
+      document.getElementById("optionVideoMode").style.display = "none";
+      document.getElementById("options").style.display = "none";
+      document.getElementById("liveContainer").style.display = "none";
+      
+      document.getElementById("m_liveContainer").style.display = "none";
+      document.getElementById("m_options").style.display = "none";
+      document.getElementById("gallery_button2").style.display = "none";
+
+      document.getElementById("statusStreaming").style.display = "none";
+      document.getElementById("terminateViewer").style.display = "none"; 
       document.getElementById("beforeStreaming").style.display = "block";
       document.getElementById('settingCaptionedLine').style.display = 'inline'
       document.getElementById('settingCaptionedWidth').style.display = 'inline'
@@ -68,18 +74,14 @@ export class ShowComponent implements OnInit {
         this.isMobile = true
         this.margin = "0px"
         this.top_margin = "0px"
-        document.getElementById("m_liveContainer").style.display = "none";
-        document.getElementById("m_options").style.display = "none";
-        document.getElementById("gallery_button2").style.display = "none";
+       
       }
       else {
         this.isMobile = false;   
         this.margin = "300px"
         this.top_margin = "70px"
         
-      document.getElementById("optionVideoMode").style.display = "none";
-      document.getElementById("options").style.display = "none";
-      document.getElementById("liveContainer").style.display = "none";
+      
       }
 
 
