@@ -121,7 +121,7 @@
           <button class="w3-hide-small" id="incFont2" (click)="toIntPlus(size,1)" style="display: none;">A+</button>
           <button class="w3-hide-small" id="decFont2" (click)="toIntMinus(size,1)" style="display: none;">A-</button>
           
-        <button class="gallery-button2" id="choice2" style="border: none; cursor: pointer;display: none;" (click)="open_modal()" >ตัวเลือกเพิ่มเติม </button>
+        <button class="gallery_button2" id="choice2" style="border: none; cursor: pointer;display: none;" (click)="open_modal()" >ตัวเลือกเพิ่มเติม </button>
           <i class="fa fa-arrows-alt fa-lg" id="fullScreen"  (click)="toFullScreen()"  style="display: inline;"></i>
           <i class="fa fa-compress fa-lg" id="exitFullScreen" (click)="exitFullScreen()" style="display: none;" ></i>  </div>
       </div>
@@ -130,7 +130,7 @@
 
 <!-- OPTIONS MODE MOBILE -->
 
-<div id="options" style="text-align: right;background-color: rgb(245, 245, 245);margin-bottom: 1%;display: none;">
+<div id="m_options" style="text-align: right;background-color: rgb(245, 245, 245);margin-bottom: 1%;display: none;">
   <div class="w3-row">
       <i class="fa fa-floppy-o fa-lg" id="btnSaveText" aria-hidden="true"></i>
       <select id="settingCaptionedLine" [(ngModel)]="CaptionedLine" (ngModelChange)="setCaptionedLine(CaptionedLine)">
@@ -169,8 +169,8 @@
 <div class="modal" id="myModal" style="display: none;">
 
   <!--   Modal content -->
-  <div class="modal-content">
-    <header class="modal-header">
+  <div class="modal_content">
+    <header class="modal_header">
       <span class="close" id="close_setting" (click)="close_modal()">×</span>
       <h3 align="left">ตัวเลือกเพิ่มเติม</h3>
     </header>

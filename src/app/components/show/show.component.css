@@ -18,7 +18,7 @@
 
 /* Modal Content */
 
-.modal-content {
+.modal_content {
     background-color: #fff;
     border: 1px solid #888;
     width: 100%;
@@ -41,12 +41,12 @@
     cursor: pointer;
 }
 
-.modal-header {
+.modal_header {
     padding: 2px 16px;
     background-color: #FCFCFC;
     color: black;
 }
-.gallery-button {
+.gallery_button {
     background: #FFFFFF;
     width: 25%;
     height: 40px;
@@ -54,7 +54,7 @@
     bottom: 3%;
     left: 3%;
 }
-.gallery-button1 {
+.gallery_button1 {
     background: #FFFFFF;
     width: 25%;
     height: 40px;
@@ -62,7 +62,7 @@
     bottom: 3%;
     left: 29%;
 }
-.gallery-button2 {
+.gallery_button2 {
     background: #FFFFFF;
     height: 40px;
     width: 35%;
