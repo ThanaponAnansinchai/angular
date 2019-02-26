@@ -191,7 +191,7 @@ export class ShowComponent implements OnInit {
     if(isMobile){
       document.getElementById("m_liveContainer").style.display = "block";
       document.getElementById("m_options").style.display = "block";
-      document.getElementById("gallery-button2").style.display =" block";
+      document.getElementById("gallery-button2").style.display = "block";
     }
     else{
       document.getElementById("liveContainer").style.display = "block";
@@ -216,6 +216,7 @@ export class ShowComponent implements OnInit {
     document.getElementById("terminateViewer").style.display = "none";
     document.getElementById("optionVideoMode").style.display = "none";
     document.getElementById("options").style.display = "none";
+    document.getElementById("gallery-button2").style.display = "none";
     document.getElementById("beforeStreaming").style.display = "block";
     let videoplayer = <HTMLVideoElement> document.getElementById("video");
     videoplayer.pause();
