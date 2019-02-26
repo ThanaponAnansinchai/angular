@@ -111,7 +111,7 @@
 
       <div class="captioned-default " [ngClass]="[captioned_line,captioned_width]" id="captioned" [style.color]="color" [style.font-size.px]="size" [style.font-family]="fontStyle">-------------------------------------------------------------------------------------------------------------------------------------------</div>
  
-	 <div class="w3_display_bottomright" id="option-video-mode" style="right: 3%; bottom: 3%; display: none;">
+	 <div class="w3_display_bottomright" id="option_video_mode" style="right: 3%; bottom: 3%;">
         <div class="w3-row  ">
           <select class="w3-hide-small" id="viewerMode2" style="display: none;" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
             <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
@@ -130,7 +130,7 @@
 
 <!-- OPTIONS MODE MOBILE -->
 
-<div id="m_options"  style="text-align: right; margin-bottom: 1%; background-color: rgb(245, 245, 245);" style="display: none">
+<div id="options"  style="text-align: right; margin-bottom: 1%; background-color: rgb(245, 245, 245);" style="display: none">
       <div class="w3-row">
       <i class="fa fa-floppy-o fa-lg" id="btnSaveText" aria-hidden="true"></i>
       <select id="settingCaptionedLine" [(ngModel)]="CaptionedLine" (ngModelChange)="setCaptionedLine(CaptionedLine)">

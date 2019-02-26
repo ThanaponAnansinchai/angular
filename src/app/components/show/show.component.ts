@@ -199,8 +199,7 @@ export class ShowComponent implements OnInit {
     }
     document.getElementById("statusStreaming").style.display = "block";
     document.getElementById("terminateViewer").style.display = "block";
-    document.getElementById("optionVideoMode").style.display = "block";
-    
+    document.getElementById("optionVideoMode").style.display = "block"; 
     document.getElementById("beforeStreaming").style.display = "none";
     let videoplayer = <HTMLVideoElement> document.getElementById("video");
     videoplayer.play();
