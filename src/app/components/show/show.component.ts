@@ -70,19 +70,7 @@ export class ShowComponent implements OnInit {
       videoplayer.pause();
       videoplayer.currentTime = 0;
       
-      if (/Android|iPhone/i.test(window.navigator.userAgent)) {
-        this.isMobile = true
-        this.margin = "0px"
-        this.top_margin = "0px"
-       
-      }
-      else {
-        this.isMobile = false;   
-        this.margin = "300px"
-        this.top_margin = "70px"
-        
       
-      }
 
 
       this.id = +paramMap.get('roomid');
@@ -112,7 +100,19 @@ export class ShowComponent implements OnInit {
         });
       });
     
-    
+      if (/Android|iPhone/i.test(window.navigator.userAgent)) {
+        this.isMobile = true
+        this.margin = "0px"
+        this.top_margin = "0px"
+       
+      }
+      else {
+        this.isMobile = false;   
+        this.margin = "300px"
+        this.top_margin = "70px"
+        
+      
+      }
     
     });
   }

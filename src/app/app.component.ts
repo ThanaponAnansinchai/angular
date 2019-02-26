@@ -114,10 +114,7 @@ export class AppComponent {
     }, 1000 * 60
     )
   }
-
-
- 
-
+  
   getTimeremaining(time) {
     this.present = new Date();
     let total = Date.parse(time) - Date.parse(this.present);
