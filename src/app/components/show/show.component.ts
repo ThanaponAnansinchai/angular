@@ -52,10 +52,7 @@ export class ShowComponent implements OnInit {
       document.getElementById("options").style.display = "none";
       document.getElementById("liveContainer").style.display = "none";
       
-      document.getElementById("m_liveContainer").style.display = "none";
-      document.getElementById("m_options").style.display = "none";
-      document.getElementById("gallery_button2").style.display = "none";
-
+     
       document.getElementById("statusStreaming").style.display = "none";
       document.getElementById("terminateViewer").style.display = "none"; 
       document.getElementById("beforeStreaming").style.display = "block";
