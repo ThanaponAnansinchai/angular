@@ -47,6 +47,7 @@ export class ShowComponent implements OnInit {
       
      
       window.scrollTo(0, 0);
+    
       document.getElementById("liveContainer").style.display = "none";
       document.getElementById("statusStreaming").style.display = "none";
       document.getElementById("terminateViewer").style.display = "none";
@@ -64,6 +65,20 @@ export class ShowComponent implements OnInit {
       videoplayer.pause();
       videoplayer.currentTime = 0;
       
+      if (/Android|iPhone/i.test(window.navigator.userAgent)) {
+        this.isMobile = true
+        this.margin = "0px"
+        this.top_margin = "0px"
+        document.getElementById("m_liveContainer").style.display = "none";
+        document.getElementById("m_options").style.display = "none";
+        document.getElementById("gallery_button2").style.display = "none";
+      }
+      else {
+        this.isMobile = false;   
+        this.margin = "300px"
+        this.top_margin = "70px"
+      }
+
 
       this.id = +paramMap.get('roomid');
       console.log(paramMap.get('roomid'))
@@ -92,19 +107,7 @@ export class ShowComponent implements OnInit {
         });
       });
     
-      if (/Android|iPhone/i.test(window.navigator.userAgent)) {
-        this.isMobile = true
-        this.margin = "0px"
-        this.top_margin = "0px"
-
-
-        
-      }
-      else {
-        this.isMobile = false;   
-        this.margin = "300px"
-        this.top_margin = "70px"
-      }
+    
     
     });
   }
@@ -333,7 +336,7 @@ export class ShowComponent implements OnInit {
       document.getElementById('settingCaptionedLine').style.display = 'inline'
       document.getElementById('settingCaptionedWidth').style.display = 'inline'
     
-      document.getElementById('video').style.display = 'block'
+      document.getElementById('video').style.display = 'inline'
       document.getElementById('video2').style.display = 'none'
       
     }
