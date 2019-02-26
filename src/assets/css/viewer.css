@@ -123,6 +123,13 @@
     display: none;
 }
 
+#m_options {
+    text-align: right;
+    background-color: rgb(245, 245, 245);
+    margin-bottom: 1%;
+    display: none;
+}
+
 #btnSaveText {
     cursor: pointer;
 }
@@ -161,6 +168,14 @@
 }
 
 #liveContainer {
+    background-color: black;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#m_liveContainer {
     background-color: black;
     position: relative;
     width: 100%;
