@@ -200,7 +200,7 @@ export class ShowComponent implements OnInit {
     if(this.isMobile){
       document.getElementById("m_liveContainer").style.display = "block";
       document.getElementById("m_options").style.display = "block";
-      document.getElementById("choice2").style.display = "block";
+      document.getElementById("m_optionVideoMode").style.display = "block";
     
     }
     if(!this.isMobile){
