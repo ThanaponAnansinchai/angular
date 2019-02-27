@@ -32,17 +32,17 @@
 
   <!-- FOR START VIEWER WEB-->
   <section  #fullScreen id="liveContainer" style="display: none;" on-mousemove='over()'>
-      <div class="w3-display-topleft" id="statusStreaming" style="display: none;"></div>
+      <div class="w3-display-topleft" id="statusStreaming"></div>
       <div class="w3-display-topleft" id="views"></div>
       <div class="w3-display-topright">
         <button class="btn btn-info" id="muteVolume" (click)="mute()" >ปิดเสียง</button>
         <button class="btn btn-info" id="unmuteVolume" (click)="unMute()">เปิดเสียง</button>
-        <button class="btn btn-danger" id="terminateViewer" style="display: none;" (click)="viewer_stop();exitFullScreen()">สิ้นสุด</button>
+        <button class="btn btn-danger" id="terminateViewer" (click)="viewer_stop();exitFullScreen()">สิ้นสุด</button>
       </div>
 
-      <div class="w3-display-topmiddle" id="optionVideoMode" style="display: none;">
+      <div class="w3-display-topmiddle" id="optionVideoMode" >
         <div class="w3-row">
-          <select class="w3-hide-small" id="viewerMode2" style="display: none;" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
+          <select class="w3-hide-small" id="viewerMode2" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
             <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
             <option value="text-only">คำบรรยาย</option>
           </select>
@@ -99,14 +99,14 @@
 
 <!-- FOR START VIEWER MOBILE-->
 
- <section  #fullScreen id="m_liveContainer" style="width: 100%; height: 100%;display: none;"  on-mousemove='over()'>
-      <div class="w3-display-topleft" id="statusStreaming" style="padding: 2px 6px 0px; color: white; display: none; z-index: 1; background-color: rgba(217, 83, 79, 1);"></div>
+ <section  #fullScreen id="m_liveContainer" style="width: 100%; height: 100%;"  on-mousemove='over()'>
+      <div class="w3-display-topleft" id="statusStreaming" style="padding: 2px 6px 0px; color: white; z-index: 1; background-color: rgba(217, 83, 79, 1);"></div>
       <div class="w3-display-topright" style="z-index: 1;">
-        <button class="btn btn-danger" id="terminate_viewer" style="display: none;" (click)="exitFullScreen()">END</button>
+        <button class="btn btn-danger" id="terminate_viewer" (click)="exitFullScreen()">END</button>
       </div>
       
 	    <video  id="video"  style="width: 100%;height: 550px;" playsinline="true" [style.background]="bgcolor" src="../../../assets/video/Ace Combat Infinity - History Lessons.mp4"></video>
-      <video  id="video2"  style="width: 100%;height: 550px;" playsinline="true" [style.background]="bgcolor"></video>
+      <video  id="video2"  style="width: 100%;height: 550px; display: none;" playsinline="true" [style.background]="bgcolor"></video>
       
 
       <div class="captioned-default " [ngClass]="[captioned_line,captioned_width]" id="captioned" [style.color]="color" [style.font-size.px]="size" [style.font-family]="fontStyle">-------------------------------------------------------------------------------------------------------------------------------------------</div>
