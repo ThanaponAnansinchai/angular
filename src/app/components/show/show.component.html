@@ -132,17 +132,8 @@
 
 <div id="m_options" style="text-align: right;background-color: rgb(245, 245, 245);margin-bottom: 1%;display: none;">
   <div class="w3-row">
-      <i class="fa fa-floppy-o fa-lg" id="btnSaveText" aria-hidden="true"></i>
-      <select id="m_settingCaptionedLine" [(ngModel)]="CaptionedLine" (ngModelChange)="setCaptionedLine(CaptionedLine)" style="display:none">
-        <option value="">จำนวนบรรทัดคำบรรยาย</option>
-        <option value="2">2 บรรทัด</option>
-        <option value="3">3 บรรทัด</option>
-      </select>
-      <select id="m_settingCaptionedWidth" [(ngModel)]="CaptionedWidth" (ngModelChange)="setWidth(CaptionedWidth)" style="display:none">
-        <option value="">ความยาวของคำบรรยาย</option>
-        <option value="70">70% ของจอ</option>
-        <option value="100">100% ของจอ</option>
-      </select>
+      <i class="fa fa-floppy-o fa-lg" id="m_btnSaveText" aria-hidden="true"></i>
+      
       <select id="m_viewerMode" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
         <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
         <option value="text-only">คำบรรยาย</option>
