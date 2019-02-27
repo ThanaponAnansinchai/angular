@@ -58,7 +58,7 @@ export class ShowComponent implements OnInit {
      
       document.getElementById("statusStreaming").style.display = "none";
       document.getElementById("terminateViewer").style.display = "none"; 
-      document.getElementById("beforeStreaming").style.display = "block";
+      document.getElementById("beforeStreaming").style.display = "inline";
       document.getElementById('settingCaptionedLine').style.display = 'inline'
       document.getElementById('settingCaptionedWidth').style.display = 'inline'
      
