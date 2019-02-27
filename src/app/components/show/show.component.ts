@@ -58,7 +58,7 @@ export class ShowComponent implements OnInit {
      
       document.getElementById("statusStreaming").style.display = "none";
       document.getElementById("terminateViewer").style.display = "none"; 
-      document.getElementById("beforeStreaming").style.display = "inline";
+      document.getElementById("beforeStreaming").style.display = "block";
       document.getElementById('settingCaptionedLine').style.display = 'inline'
       document.getElementById('settingCaptionedWidth').style.display = 'inline'
      
@@ -200,7 +200,7 @@ export class ShowComponent implements OnInit {
     if(this.isMobile){
       document.getElementById("m_liveContainer").style.display = "block";
       document.getElementById("m_options").style.display = "block";
-      document.getElementById("gallery_button2").style.display = "inline";
+      document.getElementById("choice2").style.display = "inline";
       document.getElementById("statusStreaming").style.display = "block";
     document.getElementById("terminateViewer").style.display = "block";
     
@@ -228,7 +228,7 @@ export class ShowComponent implements OnInit {
     if(this.isMobile){
       document.getElementById("m_liveContainer").style.display = "none";
       document.getElementById("m_options").style.display = "none";
-      document.getElementById("gallery_button2").style.display = "none";
+      document.getElementById("choice2").style.display = "none";
     }
     else{
     document.getElementById("liveContainer").style.display = "none";
