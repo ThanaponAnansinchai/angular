@@ -192,6 +192,14 @@
         font-size: 16px;
         padding: 10px;
     }
+    #captioned-color-m {
+        background: #FFFFFF;
+        height: 40px;
+        float: left;
+        width: 25%;
+        font-size: 16px;
+        padding: 10px;
+    }
     #bgcolor-m {
         background: #FFFFFF;
         height: 40px;
@@ -357,6 +365,14 @@
         height: 40px;
         float: left;
         width: 30%;
+        font-size: 16px;
+        padding: 10px;
+    }
+    #captioned-color-m {
+        background: #FFFFFF;
+        height: 40px;
+        float: left;
+        width: 25%;
         font-size: 16px;
         padding: 10px;
     }
@@ -531,6 +547,14 @@
         float: left;
         width: 25%;
         font-size: 24px;
+        padding: 10px;
+    }
+    #captioned-color-m {
+        background: #FFFFFF;
+        height: 40px;
+        float: left;
+        width: 25%;
+        font-size: 16px;
         padding: 10px;
     }
     #bgcolor-m {
