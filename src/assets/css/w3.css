@@ -2233,13 +2233,13 @@ input[type=checkbox].w3-check:disabled+.w3-validate, input[type=radio].w3-radio:
     .mw3-sidenav #input-font {
         display: none;
     }
-    .mw3-sidenav #inc-font {
+    .mw3-sidenav #m_incFont {
         float: left;
         height: 40px;
         width: 20%;
         margin-right: 0.5%;
     }
-    .mw3-sidenav #dec-font {
+    .mw3-sidenav #m_decFont {
         height: 40px;
         float: left;
         width: 20%;

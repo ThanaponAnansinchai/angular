@@ -74,17 +74,6 @@
 /* responsesive screen */
 
 @media screen and (min-width: 360px) and (max-width: 599px) {
-    .w3-sidenav {
-        display: none;
-        width: 100% !important;
-    }
-    .w3-top {
-        top: 0;
-    }
-    .w3-large {
-        font-size: 18px !important;
-    }
-  
     #viewer-mode {
         display: none;
     }
@@ -106,13 +95,13 @@
     #input-font {
         display: none;
     }
-    #inc-font {
+    #m_incFont {
         float: left;
         height: 40px;
         width: 20%;
         margin-right: 0.5%;
     }
-    #dec-font {
+    #m_decFont {
         height: 40px;
         float: left;
         width: 20%;
@@ -242,17 +231,7 @@
 }
 
 @media screen and (max-width: 360px) {
-    .w3-sidenav {
-        display: none;
-        width: 100% !important;
-    }
-    .w3-top {
-        top: 0;
-    }
-    .w3-large {
-        font-size: 18px !important;
-    }
-   
+ 
     #viewer-mode {
         display: none;
     }
@@ -274,13 +253,13 @@
     #input-font {
         display: none;
     }
-    #inc-font {
+    #m_incFont {
         float: left;
         height: 40px;
         width: 20%;
         margin-right: 0.5%;
     }
-    #dec-font {
+    #m_decFont {
         height: 40px;
         float: left;
         width: 20%;
@@ -413,19 +392,7 @@
 }
 
 @media screen and (min-width: 600px) and (max-width: 1367px) {
-    .w3-sidenav {
-        display: none;
-        width: 100% !important;
-    }
-    .w3-large {
-        font-size: 24px !important;
-    }
-    a {
-        font-size: 30px !important;
-    }
-    font {
-        font-size: 20px !important;
-    }
+  
     #viewer-mode {
         display: none;
     }
@@ -447,13 +414,13 @@
     #input-font {
         display: none;
     }
-    #inc-font {
+    #m_incFont {
         float: left;
         height: 40px;
         width: 20%;
         margin-right: 0.5%;
     }
-    #dec-font {
+    #m_decFont {
         height: 40px;
         float: left;
         width: 20%;
