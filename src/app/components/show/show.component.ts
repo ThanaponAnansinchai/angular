@@ -49,31 +49,27 @@ export class ShowComponent implements OnInit {
         this.isMobile = true
         this.margin = "0px"
         this.top_margin = "0px"
+        document.getElementById("m_liveContainer").style.display = "none"
+        document.getElementById("m_options").style.display = "none"
+        document.getElementById("myModal").style.display = "none"
+        this.size = 16
        
       }
       else {
         this.isMobile = false;   
         this.margin = "300px"
         this.top_margin = "70px"
-        
-      
-      }
-     
-      window.scrollTo(0, 0);
-      if(this.isMobile){
-        document.getElementById("m_liveContainer").style.display = "none"
-        document.getElementById("m_options").style.display = "none"
-        document.getElementById("myModal").style.display = "none"
-      }
-      else{
         document.getElementById("optionVideoMode").style.display = "none";
         document.getElementById("options").style.display = "none";
         document.getElementById("liveContainer").style.display = "none";
         document.getElementById('settingCaptionedLine').style.display = 'inline'
         document.getElementById('settingCaptionedWidth').style.display = 'inline'
+        
+      
       }
      
-      
+      window.scrollTo(0, 0);
+  
      
       document.getElementById("statusStreaming").style.display = "none";
       document.getElementById("terminateViewer").style.display = "none"; 
