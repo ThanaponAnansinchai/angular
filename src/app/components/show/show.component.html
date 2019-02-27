@@ -153,8 +153,8 @@
         <option value="AngsanaNew">Angsana New</option>
         <option value="CordiaNew">Cordia New</option>
       </select>
-      <button  [style.background]="color" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(255, 255, 255);" >A</button>
-      <button  [style.background]="bgcolor" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(0, 0, 0);" >&nbsp;&nbsp;</button>
+      <button  id="set_font_color" [(colorPicker)]="color" [style.background]="color" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(255, 255, 255);" >A</button>
+      <button id="set_background_color" [(colorPicker)]="bgcolor" [style.background]="bgcolor" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(0, 0, 0);" >&nbsp;&nbsp;</button>
       <input id="m_inputFont" type="text" size="1" maxlength="3" list="size" [(ngModel)]="size">
       <datalist id="m_size">
         <option *ngFor="let size of atextSize" value="{{size}}"></option>
