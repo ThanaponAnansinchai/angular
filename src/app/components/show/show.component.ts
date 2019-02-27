@@ -64,8 +64,6 @@ export class ShowComponent implements OnInit {
         document.getElementById("m_liveContainer").style.display = "none"
         document.getElementById("m_options").style.display = "none"
         document.getElementById("myModal").style.display = "none"
-        document.getElementById('m_settingCaptionedLine').style.display = 'inline'
-        document.getElementById('m_settingCaptionedWidth').style.display = 'inline'
       }
       else{
         document.getElementById("optionVideoMode").style.display = "none";
@@ -337,12 +335,11 @@ export class ShowComponent implements OnInit {
 
   setMode(mode){
     this.bmode = mode;
-    
+
     if(mode == "text-only"){
       document.getElementById('settingCaptionedLine').style.display = 'none'
       document.getElementById('settingCaptionedWidth').style.display = 'none'
-      document.getElementById('m_settingCaptionedLine').style.display = 'none'
-      document.getElementById('m_settingCaptionedWidth').style.display = 'none'
+     
       this.temp[0] = this.captioned_width;
       this.temp[1] = this.captioned_line;
       this.captioned_width  = "captioned-text-only";
@@ -357,8 +354,7 @@ export class ShowComponent implements OnInit {
       this.captioned_line = this.temp[1];
       document.getElementById('settingCaptionedLine').style.display = 'inline'
       document.getElementById('settingCaptionedWidth').style.display = 'inline'
-      document.getElementById('m_settingCaptionedLine').style.display = 'inline'
-      document.getElementById('m_settingCaptionedWidth').style.display = 'inline'
+  
     
       document.getElementById('video').style.display = 'inline'
       document.getElementById('video2').style.display = 'none'
