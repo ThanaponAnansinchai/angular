@@ -2280,7 +2280,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate, input[type=radio].w3-radio:
         float: left;
         width: 20%;
     }
-    .mw3-sidenav .gallery-button {
+    .mw3-sidenav .gallery_button {
         background: #FFFFFF;
         width: 25%;
         height: 40px;
@@ -2288,7 +2288,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate, input[type=radio].w3-radio:
         bottom: 3%;
         left: 3%;
     }
-    .mw3-sidenav .gallery-button1 {
+    .mw3-sidenav .gallery_button1 {
         background: #FFFFFF;
         width: 25%;
         height: 40px;
@@ -2296,7 +2296,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate, input[type=radio].w3-radio:
         bottom: 3%;
         left: 29%;
     }
-    .mw3-sidenav .gallery-button2 {
+    .mw3-sidenav .gallery_button2 {
         background: #FFFFFF;
         height: 40px;
         width: 35%;

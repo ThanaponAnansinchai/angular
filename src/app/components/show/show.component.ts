@@ -34,7 +34,7 @@ export class ShowComponent implements OnInit {
   public captioned_width = "captioned-width-70";
   public captioned_default = "captioned_default";
   private temp: any[] = [];
-
+ 
   @ViewChild('fullScreen') fullScreen;
 
 
@@ -238,7 +238,7 @@ export class ShowComponent implements OnInit {
 
     document.getElementById("statusStreaming").style.display = "none";
     document.getElementById("terminateViewer").style.display = "none";
-  
+ 
     
     document.getElementById("beforeStreaming").style.display = "block";
     let videoplayer = <HTMLVideoElement> document.getElementById("video");
