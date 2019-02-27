@@ -84,10 +84,7 @@
     .w3-large {
         font-size: 18px !important;
     }
-    .w3-row {
-        width: 100% !important;
-        height: 40px;
-    }
+  
     #viewer-mode {
         display: none;
     }
@@ -255,10 +252,7 @@
     .w3-large {
         font-size: 18px !important;
     }
-    .w3-row {
-        width: 100% !important;
-        height: 40px;
-    }
+   
     #viewer-mode {
         display: none;
     }
