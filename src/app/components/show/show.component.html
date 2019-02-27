@@ -109,7 +109,7 @@
       <video  id="video2"  style="width: 100%;height: 550px; display: none;" playsinline="true" [style.background]="bgcolor"></video>
       
 
-      <div class="captioned-default " [ngClass]="[captioned_line,captioned_width]" id="captioned" [style.color]="color" [style.font-size.px]="size" [style.font-family]="fontStyle">-------------------------------------------------------------------------------------------------------------------------------------------</div>
+      <div class="captioned-default " [ngClass]="[captioned_line,captioned_width]" id="captioned" [style.background]="caption_bg" [style.color]="color" [style.font-size.px]="size" [style.font-family]="fontStyle">-------------------------------------------------------------------------------------------------------------------------------------------</div>
  
 	 <div class="w3-display-bottomright" id="m_optionVideoMode" style="right: 3%; bottom: 3%;">
         <div class="w3-row ">
@@ -212,7 +212,7 @@
       <br>
 
       <div class="w3-row">
-        <div id="font-color-m" style="border: none; cursor: pointer;">สีแคปชั่น</div>
+        <div id="captioned-color-m" style="border: none; cursor: pointer;">สีแคปชั่น</div>
   <button [(colorPicker)]="caption_bg" [style.background]="caption_bg" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'top'"  style="background: rgb(255, 255, 255);">&nbsp;&nbsp;</button>
       </div>
 
