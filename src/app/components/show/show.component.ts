@@ -332,6 +332,8 @@ export class ShowComponent implements OnInit {
     if(mode == "text-only"){
       document.getElementById('settingCaptionedLine').style.display = 'none'
       document.getElementById('settingCaptionedWidth').style.display = 'none'
+      document.getElementById('m_settingCaptionedLine').style.display = 'none'
+      document.getElementById('m_settingCaptionedWidth').style.display = 'none'
       this.temp[0] = this.captioned_width;
       this.temp[1] = this.captioned_line;
       this.captioned_width  = "captioned-text-only";
@@ -346,6 +348,8 @@ export class ShowComponent implements OnInit {
       this.captioned_line = this.temp[1];
       document.getElementById('settingCaptionedLine').style.display = 'inline'
       document.getElementById('settingCaptionedWidth').style.display = 'inline'
+      document.getElementById('m_settingCaptionedLine').style.display = 'inline'
+      document.getElementById('m_settingCaptionedWidth').style.display = 'inline'
     
       document.getElementById('video').style.display = 'inline'
       document.getElementById('video2').style.display = 'none'

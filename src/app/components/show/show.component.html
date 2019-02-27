@@ -112,14 +112,14 @@
       <div class="captioned-default " [ngClass]="[captioned_line,captioned_width]" id="captioned" [style.color]="color" [style.font-size.px]="size" [style.font-family]="fontStyle">-------------------------------------------------------------------------------------------------------------------------------------------</div>
  
 	 <div class="w3-display-bottomright" id="m_optionVideoMode" style="right: 3%; bottom: 3%;">
-        <div class="w3-row  ">
-          <select class="w3-hide-small" id="viewerMode2" style="display: none;" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
+        <div class="w3-row ">
+          <select class="w3-hide-small" id="m_viewerMode2" style="display: none;" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
             <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
             <option value="text-only">คำบรรยาย</option>
           </select>
-          <input class="w3-hide-small" id="inputFont2" type="text" size="1" maxlength="3" list="size" style="display: none;" [(ngModel)]="size"> 
-          <button class="w3-hide-small" id="incFont2" (click)="toIntPlus(size,1)" style="display: none;">A+</button>
-          <button class="w3-hide-small" id="decFont2" (click)="toIntMinus(size,1)" style="display: none;">A-</button>
+          <input class="w3-hide-small" id="m_inputFont2" type="text" size="1" maxlength="3" list="size" style="display: none;" [(ngModel)]="size"> 
+          <button class="w3-hide-small" id="m_incFont2" (click)="toIntPlus(size,1)" style="display: none;">A+</button>
+          <button class="w3-hide-small" id="m_decFont2" (click)="toIntMinus(size,1)" style="display: none;">A-</button>
           
         <button class="gallery_button2" id="choice2" style="border: none; cursor: pointer;display: none;" (click)="open_modal()" >ตัวเลือกเพิ่มเติม </button>
           <i class="fa fa-arrows-alt fa-lg" id="fullScreen"  (click)="toFullScreen()"  style="display: inline;"></i>
@@ -133,21 +133,21 @@
 <div id="m_options" style="text-align: right;background-color: rgb(245, 245, 245);margin-bottom: 1%;display: none;">
   <div class="w3-row">
       <i class="fa fa-floppy-o fa-lg" id="btnSaveText" aria-hidden="true"></i>
-      <select id="settingCaptionedLine" [(ngModel)]="CaptionedLine" (ngModelChange)="setCaptionedLine(CaptionedLine)">
+      <select id="m_settingCaptionedLine" [(ngModel)]="CaptionedLine" (ngModelChange)="setCaptionedLine(CaptionedLine)">
         <option value="">จำนวนบรรทัดคำบรรยาย</option>
         <option value="2">2 บรรทัด</option>
         <option value="3">3 บรรทัด</option>
       </select>
-      <select id="settingCaptionedWidth" [(ngModel)]="CaptionedWidth" (ngModelChange)="setWidth(CaptionedWidth)">
+      <select id="m_settingCaptionedWidth" [(ngModel)]="CaptionedWidth" (ngModelChange)="setWidth(CaptionedWidth)">
         <option value="">ความยาวของคำบรรยาย</option>
         <option value="70">70% ของจอ</option>
         <option value="100">100% ของจอ</option>
       </select>
-      <select id="viewerMode" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
+      <select id="m_viewerMode" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
         <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
         <option value="text-only">คำบรรยาย</option>
       </select>
-      <select id="changeFontFamily" [(ngModel)]="font" (ngModelChange)="setFont(font)" > 
+      <select id="m_changeFontFamily" [(ngModel)]="font" (ngModelChange)="setFont(font)" > 
         <option value="FreesiaUPC">FreesiaUPC</option>
         <option value="THNiramitAS">Th Niramit AS</option>
         <option value="AngsanaNew">Angsana New</option>
@@ -155,8 +155,8 @@
       </select>
       <button [(colorPicker)]="color" [style.background]="color" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(255, 255, 255);">A</button>
       <button [(colorPicker)]="bgcolor" [style.background]="bgcolor" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(0, 0, 0);">&nbsp;&nbsp;</button>
-      <input id="inputFont" type="text" size="1" maxlength="3" list="size" [(ngModel)]="size">
-      <datalist id="size">
+      <input id="m_inputFont" type="text" size="1" maxlength="3" list="size" [(ngModel)]="size">
+      <datalist id="m_size">
         <option *ngFor="let size of atextSize" value="{{size}}"></option>
       </datalist>
       <button id="m_incFont" (click)="toIntPlus(size,1)">A+</button>
