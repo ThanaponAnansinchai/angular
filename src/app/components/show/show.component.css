@@ -85,13 +85,13 @@
         font-size: 18px !important;
     }
 
-    #viewer-mode {
+    #m_viewerMode {
         display: none;
     }
     #btnSaveText {
         /* display: none; */
     }
-    #change-font-family {
+    #m_changeFontFamily {
         display: none;
     }
     #set_font_color {
@@ -100,7 +100,7 @@
     #set_background_color {
         display: none;
     }
-    #size {
+    #m_size {
         display: none;
     }
     #input-font {
@@ -253,13 +253,13 @@
         font-size: 18px !important;
     }
 
-    #viewer-mode {
+    #m_viewerMode {
         display: none;
     }
     #btnSaveText {
         /* display: none; */
     }
-    #change-font-family {
+    #m_changeFontFamily {
         display: none;
     }
     #set_font_color {
@@ -268,10 +268,10 @@
     #set_background_color {
         display: none;
     }
-    #size {
+    #m_size {
         display: none;
     }
-    #input-font {
+    #m_inputFont {
         display: none;
     }
     #m_incFont {
@@ -426,13 +426,13 @@
     font {
         font-size: 20px !important;
     }
-    #viewer-mode {
+    #m_viewerMode {
         display: none;
     }
     #btnSaveText {
         /* display: none; */
     }
-    #change-font-family {
+    #m_changeFontFamily {
         display: none;
     }
     #set_font_color {
@@ -441,7 +441,7 @@
     #set_background_color {
         display: none;
     }
-    #size {
+    #m_size {
         display: none;
     }
     #input-font {

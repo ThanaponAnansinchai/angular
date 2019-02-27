@@ -44,23 +44,43 @@ export class ShowComponent implements OnInit {
   
     
     this.route.paramMap.subscribe(paramMap => {
+
+      if (/Android|iPhone/i.test(window.navigator.userAgent)) {
+        this.isMobile = true
+        this.margin = "0px"
+        this.top_margin = "0px"
+       
+      }
+      else {
+        this.isMobile = false;   
+        this.margin = "300px"
+        this.top_margin = "70px"
+        
       
+      }
      
       window.scrollTo(0, 0);
-
-      document.getElementById("optionVideoMode").style.display = "none";
-      document.getElementById("options").style.display = "none";
-      document.getElementById("liveContainer").style.display = "none";
+      if(this.isMobile){
+        document.getElementById("m_liveContainer").style.display = "none"
+        document.getElementById("m_options").style.display = "none"
+        document.getElementById("myModal").style.display = "none"
+        document.getElementById('m_settingCaptionedLine').style.display = 'inline'
+        document.getElementById('m_settingCaptionedWidth').style.display = 'inline'
+      }
+      else{
+        document.getElementById("optionVideoMode").style.display = "none";
+        document.getElementById("options").style.display = "none";
+        document.getElementById("liveContainer").style.display = "none";
+        document.getElementById('settingCaptionedLine').style.display = 'inline'
+        document.getElementById('settingCaptionedWidth').style.display = 'inline'
+      }
+     
       
-      document.getElementById("m_liveContainer").style.display = "none"
-      document.getElementById("m_options").style.display = "none"
-      document.getElementById("myModal").style.display = "none"
      
       document.getElementById("statusStreaming").style.display = "none";
       document.getElementById("terminateViewer").style.display = "none"; 
       document.getElementById("beforeStreaming").style.display = "block";
-      document.getElementById('settingCaptionedLine').style.display = 'inline'
-      document.getElementById('settingCaptionedWidth').style.display = 'inline'
+     
      
       this.mode ="video-text";
       document.getElementById('video').style.display = 'inline'
@@ -100,19 +120,7 @@ export class ShowComponent implements OnInit {
         });
       });
     
-      if (/Android|iPhone/i.test(window.navigator.userAgent)) {
-        this.isMobile = true
-        this.margin = "0px"
-        this.top_margin = "0px"
-       
-      }
-      else {
-        this.isMobile = false;   
-        this.margin = "300px"
-        this.top_margin = "70px"
-        
-      
-      }
+  
     
     });
   }
@@ -329,6 +337,7 @@ export class ShowComponent implements OnInit {
 
   setMode(mode){
     this.bmode = mode;
+    
     if(mode == "text-only"){
       document.getElementById('settingCaptionedLine').style.display = 'none'
       document.getElementById('settingCaptionedWidth').style.display = 'none'
