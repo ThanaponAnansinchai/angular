@@ -460,7 +460,7 @@
     #m_size {
         display: none;
     }
-    #input-font {
+    #m_inputFont {
         display: none;
     }
     #m_incFont {
@@ -501,7 +501,7 @@
         float: left;
         width: 20%;
     }
-    .gallery-button {
+    .gallery_button {
         background: #FFFFFF;
         width: 25%;
         height: 40px;
@@ -509,7 +509,7 @@
         bottom: 3%;
         left: 3%;
     }
-    .gallery-button1 {
+    .gallery_button1 {
         background: #FFFFFF;
         width: 25%;
         height: 40px;
@@ -517,7 +517,7 @@
         bottom: 3%;
         left: 29%;
     }
-    .gallery-button2 {
+    .gallery_button2 {
         background: #FFFFFF;
         height: 40px;
         width: 35%;
