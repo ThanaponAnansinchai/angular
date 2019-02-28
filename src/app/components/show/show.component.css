@@ -411,7 +411,9 @@
         padding: 30px;
         text-align: center;
     }
-   
+    #ex-font-m {
+        font-size: 28px;
+    }
     #pre_header_page {
         display: none;
     }
