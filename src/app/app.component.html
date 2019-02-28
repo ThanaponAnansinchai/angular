@@ -28,6 +28,15 @@
 
     </ul>
     
+    <ul *ngIf="noConnection" id="menuViewer">
+      <h1>
+        <b>อุปส์!</b>
+      </h1>
+      <p>เกิดข้อผิดพลาดระหว่างการเชื่อมต่อ โปรดลองใหม่อีกครั้ง</p>
+      <button id="reconnectRooms">ลองใหม่</button>  
+  </ul>
+
+
     <ul *ngIf="!rooms" id="menuViewer">
         <!-- Not found Rooms -->
             <h4 style="text-align: center">ไม่พบข้อมูล</h4>   

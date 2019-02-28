@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Connection, DataService } from './connected.service';
+import { fromEvent, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -24,11 +25,28 @@ export class AppComponent {
   public am = "AM";
   public pm = "PM";
   public isMobile ;
+  public noConnection;
+  onlineEvent: Observable<Event>;
+  offlineEvent: Observable<Event>;
+  subscriptions: Subscription[] = [];
 
 
   constructor(private apiService: Connection, private route: Router, public dataService: DataService) {}
   
   ngOnInit() {
+    this.onlineEvent = fromEvent(window, 'online');
+    this.offlineEvent = fromEvent(window, 'offline');
+
+    this.subscriptions.push(this.onlineEvent.subscribe(e => {
+      this.getAllData();
+      this.noConnection = false;
+    }));
+
+    this.subscriptions.push(this.offlineEvent.subscribe(e => {
+      this.rooms = [''];
+      this.noConnection = true;
+    }));
+
     if(/Android|iPhone/i.test(window.navigator.userAgent)){
       this.isMobile = true;   
     }
@@ -47,7 +65,10 @@ export class AppComponent {
       this.dataService.serviceData = b.result;
       this.roomData(b.result)
      
-    });
+    },
+    (error) => {
+      this.noConnection = true;
+    })
   }
   
   getData(id) {
@@ -77,7 +98,7 @@ export class AppComponent {
       this.Etime.push((room.time.end_time).slice(0, -8).split("T"));
 
       this.initializeClock(index, room.time.start_time, room.time.end_time);
-      
+
       let start = this.getTimeremaining(room.time.start_time);
       let end = this.getTimeremaining(room.time.end_time);
       this.start_period.push(start.period);
