@@ -75,7 +75,9 @@ export class AppComponent {
     this.rooms.forEach(room => {
       this.Stime.push((room.time.start_time).slice(0, -8).split("T"));
       this.Etime.push((room.time.end_time).slice(0, -8).split("T"));
+
       this.initializeClock(index, room.time.start_time, room.time.end_time);
+      
       let start = this.getTimeremaining(room.time.start_time);
       let end = this.getTimeremaining(room.time.end_time);
       this.start_period.push(start.period);
