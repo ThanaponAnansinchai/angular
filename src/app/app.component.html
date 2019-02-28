@@ -58,11 +58,11 @@
         <h3>
           <a href="index.html" style="background: no-repeat;">TRANSCRIPTION</a>
         </h3>
-        <input [(ngModel)]="searchText" id="searchRooms" class="w3-input w3-border" type="text" placeholder="ค้นหาห้อง...">
-           
+       
+        <input (keyup)="onKeyUp($event)" id="searchRooms" class="w3-input w3-border" type="text" placeholder="ค้นหาห้อง...">
         </div>
     </div>
-    <ul *ngFor="let data of rooms | filter : {title: searchText} ;let i = index"  id="menuViewer">
+    <ul *ngFor="let data of rooms ;let i = index"  id="menuViewer">
       <li (click)='getData(data.id);w3_close()' class="listrooms" style="cursor: pointer;">
         <a>
         {{data.title}} <br>
@@ -79,10 +79,10 @@
 
     </ul>
     
-    <ul *ngIf="(rooms | filter : {title: searchText}).length == 0" id="menuViewer">
-        <!-- Not found Rooms -->
-            <h4 style="text-align: center">ไม่พบข้อมูล</h4>   
-    </ul>
+    <ul *ngIf="!rooms" id="menuViewer">
+      <!-- Not found Rooms -->
+          <h4 style="text-align: center">ไม่พบข้อมูล</h4>   
+  </ul>
   </nav>
 <!-- Top menu on small screens -->
 
