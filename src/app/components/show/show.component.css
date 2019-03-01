@@ -247,6 +247,12 @@
     #showmenu {
         display: none;
     }
+    #m_size {
+        display: none;
+    }
+    #m_inputFont {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 360px) {
