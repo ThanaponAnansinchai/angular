@@ -203,12 +203,14 @@ export class ShowComponent implements OnInit {
       document.getElementById("m_liveContainer").style.display = "block";
       document.getElementById("m_options").style.display = "block";
       document.getElementById("m_optionVideoMode").style.display = "block";
+      document.getElementById("video2").style.display = "none";
     
     }
     if(!this.isMobile){
       document.getElementById("liveContainer").style.display = "block";
       document.getElementById("options").style.display = "block";
       document.getElementById("optionVideoMode").style.display = "block"; 
+      
      
     }
 
