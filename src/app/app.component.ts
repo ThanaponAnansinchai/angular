@@ -26,6 +26,7 @@ export class AppComponent {
   public isMobile ;
   public noConnection;
   public show;
+  public sideNav = "w3-open";
 
   onlineEvent: Observable<Event>;
   offlineEvent: Observable<Event>;
@@ -164,6 +165,7 @@ export class AppComponent {
 
   w3_close() {
     this.show = false;
+    this.sideNav = "w3-close"
   }
 
   
