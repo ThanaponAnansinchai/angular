@@ -102,7 +102,7 @@
  <section  #fullScreen id="m_liveContainer" [ngClass]="this.m_liveContainer"  on-mousemove='over()'>
       <div class="w3-display-topleft" id="statusStreaming"  [ngClass]="this.statusStreaming" style="padding: 2px 6px 0px; color: white; z-index: 1; background-color: rgba(217, 83, 79, 1);"></div>
       <div class="w3-display-topright" style="z-index: 1;">
-        <button class="btn btn-danger" id="terminate_viewer" [ngClass]="this.terminate_viewer" (click)="exitFullScreen();viewer_stop()">END</button>
+        <button class="btn btn-danger" id="terminateViewer" [ngClass]="this.terminateViewer" (click)="exitFullScreen();viewer_stop()">END</button>
       </div>
       
       <video  id="video" [ngClass]="[this.video,this.fullscreenHeight]" playsinline="true" [style.background]="bgcolor"  src="../../../assets/video/Ace Combat Infinity - History Lessons.mp4"></video>
