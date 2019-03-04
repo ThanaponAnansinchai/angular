@@ -9,7 +9,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RoomComponent } from './components/room/room.component';
-import { Connection, DataService} from './connected.service';
+import { Connection} from './connected.service';
 import { ShowComponent } from './components/show/show.component';
 import { FilterPipe} from './filter.pipe';
 
@@ -29,7 +29,7 @@ import { FilterPipe} from './filter.pipe';
     ColorPickerModule
   
   ],
-  providers: [Connection,DataService],
+  providers: [Connection],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

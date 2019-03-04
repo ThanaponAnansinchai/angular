@@ -29,9 +29,3 @@ export class Connection {
   
 }
 
-@Injectable() 
-export class DataService {
-  serviceData :any[] = []; 
-  
-  
-}

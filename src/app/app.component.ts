@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Connection, DataService } from './connected.service';
+import { Connection } from './connected.service';
 import { fromEvent, Observable, Subscription } from 'rxjs';
 
 @Component({
@@ -12,26 +12,27 @@ import { fromEvent, Observable, Subscription } from 'rxjs';
 
 
 export class AppComponent {
-  public present;
+  public present_time;
   public rooms: any[] = [];
-  public Stime: string[][] = [];
-  public Etime: string[][] = [];
+  public start_time: string[][] = [];
+  public end_time: string[][] = [];
   public status: any[] = [];
   public time_status: any[] = [];
   public start_period: any[]=[];
   public end_period: any[]=[];
   public searchText: string;
   public status_color: any;
-  public am = "AM";
-  public pm = "PM";
+
   public isMobile ;
   public noConnection;
+  public show;
+
   onlineEvent: Observable<Event>;
   offlineEvent: Observable<Event>;
   subscriptions: Subscription[] = [];
 
 
-  constructor(private apiService: Connection, private route: Router, public dataService: DataService) {}
+  constructor(private apiService: Connection, private route: Router) {}
   
   ngOnInit() {
     this.onlineEvent = fromEvent(window, 'online');
@@ -43,7 +44,7 @@ export class AppComponent {
     }));
 
     this.subscriptions.push(this.offlineEvent.subscribe(e => {
-      this.rooms = [''];
+      this.rooms = [];
       this.noConnection = true;
     }));
 
@@ -53,18 +54,13 @@ export class AppComponent {
     else{   
       this.isMobile = false;
     }
-    this.getAllData();
+   this.getAllData();
     
   }
 
   getAllData() { 
-    this.apiService.getAllData().subscribe((data: any[]) => {
-     
-      let a = JSON.stringify(data);
-      let b = JSON.parse(a);
-      this.dataService.serviceData = b.result;
-      this.roomData(b.result)
-     
+    this.apiService.getAllData().subscribe((data) => {  
+      this.roomData(data['result'])
     },
     (error) => {
       this.noConnection = true;
@@ -72,15 +68,14 @@ export class AppComponent {
   }
   
   getData(id) {
+    this.w3_close()
     this.route.navigate(['v2/room/' + id]);
   }
 
   onKeyUp(event: any) {
-    this.apiService.searchData(event.target.value).subscribe((data :any[]) =>{
+    this.apiService.searchData(event.target.value).subscribe((data) =>{
      
-      let a = JSON.stringify(data);
-      let b = JSON.parse(a);
-      this.roomData(b.result)
+      this.roomData(data['result'])
     },
     (error) =>{
       this.rooms = null;
@@ -94,71 +89,53 @@ export class AppComponent {
 
     
     this.rooms.forEach(room => {
-      this.Stime.push((room.time.start_time).slice(0, -8).split("T"));
-      this.Etime.push((room.time.end_time).slice(0, -8).split("T"));
+      this.start_time.push((room.time.start_time).slice(0, -8).split("T"));
+      this.end_time.push((room.time.end_time).slice(0, -8).split("T"));
 
       this.initializeClock(index, room.time.start_time, room.time.end_time);
 
-      let start = this.getTimeremaining(room.time.start_time);
-      let end = this.getTimeremaining(room.time.end_time);
-      this.start_period.push(start.period);
-      this.end_period.push(end.period);
       index++;
     });
   }
 
  
   initializeClock(index, startTime, endTime) {
+
     this.updateClock(index, startTime, endTime);
+    
     let timeInterval = setInterval(() => {
-      let start = this.getTimeremaining(startTime);
-      let end = this.getTimeremaining(endTime);
-      if (end.total <= 0) {
-        clearInterval(timeInterval);
-        this.status[index] = "จบการถ่ายทอดสดแล้ว";
-        this.time_status[index] = '';
-        this.status_color = "#cccccc"
-      }
-      else if (start.total <= 3600000 && start.total > 0) {
-        this.status[index] = '';
-        this.time_status[index] = start.hour + " ชั่วโมง " + start.minute + " นาทีจะทำการถ่ายทอดสด";
-        this.status_color = "#ecd31f"
-      }
-      else if (start.total <= 0) {
-        this.status[index] = 'กำลังทำการถ่ายทอดสด ';
-        //this.time_status[index] = end.hour + " ชั่วโมง " + end.minute + " นาทีจะสิ้นสุดการถ่ายทอดสด";
-        this.status_color = "#5cb85c"
-      }
-      else {
-        this.status[index] = '';
-        this.time_status[index] = start.hour + " ชั่วโมง " + start.minute + " นาทีจะทำการถ่ายทอดสด";
-        this.status_color = "orange"
-      }
+      this.updateClock(index,startTime,endTime)
     }, 1000 * 60
     )
   }
   
   getTimeremaining(time) {
-    this.present = new Date();
-    let total = Date.parse(time) - Date.parse(this.present);
+
+      
+    this.present_time = new Date();
+    let total = Date.parse(time) - Date.parse(this.present_time);
     let minute = Math.floor((total / 1000 / 60) % 60);
     let hour = Math.floor((total / (1000 * 60 * 60)));
     if(hour < 12){
       return {
-        'total': total, 'hour': hour, 'minute': minute, 'period':this.am
+        'total': total, 'hour': hour, 'minute': minute, 'period':"AM"
       };
     }
     else{
         //hour = hour % 12;
         return {
-          'total': total, 'hour': hour, 'minute': minute,'period':this.pm
+          'total': total, 'hour': hour, 'minute': minute,'period':"PM"
         };
     }
     
   }
   updateClock(index, startTime, endTime) {
+
     let start = this.getTimeremaining(startTime);
     let end = this.getTimeremaining(endTime);
+    this.start_period.push(start.period);
+    this.end_period.push(end.period);
+
     if (end.total <= 0) {
       this.status[index] = "การถ่ายทอดสดสิ้นสุดแล้ว";
       this.time_status[index] = '';
@@ -180,14 +157,13 @@ export class AppComponent {
       this.status_color = "orange"
     }
   }
+
   w3_open() {
-    document.getElementById("mySidenav").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
+    this.show = true;
   }
 
   w3_close() {
-    document.getElementById("mySidenav").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
+    this.show = false;
   }
 
   

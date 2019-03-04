@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DataService ,Connection} from '../../connected.service';
+import { Connection} from '../../connected.service';
 
 
 @Component({

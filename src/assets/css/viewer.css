@@ -120,14 +120,14 @@
     text-align: right;
     background-color: rgb(245, 245, 245);
     margin-bottom: 1%;
-    display: none;
+   
 }
 
 #m_options {
     text-align: right;
     background-color: rgb(245, 245, 245);
     margin-bottom: 1%;
-    display: none;
+    
 }
 
 #btnSaveText {
@@ -163,16 +163,14 @@
     display: none;
 }
 
-#beforeStreaming {
-    display: none;
-}
+
 
 #liveContainer {
     background-color: black;
     position: relative;
     width: 100%;
     height: 100%;
-    display: none;
+    
 }
 
 #m_liveContainer {
@@ -180,7 +178,8 @@
     position: relative;
     width: 100%;
     height: 100%;
-    display: none;
+    
+    
 }
 
 #statusStreaming {
@@ -202,34 +201,25 @@
     display: none;
 }
 
-#viewerMode2 {
-    display: none;
-}
-
 #incFont {
     border: none;
     cursor: pointer;
 }
-
 #decFont {
     border: none;
     cursor: pointer;
 }
 
-#inputFont2 {
-    display: none;
-}
-
 #incFont2 {
     border: none;
     cursor: pointer;
-    display: none;
+    
 }
 
 #decFont2 {
     border: none;
     cursor: pointer;
-    display: none;
+    
 }
 
 #fullScreen {
@@ -242,7 +232,6 @@
 #exitFullScreen {
     cursor: pointer;
     color: white;
-    display: none;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgb(45, 56, 55);
 }
@@ -250,12 +239,10 @@
 #video {
     z-index: 0;
     width: 100%;
-    height: 550px;
 }
-#video2 {
+#videoTextOnly {
     z-index: 0;
     width: 100%;
-    height: 550px;
 }
 
 #errorLog {

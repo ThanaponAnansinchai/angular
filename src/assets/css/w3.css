@@ -24,7 +24,7 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
     display: block
 }
 
-audio, canvas, progress, video {
+audio, canvas, progress {
     display: inline-block;
 }
 
@@ -592,7 +592,6 @@ ul.w3-ul li:last-child {
 
 .w3-modal {
     z-index: 3;
-    display: none;
     padding-top: 100px;
     position: fixed;
     left: 0;
@@ -1202,8 +1201,8 @@ input[type=checkbox].w3-check:disabled+.w3-validate, input[type=radio].w3-radio:
 
 .w3-display-bottomright {
     position: absolute;
-    right: 0;
-    bottom: 0
+    right: 3%; 
+    bottom: 3%;
 }
 
 .w3-display-middle {
@@ -2298,7 +2297,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate, input[type=radio].w3-radio:
         bottom: 3%;
         left: 29%;
     }
-    .mw3-sidenav .gallery_button2 {
+    .mw3-sidenav .gallery-button2 {
         background: #FFFFFF;
         height: 40px;
         width: 35%;

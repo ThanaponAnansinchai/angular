@@ -1,8 +1,24 @@
 /* Modal setting */
 
-.modal {
+.show-block{
+    display: block;
+}
+.show-inline{
+    display: inline;
+}
+.hide{
     display: none;
-    /* Hidden by default */
+}
+.full-height{
+    height: 100%;
+}
+.normal-height{
+    height: 550px;
+}
+
+.modal {
+    
+
     position: fixed;
     /* Stay in place */
     z-index: 2147483647;
@@ -18,7 +34,7 @@
 
 /* Modal Content */
 
-.modal_content {
+.modal-content {
     background-color: #fff;
     border: 1px solid #888;
     width: 100%;
@@ -62,13 +78,15 @@
     bottom: 3%;
     left: 29%;
 }
-.gallery_button2 {
+.gallery-button2 {
     background: #FFFFFF;
     height: 40px;
     width: 35%;
     position: fixed;
     bottom: 3%;
     left: 55%;
+    border: none; 
+    cursor: pointer;
 }
 
 /* responsesive screen */
@@ -167,6 +185,8 @@
         position: fixed;
         bottom: 3%;
         left: 55%;
+        border: none; 
+        cursor: pointer;
     }
     #watch-m {
         background: #FFFFFF;
@@ -349,6 +369,8 @@
         position: fixed;
         bottom: 3%;
         left: 45%;
+        border: none; 
+        cursor: pointer;
     }
     #watch-m {
         background: #FFFFFF;
@@ -523,13 +545,15 @@
         bottom: 3%;
         left: 29%;
     }
-    .gallery_button2 {
+    .gallery-button2 {
         background: #FFFFFF;
         height: 40px;
         width: 35%;
         position: fixed;
         bottom: 3%;
         left: 55%;
+        border: none; 
+        cursor: pointer;
     }
     #watch-m {
         background: #FFFFFF;
