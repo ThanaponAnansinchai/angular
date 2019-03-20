@@ -4,21 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RoomComponent } from './components/room/room.component';
-import { Connection} from './connected.service';
+import { Connection , optionService} from './service/connected.service';
 import { ShowComponent } from './components/show/show.component';
-import { FilterPipe} from './filter.pipe';
+import { OptionsComponent } from './components/options/options.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     RoomComponent,
     ShowComponent,
-    FilterPipe
+    OptionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,10 +28,10 @@ import { FilterPipe} from './filter.pipe';
     FormsModule,
     HttpClientModule,
     HttpModule,
-    ColorPickerModule
-  
+    ColorPickerModule,
+    NgbModule
   ],
-  providers: [Connection],
+  providers: [Connection,optionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

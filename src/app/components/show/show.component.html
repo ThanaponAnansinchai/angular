@@ -1,6 +1,5 @@
-
- <!-- !PAGE CONTENT! -->
- <div  class="w3-main"  [style.margin-left]="margin">
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" [style.margin-left]="margin">
   <!-- Push down content on small screens -->
   <div class="w3-hide-large" [style.margin-top]="top_margin"></div>
 
@@ -8,237 +7,77 @@
   <header class="w3-container">
     <h3 id="title">{{title}}</h3>
     <div id="time">
-        {{Tstart}} {{start_period}} - {{Tend}} {{end_period}}
+      {{Tstart}} {{startPeriod}} - {{Tend}} {{endPeriod}}
     </div>
-    <div *ngIf="isMobile" style="right: 0px;"><a  href="index.html">Back</a></div>
+    <div *ngIf="isMobile" style="right: 0px;"><a href="index.html">Back</a></div>
     <hr>
   </header>
 
   <!-- BEFORE VIEWER -->
   <section id="beforeStreaming" [ngClass]="beforeStreaming">
-      <div class="w3-container">
-        <div class="w3-row">
-          <div class="w3-col m12">
-            <div id="status"><font [style.color]="status_color">{{status}}</font></div>
-            <div>
-              <i class="fa fa-check"></i> ภาพเคลื่อนไหวเสียงและคำบรรยาย
-            </div>
-            <button class="w3-button w3-ripple w3-red w3-hover-black" id="startViewer" (click)="viewer_start()">เข้าชมตอนนี้</button>
+    <div class="w3-container">
+      <div class="w3-row">
+        <div class="w3-col m12">
+          <div id="status">
+            <font [style.color]="statusColor">{{status}} {{timeStatus}}</font>
           </div>
+          <div>
+            <i class="fa fa-check"></i> ภาพเคลื่อนไหวเสียงและคำบรรยาย
+          </div>
+          <button class="w3-button w3-ripple w3-red w3-hover-black" id="startViewer"
+            (click)="viewerStart()">เข้าชมตอนนี้</button>
         </div>
-        <hr>
       </div>
-    </section>
+      <hr>
+    </div>
+  </section>
 
   <!-- FOR START VIEWER WEB-->
-  <section  #fullScreen id="liveContainer"  [ngClass]="this.liveContainer" on-mousemove='over()'>
-      <div class="w3-display-topleft" id="statusStreaming" [ngClass]="this.statusStreaming"></div>
-      <div class="w3-display-topleft" id="views"></div>
-      <div class="w3-display-topright">
-        <button class="btn btn-info" id="muteVolume" (click)="mute()" >ปิดเสียง</button>
-        <button class="btn btn-info" id="unmuteVolume" (click)="unMute()">เปิดเสียง</button>
-        <button class="btn btn-danger" id="terminateViewer" [ngClass]="this.terminateViewer" (click)="viewer_stop();exitFullScreen()">สิ้นสุด</button>
+  <section #fullScreen id="liveContainer" [ngClass]="this.liveContainer" on-mousemove='over()'>
+    <div class="w3-display-topleft" id="statusStreaming" [ngClass]="this.statusStreaming"></div>
+    <div class="w3-display-topleft" id="views"></div>
+    <div class="w3-display-topright">
+      <button class="btn btn-info" id="muteVolume" (click)="mute()">ปิดเสียง</button>
+      <button class="btn btn-info" id="unmuteVolume" (click)="unMute()">เปิดเสียง</button>
+      <button class="btn btn-danger" id="terminateViewer" [ngClass]="this.terminateViewer"
+        (click)="viewerStop();exitFullScreen()">สิ้นสุด</button>
+    </div>
+
+    <div class="w3-display-bottomright">
+      <div class="w3-row">
+        <i class="fa fa-compress fa-lg" id="exitFullScreen" [ngClass]="exit_fullscreen" (click)="exitFullScreen()"></i>
+        <i class="fa fa-arrows-alt fa-lg" id="fullScreen" [ngClass]="full" (click)="toFullScreen()"></i>
       </div>
 
-      <div class="w3-display-topmiddle" id="optionVideoMode" [ngClass]="'this.optionVideoMode'">
-        <div class="w3-row">
-          <select class="w3-hide-small" id="viewerMode2" [ngClass]="this.viewerMode2" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
-            <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
-            <option value="text-only">คำบรรยาย</option>
-          </select>
-          <input class="w3-hide-small" id="inputFont2" [ngClass]="this.inputFont2" type="text" size="1" maxlength="3" list="size"  [(ngModel)]="size"> 
-          <button class="w3-hide-small" id="incFont2" [ngClass]="this.incFont2" (click)="toIntPlus(size,1)" >A+</button>
-          <button class="w3-hide-small" id="decFont2" [ngClass]="this.decFont2" (click)="toIntMinus(size,1)" >A-</button>
-          <i class="fa fa-arrows-alt fa-lg" id="fullScreen" [ngClass]="full" (click)="toFullScreen()" ></i>
-          <i class="fa fa-compress fa-lg" id="exitFullScreen"  [ngClass]="exit_fullscreen" (click)="exitFullScreen()"  ></i>
-        </div>
-      </div>
-      <!-- <video id="video" autoplay controls muted></video> -->
-      <video  id="video" [ngClass]="[this.video,this.fullscreenHeight]" playsinline="true" [style.background]="bgcolor" src="../../../assets/video/Ace Combat Infinity - History Lessons.webm"></video>
-      <video  id="videoTextOnly"  [ngClass]="[this.videoTextOnly,this.fullscreenHeight]" playsinline="true" [style.background]="bgcolor"></video>
-      
-      <div class="captioned-default " [ngClass]="[captioned_line,captioned_width]" id="captioned" [style.color]="color" [style.background]="caption_bg" [style.font-size.px]="size" [style.font-family]="fontStyle">Hello world สวัสดีโลก ---------------------------------------------------------------------------------------</div>
-    </section>
-   
-  <!-- OPTIONS MODE WEB-->
-  <div id="options"  [ngClass]="this.options">
-    <div class="w3-row">
-      <i class="fa fa-floppy-o fa-lg" id="btnSaveText" aria-hidden="true"></i>
-      <select id="settingCaptionedLine" [ngClass]="this.settingCaptionedLine" [(ngModel)]="CaptionedLine" (ngModelChange)="setCaptionedLine(CaptionedLine)">
-        <option value="">จำนวนบรรทัดคำบรรยาย</option>
-        <option value="2">2 บรรทัด</option>
-        <option value="3">3 บรรทัด</option>
-      </select>
-      <select id="settingCaptionedWidth" [ngClass]="this.settingCaptionedWidth" [(ngModel)]="CaptionedWidth" (ngModelChange)="setWidth(CaptionedWidth)">
-        <option value="">ความยาวของคำบรรยาย</option>
-        <option value="70">70% ของจอ</option>
-        <option value="100">100% ของจอ</option>
-      </select>
-      <select id="viewerMode" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
-        <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
-        <option value="text-only">คำบรรยาย</option>
-      </select>
-      <select id="changeFontFamily" [(ngModel)]="font" (ngModelChange)="setFont(font)" > 
-        <option value="FreesiaUPC">FreesiaUPC</option>
-        <option value="THNiramitAS">Th Niramit AS</option>
-        <option value="AngsanaNew">Angsana New</option>
-        <option value="CordiaNew">Cordia New</option>
-      </select>
-      <button [(colorPicker)]="color" [style.background]="color" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(255, 255, 255);">A</button>
-      <button [(colorPicker)]="caption_bg" [style.background]="caption_bg" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(0, 0, 0);">C</button>
-      
-      <button [(colorPicker)]="bgcolor" [style.background]="bgcolor" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(0, 0, 0);">&nbsp;&nbsp;</button>
-      <input id="inputFont" type="text" size="1" maxlength="3" list="size" [(ngModel)]="size">
-      <datalist id="size">
-        <option *ngFor="let size of atextSize" value="{{size}}"></option>
-      </datalist>
-      <button id="incFont" (click)="toIntPlus(size,1)">A+</button>
-      <button id="decFont" (click)="toIntMinus(size,1)">A-</button>
     </div>
+
+
+    <video id="video" [ngClass]="[this.optionService.video,this.optionService.fullscreenHeight]" playsinline="true"
+      [style.background]="this.optionService.bgColor"
+      src="../../../assets/video/Ace Combat Infinity - History Lessons.webm"></video>
+    <video id="videoTextOnly" [ngClass]="[this.optionService.videoTextOnly,this.optionService.fullscreenHeight]"
+      playsinline="true" [style.background]="this.optionService.bgColor"></video>
+
+    <div class="captioned-default "
+      [ngClass]="[this.optionService.classCaptionedLine,this.optionService.classCaptionedWidth]" id="captioned"
+      [style.color]="this.optionService.color" [style.background]="this.optionService.captionBG"
+      [style.font-size.px]="this.optionService.size" [style.font-family]="this.optionService.fontStyle">เป็นเวลา 20
+      ปีมาแล้ว ในวันที่ท้องฟ้าถูกฉีกด้วยแสงจำนวนนับไม่ถ้วนที่ตกลงมายังโลก
+      ผมคิดว่าถึงเวลาสำหรับบทเรียนประวัติศาสตร์แล้วล่ะ</div>
+  </section>
+
+
+  <div id="options" [ngClass]="this.options">
+    <app-options></app-options>
+
   </div>
 
-<!-- FOR START VIEWER MOBILE-->
-
- <section  #fullScreen id="m_liveContainer" [ngClass]="this.m_liveContainer"  on-mousemove='over()'>
-      <div class="w3-display-topleft" id="statusStreaming"  [ngClass]="this.statusStreaming" style="padding: 2px 6px 0px; color: white; z-index: 1; background-color: rgba(217, 83, 79, 1);"></div>
-      <div class="w3-display-topright" style="z-index: 1;">
-        <button class="btn btn-danger" id="terminateViewer" [ngClass]="this.terminateViewer" (click)="exitFullScreen();viewer_stop()">END</button>
-      </div>
-      
-      <video  id="video" [ngClass]="[this.video,this.fullscreenHeight]" playsinline="true" [style.background]="bgcolor"  src="../../../assets/video/Ace Combat Infinity - History Lessons.mp4"></video>
-      <video  id="videoTextOnly" [ngClass]="[this.videoTextOnly,this.fullscreenHeight]" playsinline="true" [style.background]="bgcolor"></video>
-      
-
-      <div class="captioned-default " [ngClass]="[captioned_line,captioned_width]" id="captioned" [style.background]="caption_bg" [style.color]="color" [style.font-size.px]="size" [style.font-family]="fontStyle">-------------------------------------------------------------------------------------------------------------------------------------------</div>
- 
-	 <div class="w3-display-bottomright" id="m_optionVideoMode" [ngClass]="this.m_optionVideoMode">
-        <div class="w3-row ">
-          <select class="w3-hide-small" id="m_viewerMode2" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
-            <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
-            <option value="text-only">คำบรรยาย</option>
-          </select>
-          <input class="w3-hide-small" id="m_inputFont2" type="text" size="1" maxlength="3" list="size" [(ngModel)]="size"> 
-          <button class="w3-hide-small" id="m_incFont2" (click)="toIntPlus(size,1)" >A+</button>
-          <button class="w3-hide-small" id="m_decFont2" (click)="toIntMinus(size,1)" >A-</button>
-          
-        <button class="gallery-button2" id="choice2" (click)="open_modal()" >ตัวเลือกเพิ่มเติม </button>
-          <i class="fa fa-arrows-alt fa-lg" id="fullScreen" [ngClass]="full"  (click)="toFullScreen()"  ></i>
-          <i class="fa fa-compress fa-lg" id="exitFullScreen" [ngClass]="exit_fullscreen" (click)="exitFullScreen()"  ></i>  </div>
-      </div>
-    </section>
-  
-
-<!-- OPTIONS MODE MOBILE -->
-
-<div id="m_options" [ngClass]="this.m_options" style="text-align: right;background-color: rgb(245, 245, 245);margin-bottom: 1%;">
-  <div class="w3-row">
-      <i class="fa fa-floppy-o fa-lg" id="m_btnSaveText" aria-hidden="true"></i>
-    
-      <select id="m_viewerMode" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
-        <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
-        <option value="text-only">คำบรรยาย</option>
-      </select>
-      <select id="m_changeFontFamily" [(ngModel)]="font" (ngModelChange)="setFont(font)" > 
-        <option value="FreesiaUPC">FreesiaUPC</option>
-        <option value="THNiramitAS">Th Niramit AS</option>
-        <option value="AngsanaNew">Angsana New</option>
-        <option value="CordiaNew">Cordia New</option>
-      </select>
-      <button  id="set_font_color" [(colorPicker)]="color" [style.background]="color" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(255, 255, 255);" >A</button>
-      <button id="set_background_color" [(colorPicker)]="bgcolor" [style.background]="bgcolor" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(0, 0, 0);" >&nbsp;&nbsp;</button>
-      <input id="m_inputFont" type="text" size="1" maxlength="3" list="size" [(ngModel)]="size">
-      <datalist id="m_size">
-        <option *ngFor="let size of atextSize" value="{{size}}"></option>
-      </datalist>
-      <button id="m_incFont" (click)="toIntPlus(size,1)">A+</button>
-      <button id="m_decFont" (click)="toIntMinus(size,1)">A-</button>
-      <button id="choice" (click)="open_modal()" style="border: none; cursor: pointer;">ตัวเลือกเพิ่มเติม </button>
-    </div>
-</div>
-	
-<!-- Mobile modal option -->
-<div class="modal" id="myModal" [ngClass]="this.myModal">
-
-  <!--   Modal content -->
-  <div class="modal-content" [ngClass]="this.myModal">
-    <header class="modal_header">
-      <span class="close" id="close_setting" (click)="close_modal()">×</span>
-      <h3 align="left">ตัวเลือกเพิ่มเติม</h3>
-    </header>
-
-    <div class="ex-m" id="ex-bg-m" style="position: relative;width: 100%; height: 100px;" [style.background]="bgcolor"  >
-      <div id="ex-font-m" [style.background]="caption_bg" [style.color]="color" [style.font-size.px]="size" [style.font-family]="fontStyle"> ตัวอย่างการแสดงผล </div>
-    </div>
-
-
-    <footer class="w3-container">
-      <div class="w3-row">
-        <div id="size-font-m" style="border: none; cursor: pointer;">ขนาดตัวอักษร</div>
-
-        <button id="AA-m" (click)="toIntPlus(size,1)">A+</button>
-        <button id="A-m" (click)="toIntMinus(size,1)">A-</button>
-      </div>
-      <br>
-
-      <div class="w3-row">
-        <div id="watch-m" style="border: none; cursor: pointer;">การรับชม</div>
-        <select id="viewerMode" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
-    <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
-    <option value="text-only">คำบรรยาย</option>
-  </select>
-      </div>
-      <br>
-
-
-      <div class="w3-row">
-        <div id="font-m" style="border: none; cursor: pointer;">ตัวอักษร</div>
-          <select id="changeFontFamily" [(ngModel)]="font" (ngModelChange)="setFont(font)" > 
-        <option value="FreesiaUPC">FreesiaUPC</option>
-      <option value="THNiramitAS">Th Niramit AS</option>
-      <option value="AngsanaNew">Angsana New</option>
-      <option value="CordiaNew">Cordia New</option>
-    </select>
-
-      </div>
-
-      <br>
-
-
-      <div class="w3-row">
-        <div id="font-color-m" style="border: none; cursor: pointer;">สีอักษร</div>
-  <button [(colorPicker)]="color" [style.background]="color" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'top'"  style="background: rgb(255, 255, 255);">&nbsp;&nbsp;</button>
-      </div>
-
-      <br>
-
-      <div class="w3-row">
-        <div id="captioned-color-m" style="border: none; cursor: pointer;">สีแคปชั่น</div>
-  <button [(colorPicker)]="caption_bg" [style.background]="caption_bg" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'top'"  style="background: rgb(255, 255, 255);">&nbsp;&nbsp;</button>
-      </div>
-
-      <br>
-
-      <div class="w3-row">
-        <div id="bgcolor-m" style="border: none; cursor: pointer;">สีพื้นหลัง</div>
-        <button [(colorPicker)]="bgcolor" [style.background]="bgcolor" [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'top'"  style="background: rgb(0, 0, 0);">&nbsp;&nbsp;</button>
-
-      </div>
-      <br>
-
-      <div class="w3-row">
-        <button class="w3-button w3-black" id="btnSaveText" style="border: none;cursor: pointer;font-size:18px;">save text</button>
-      </div>
-      <br>
-    </footer>
-  </div>
-
-</div>
 
   <!-- Description -->
-  
+
   <div id="description" class="w3-container">{{description}}</div>
   <!-- print log error -->
   <div id="errorLog" class="w3-container"></div>
+
+
 </div>
-
-
