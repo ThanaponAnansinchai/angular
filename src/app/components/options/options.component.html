@@ -47,7 +47,7 @@
       <a class="btn" id="dropdownBasic2" ngbDropdownToggle><i id="choice" class="fa fa-gear dropbtn"></i></a>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
 
-        <div ngbDropdownItem ngbDropdown placement="left">
+        <div ngbDropdownItem ngbDropdown placement="left" [ngClass]="this.settingCaptionedLine">
           <div ngbDropdownToggle>
             <a class="btn" id="dropdownBasic3">จำนวนบรรทัดคำบรรยาย</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
@@ -57,7 +57,7 @@
           </div>
         </div>
 
-        <div ngbDropdownItem ngbDropdown placement="left">
+        <div ngbDropdownItem ngbDropdown placement="left" [ngClass]="this.settingCaptionedWidth">
           <div ngbDropdownToggle>
             <a class="btn" id="dropdownBasic3">ความยาวของคำบรรยาย</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">

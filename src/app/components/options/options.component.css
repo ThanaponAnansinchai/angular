@@ -787,7 +787,7 @@
  .dropleft .dropdown-toggle:empty::after{margin-left:0}
  .dropleft .dropdown-toggle::before{vertical-align:0}
 
- .dropdown-item{display:block;clear:both;color:#ffffff;text-align:right;white-space:nowrap;background-color:transparent;border:0}
+ .dropdown-item{clear:both;color:#ffffff;text-align:right;white-space:nowrap;background-color:transparent;border:0;cursor:pointer}
  .dropdown-item:focus,.dropdown-item:hover{color:#000000;text-decoration:none;background-color:#f8f9fa}
  .dropdown-item.active,.dropdown-item:active{color:#f8f9fa;text-decoration:none;background-color:#929292}
  .dropdown-item.disabled,.dropdown-item:disabled{color:#6c757d;background-color:transparent}
