@@ -59,7 +59,7 @@ export class ShowComponent implements OnInit {
 
 
 
-  constructor(private route: ActivatedRoute, private apiService: Connection,private optionService: optionService) { 
+  constructor(private route: ActivatedRoute, private apiService: Connection,public optionService: optionService) { 
     
    
 
