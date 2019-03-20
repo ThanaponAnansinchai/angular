@@ -34,7 +34,7 @@ export class OptionsComponent implements OnInit {
   public isFullscreen = false;
   
 
-  constructor(private _route: Router, private route: ActivatedRoute, private apiService: Connection, private optionService: optionService) { }
+  constructor(private _route: Router, private route: ActivatedRoute, private apiService: Connection, public optionService: optionService) { }
 
   ngOnInit() {
 
