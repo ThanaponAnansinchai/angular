@@ -206,25 +206,10 @@
     display: none;
 }
 
-#incFont {
+#incFont,#decFont,#incFont2,#decFont2 {
     border: none;
     cursor: pointer;
-}
-#decFont {
-    border: none;
-    cursor: pointer;
-}
-
-#incFont2 {
-    border: none;
-    cursor: pointer;
-    
-}
-
-#decFont2 {
-    border: none;
-    cursor: pointer;
-    
+    z-index: 1;
 }
 
 #fullScreen {
