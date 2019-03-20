@@ -37,8 +37,8 @@
     <div class="w3-display-topleft" id="statusStreaming" [ngClass]="this.statusStreaming"></div>
     <div class="w3-display-topleft" id="views"></div>
     <div class="w3-display-topright">
-      <button class="btn btn-info" id="muteVolume" (click)="mute()">ปิดเสียง</button>
-      <button class="btn btn-info" id="unmuteVolume" (click)="unMute()">เปิดเสียง</button>
+      <button class="btn btn-info" id="muteVolume" >ปิดเสียง</button>
+      <button class="btn btn-info" id="unmuteVolume" >เปิดเสียง</button>
       <button class="btn btn-danger" id="terminateViewer" [ngClass]="this.terminateViewer"
         (click)="viewerStop();exitFullScreen()">สิ้นสุด</button>
     </div>
