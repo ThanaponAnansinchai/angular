@@ -48,63 +48,63 @@
       <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
 
         <div ngbDropdownItem ngbDropdown placement="left" [ngClass]="this.settingCaptionedLine">
-          <div ngbDropdownToggle>
+          <div ngbDropdownToggle class=" btn-outline-primary">
             <a class="btn" id="dropdownBasic3">จำนวนบรรทัดคำบรรยาย</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
-              <div (click)="setCaptionedLine(2)" ngbDropdownItem>2 บรรทัด</div>
-              <div (click)="setCaptionedLine(3)" ngbDropdownItem>3 บรรทัด</div>
+              <div class="btn" (click)="setCaptionedLine(2)" ngbDropdownItem>2 บรรทัด</div>
+              <div class="btn" (click)="setCaptionedLine(3)" ngbDropdownItem>3 บรรทัด</div>
             </div>
           </div>
         </div>
 
         <div ngbDropdownItem ngbDropdown placement="left" [ngClass]="this.settingCaptionedWidth">
-          <div ngbDropdownToggle>
+          <div ngbDropdownToggle class=" btn-outline-primary">
             <a class="btn" id="dropdownBasic3">ความยาวของคำบรรยาย</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
-              <div (click)="setWidth(70)" ngbDropdownItem>70% ของจอ</div>
-              <div (click)="setWidth(100)" ngbDropdownItem>100% ของจอ</div>
+              <div class="btn" (click)="setWidth(70)" ngbDropdownItem>70% ของจอ</div>
+              <div class="btn" (click)="setWidth(100)" ngbDropdownItem>100% ของจอ</div>
             </div>
           </div>
         </div>
 
         <div ngbDropdownItem ngbDropdown placement="left">
-          <div ngbDropdownToggle>
+          <div ngbDropdownToggle class=" btn-outline-primary">
             <a class="btn" id="dropdownBasic3">การรับชม</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
-              <div (click)="setMode('video-text')" ngbDropdownItem> ภาพเคลื่อนไหวเสียงและคำบรรยาย </div>
-              <div (click)="setMode('text-only')" ngbDropdownItem> คำบรรยาย </div>
+              <div class="btn" (click)="setMode('video-text')" ngbDropdownItem> ภาพเคลื่อนไหวเสียงและคำบรรยาย </div>
+              <div class="btn" (click)="setMode('text-only')" ngbDropdownItem> คำบรรยาย </div>
                 
             </div>
           </div>
         </div>
 
         <div ngbDropdownItem ngbDropdown placement="left">
-          <div ngbDropdownToggle>
+          <div ngbDropdownToggle class=" btn-outline-primary">
             <a class="btn" id="dropdownBasic3">ตัวอักษร</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
-              <div (click)="setFont('FreesiaUPC')" ngbDropdownItem>FreesiaUPC</div>
-              <div (click)="setFont('THNiramitAS')" ngbDropdownItem>Th Niramit AS</div>
-              <div (click)="setFont('AngsanaNew')" ngbDropdownItem>Angsana New</div>
-              <div (click)="setFont('CordiaNew')" ngbDropdownItem>Cordia New</div>
+              <div class="btn" (click)="setFont('FreesiaUPC')" ngbDropdownItem>FreesiaUPC</div>
+              <div class="btn" (click)="setFont('THNiramitAS')" ngbDropdownItem>Th Niramit AS</div>
+              <div class="btn" (click)="setFont('AngsanaNew')" ngbDropdownItem>Angsana New</div>
+              <div class="btn" (click)="setFont('CordiaNew')" ngbDropdownItem>Cordia New</div>
             </div>
           </div>
         </div>
 
         <div ngbDropdownItem ngbDropdown placement="left" autoClose="outside">
-          <div ngbDropdownToggle>
+          <div ngbDropdownToggle class=" btn-outline-primary">
             <a class="btn" id="dropdownBasic3">สี</a>
 
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
 
-              <button ngbDropdownItem [(colorPicker)]="this.optionService.color"
+              <button class="btn" ngbDropdownItem [(colorPicker)]="this.optionService.color"
                 [style.background]="this.optionService.color" [cpDisableInput]=true [cpSaveClickOutside]
                 [cpPosition]="'left'" >สีอักษร</button>
 
-              <button ngbDropdownItem [(colorPicker)]="this.optionService.captionBG"
+              <button class="btn" ngbDropdownItem [(colorPicker)]="this.optionService.captionBG"
                 [style.background]="this.optionService.captionBG" [cpDisableInput]=true [cpSaveClickOutside]
                 [cpPosition]="'left'" >สีแคปชั่น</button>
 
-              <button ngbDropdownItem [(colorPicker)]="this.optionService.bgColor"
+              <button class="btn" ngbDropdownItem [(colorPicker)]="this.optionService.bgColor"
                 [style.background]="this.optionService.bgColor" [cpDisableInput]=true [cpSaveClickOutside]
                 [cpPosition]="'left'" >สีพื้นหลัง</button>
 
