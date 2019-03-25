@@ -42,7 +42,7 @@
   <!--<i id="choice" class="fa fa-gear dropbtn"></i>-->
 
 
-  <div class="text-right">
+  <div class="text-right" [ngClass]="!this.isMobile">
     <div ngbDropdown placement="top-right" autoClose="outside" class="d-inline-block">
       <a class="btn" id="dropdownBasic2" ngbDropdownToggle><i id="choice" class="fa fa-gear dropbtn"></i></a>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
@@ -122,7 +122,7 @@
 
 
 <!-- Mobile modal option -->
-<div class="modal" id="myModal" [ngClass]="this.myModal">
+<div class="modal" id="myModal" [ngClass]="this.isMobile" [ngClass]="this.myModal">
 
   <!--   Modal content -->
   <div class="modal-content" [ngClass]="this.myModal">
@@ -172,7 +172,7 @@
         <div id="font-color-m">สีอักษร</div>
         <button [(colorPicker)]="this.optionService.color" [style.background]="this.optionService.color"
           [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'"
-          style="background: rgb(255, 255, 255);">&nbsp;&nbsp;</button>
+         >&nbsp;&nbsp;</button>
       </div>
 
       <br>
@@ -181,7 +181,7 @@
         <div id="captioned-color-m">สีแคปชั่น</div>
         <button [(colorPicker)]="this.optionService.captionBG" [style.background]="this.optionService.captionBG"
           [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'"
-          style="background: rgb(255, 255, 255);">&nbsp;&nbsp;</button>
+         >&nbsp;&nbsp;</button>
       </div>
 
       <br>
@@ -190,7 +190,7 @@
         <div id="bg-color-m">สีพื้นหลัง</div>
         <button [(colorPicker)]="this.optionService.bgColor" [style.background]="this.optionService.bgColor"
           [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'"
-          style="background: rgb(0, 0, 0);">&nbsp;&nbsp;</button>
+         >&nbsp;&nbsp;</button>
 
       </div>
       <br>
