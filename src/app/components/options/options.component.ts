@@ -29,7 +29,7 @@ export class OptionsComponent implements OnInit {
 
   // Fullscreen
 
-  public exit_fullscreen; incFont2; decFont2; inputFont2; viewerMode2; full;
+  public exitFullscreen; incFont2; decFont2; inputFont2; viewerMode2; full;
   public fullscreenHeight = "normal-height";
   public isFullscreen = false;
 
@@ -58,7 +58,7 @@ export class OptionsComponent implements OnInit {
 
 
     this.m_options = this.m_optionVideoMode = this.myModal = "hide";
-    this.exit_fullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = this.choice = "hide"
+    this.exitFullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = this.choice = "hide"
 
   }
 

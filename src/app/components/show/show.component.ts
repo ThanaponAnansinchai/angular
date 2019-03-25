@@ -22,7 +22,7 @@ export class ShowComponent implements OnInit {
   public timeStatus: any;
   public statusColor: any;
   public isMobile = false;
-  public margin; top_margin;
+  public margin; topMargin;
   public atextSize = [10, 16, 18, 22, 24, 26, 28, 36, 48, 72, 84, 96, 100];
   public size = 36;
   public fontColorPicker; widths; fontsize; fontStyle; bmode; color; bgColor; captionBG;
@@ -48,7 +48,7 @@ export class ShowComponent implements OnInit {
 
   // Fullscreen
 
-  public exit_fullscreen; incFont2; decFont2; inputFont2; viewerMode2; full;
+  public exitFullscreen; incFont2; decFont2; inputFont2; viewerMode2; full;
   public fullscreenHeight = "normal-height";
   public isFullscreen = false;
 
@@ -75,20 +75,20 @@ export class ShowComponent implements OnInit {
       if (/Android|iPhone/i.test(window.navigator.userAgent)) {
         this.isMobile = true
         this.margin = "0px";
-        this.top_margin = "0px";
+        this.topMargin = "0px";
         this.size = 16;
 
       }
       else {
         this.isMobile = false;
         this.margin = "300px";
-        this.top_margin = "70px";
+        this.topMargin = "70px";
       }
 
       window.scrollTo(0, 0);
 
       this.liveContainer = this.m_liveContainer = this.options = this.m_options = this.m_optionVideoMode = this.myModal = this.terminateViewer = this.statusStreaming = "hide";
-      this.exit_fullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = this.choice = "hide"
+      this.exitFullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = this.choice = "hide"
       this.full = "hide"
       this.beforeStreaming = "show-block"
       this.optionService.dropupContent = "hide"
@@ -239,7 +239,7 @@ export class ShowComponent implements OnInit {
 
   toFullScreen() {
 
-    this.exit_fullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = "show-inline";
+    this.exitFullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = "show-inline";
 
     this.full = "hide";
     this.optionService.fullscreenHeight = "full-height";
@@ -263,7 +263,7 @@ export class ShowComponent implements OnInit {
 
   exitFullScreen() {
 
-    this.exit_fullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = "hide";
+    this.exitFullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = "hide";
     this.full = "show-inline";
     this.optionService.fullscreenHeight = "normal-height";
     this.fullscreenHeight = "normal-height";
@@ -286,7 +286,7 @@ export class ShowComponent implements OnInit {
 
     if (this.isFullscreen) {
       this.full = "hide";
-      this.exit_fullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = "show-inline"
+      this.exitFullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = "show-inline"
     }
     else { 
       this.full = "show-inline" 
@@ -296,7 +296,7 @@ export class ShowComponent implements OnInit {
     
     setTimeout(() => {
       this.full = this.optionVideoMode = this.statusStreaming = this.terminateViewer = "hide";
-      this.exit_fullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = "hide"
+      this.exitFullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = "hide"
     }, 5000);
   }
 }
