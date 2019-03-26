@@ -37,12 +37,12 @@
   <button id="incFont" (click)="toIntPlus(size,1)">A+</button>
   <button id="decFont" (click)="toIntMinus(size,1)">A-</button>
 
-  <!--<button id="choice"  (click)="openModal()">ตัวเลือกเพิ่มเติม </button>-->
+  <button id="choice" *ngIf="this.isMobile"  (click)="openModal()">ตัวเลือกเพิ่มเติม </button>
 
   <!--<i id="choice" class="fa fa-gear dropbtn"></i>-->
 
 
-  <div class="text-right" [ngClass]="!this.isMobile">
+  <div class="text-right" *ngIf="!this.isMobile">
     <div ngbDropdown placement="top-right" autoClose="outside" class="d-inline-block">
       <a class="btn" id="dropdownBasic2" ngbDropdownToggle><i id="choice" class="fa fa-gear dropbtn"></i></a>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
@@ -51,8 +51,8 @@
           <div ngbDropdownToggle class=" btn-outline-primary">
             <a class="btn" id="dropdownBasic3">จำนวนบรรทัดคำบรรยาย</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
-              <div class="btn" (click)="setCaptionedLine(2)" ngbDropdownItem>2 บรรทัด</div>
-              <div class="btn" (click)="setCaptionedLine(3)" ngbDropdownItem>3 บรรทัด</div>
+              <div class="btn" [ngClass]="this.twoLineActive" (click)="setCaptionedLine(2)" ngbDropdownItem>2 บรรทัด</div>
+              <div class="btn" [ngClass]="this.threeLineActive" (click)="setCaptionedLine(3)" ngbDropdownItem>3 บรรทัด</div>
             </div>
           </div>
         </div>
@@ -61,8 +61,8 @@
           <div ngbDropdownToggle class=" btn-outline-primary">
             <a class="btn" id="dropdownBasic3">ความยาวของคำบรรยาย</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
-              <div class="btn" (click)="setWidth(70)" ngbDropdownItem>70% ของจอ</div>
-              <div class="btn" (click)="setWidth(100)" ngbDropdownItem>100% ของจอ</div>
+              <div class="btn" [ngClass]="this.widthSevenActive" (click)="setWidth(70)" ngbDropdownItem>70% ของจอ</div>
+              <div class="btn" [ngClass]="this.widthHundredActive" (click)="setWidth(100)" ngbDropdownItem>100% ของจอ</div>
             </div>
           </div>
         </div>
@@ -71,21 +71,21 @@
           <div ngbDropdownToggle class=" btn-outline-primary">
             <a class="btn" id="dropdownBasic3">การรับชม</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
-              <div class="btn" (click)="setMode('video-text')" ngbDropdownItem> ภาพเคลื่อนไหวเสียงและคำบรรยาย </div>
-              <div class="btn" (click)="setMode('text-only')" ngbDropdownItem> คำบรรยาย </div>
+              <div class="btn" [ngClass]="" (click)="setMode('video-text')" ngbDropdownItem> ภาพเคลื่อนไหวเสียงและคำบรรยาย </div>
+              <div class="btn" [ngClass]="" (click)="setMode('text-only')" ngbDropdownItem> คำบรรยาย </div>
                 
             </div>
           </div>
         </div>
 
         <div ngbDropdownItem ngbDropdown placement="left">
-          <div ngbDropdownToggle class=" btn-outline-primary">
+          <div ngbDropdownToggle class="btn-outline-primary">
             <a class="btn" id="dropdownBasic3">ตัวอักษร</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
-              <div class="btn" (click)="setFont('FreesiaUPC')" ngbDropdownItem>FreesiaUPC</div>
-              <div class="btn" (click)="setFont('THNiramitAS')" ngbDropdownItem>Th Niramit AS</div>
-              <div class="btn" (click)="setFont('AngsanaNew')" ngbDropdownItem>Angsana New</div>
-              <div class="btn" (click)="setFont('CordiaNew')" ngbDropdownItem>Cordia New</div>
+              <div class="btn" [ngClass]="" (click)="setFont('FreesiaUPC')" ngbDropdownItem>FreesiaUPC</div>
+              <div class="btn" [ngClass]="" (click)="setFont('THNiramitAS')" ngbDropdownItem>Th Niramit AS</div>
+              <div class="btn" [ngClass]="" (click)="setFont('AngsanaNew')" ngbDropdownItem>Angsana New</div>
+              <div class="btn" [ngClass]="" (click)="setFont('CordiaNew')" ngbDropdownItem>Cordia New</div>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@
 
 
 <!-- Mobile modal option -->
-<div class="modal" id="myModal" [ngClass]="this.isMobile" [ngClass]="this.myModal">
+<div class="modal" id="myModal" *ngIf="this.isMobile" [ngClass]="this.myModal">
 
   <!--   Modal content -->
   <div class="modal-content" [ngClass]="this.myModal">

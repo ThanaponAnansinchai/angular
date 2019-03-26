@@ -26,6 +26,8 @@ export class OptionsComponent implements OnInit {
   public statusStreaming; terminateViewer;
   public settingCaptionedLine; settingCaptionedWidth;
   public dropupContent = "hide"
+  public twoLineActive;threeLineActive;
+  public widthHundredActive;widthSevenActive;
 
   // Fullscreen
 
@@ -38,7 +40,10 @@ export class OptionsComponent implements OnInit {
 
   ngOnInit() {
 
-
+    this.twoLineActive = "active";
+    this.widthSevenActive = "active";
+    
+    
     if (/Android|iPhone/i.test(window.navigator.userAgent)) {
       this.isMobile = true;
       this.size = 16;
@@ -120,10 +125,14 @@ export class OptionsComponent implements OnInit {
   setWidth(CaptionedWidth) {
     this.widths = CaptionedWidth;
     if (CaptionedWidth == 100) {
-      this.optionService.classCaptionedWidth = this.classCaptionedWidth = "captioned-width-100"
+      this.optionService.classCaptionedWidth = this.classCaptionedWidth = "captioned-width-100";
+      this.widthHundredActive = "active";
+      this.widthSevenActive = "";
     }
     else if (CaptionedWidth == 70) {
-      this.optionService.classCaptionedWidth = this.classCaptionedWidth = "captioned-width-70"
+      this.optionService.classCaptionedWidth = this.classCaptionedWidth = "captioned-width-70";
+      this.widthHundredActive = "";
+      this.widthSevenActive = "active";
     }
 
   }
@@ -131,15 +140,19 @@ export class OptionsComponent implements OnInit {
   setCaptionedLine(CaptionedLine) {
     this.CaptionedLine = CaptionedLine;
     if (CaptionedLine == 3) {
-      this.optionService.classCaptionedLine = this.classCaptionedLine = "captioned-line-3"
+      this.optionService.classCaptionedLine = this.classCaptionedLine = "captioned-line-3";
+      this.threeLineActive = "active";
+      this.twoLineActive = "";
     }
     else if (CaptionedLine == 2) {
-      this.optionService.classCaptionedLine = this.classCaptionedLine = "captioned-line-2"
+      this.optionService.classCaptionedLine = this.classCaptionedLine = "captioned-line-2";
+      this.threeLineActive = "";
+      this.twoLineActive = "active";
     }
   }
 
   openModal() {
-    //this.myModal = "show-block"
+    this.myModal = "show-block"
     this.dropupContent = "show-block"
   }
 
