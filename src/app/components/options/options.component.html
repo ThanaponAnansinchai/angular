@@ -47,7 +47,7 @@
       <a class="btn" id="dropdownBasic2" ngbDropdownToggle><i id="choice" class="fa fa-gear dropbtn"></i></a>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
 
-        <div ngbDropdownItem ngbDropdown placement="left" [ngClass]="this.settingCaptionedLine">
+        <div ngbDropdownItem ngbDropdown placement="left-bottom" [ngClass]="this.settingCaptionedLine">
           <div ngbDropdownToggle class=" btn-outline-primary">
             <a class="btn" id="dropdownBasic3">จำนวนบรรทัดคำบรรยาย</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
@@ -57,7 +57,7 @@
           </div>
         </div>
 
-        <div ngbDropdownItem ngbDropdown placement="left" [ngClass]="this.settingCaptionedWidth">
+        <div ngbDropdownItem ngbDropdown placement="left-bottom" [ngClass]="this.settingCaptionedWidth">
           <div ngbDropdownToggle class=" btn-outline-primary">
             <a class="btn" id="dropdownBasic3">ความยาวของคำบรรยาย</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
@@ -67,7 +67,7 @@
           </div>
         </div>
 
-        <div ngbDropdownItem ngbDropdown placement="left">
+        <div ngbDropdownItem ngbDropdown placement="left-bottom">
           <div ngbDropdownToggle class=" btn-outline-primary">
             <a class="btn" id="dropdownBasic3">การรับชม</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
@@ -78,8 +78,8 @@
           </div>
         </div>
 
-        <div ngbDropdownItem ngbDropdown placement="left">
-          <div ngbDropdownToggle class="btn-outline-primary">
+        <div ngbDropdownItem ngbDropdown placement="left-bottom">
+          <div ngbDropdownToggle class="btn-outline-primary" >
             <a class="btn" id="dropdownBasic3">ตัวอักษร</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
               <div class="btn" [ngClass]="this.FreesiaUPCActive" (click)="setFont('FreesiaUPC')" ngbDropdownItem>FreesiaUPC</div>
@@ -90,7 +90,7 @@
           </div>
         </div>
 
-        <div ngbDropdownItem ngbDropdown placement="left" autoClose="outside">
+        <div ngbDropdownItem ngbDropdown placement="left-bottom" autoClose="outside">
           <div ngbDropdownToggle class=" btn-outline-primary">
             <a class="btn" id="dropdownBasic3">สี</a>
 
