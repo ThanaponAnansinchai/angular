@@ -28,6 +28,8 @@ export class OptionsComponent implements OnInit {
   public dropupContent = "hide"
   public twoLineActive;threeLineActive;
   public widthHundredActive;widthSevenActive;
+  public videoActice;textOnlyActive;
+  public FreesiaUPCActive;THNiramitASActive;AngsanaNewActive;CordiaNewActive;
 
   // Fullscreen
 
@@ -42,6 +44,8 @@ export class OptionsComponent implements OnInit {
 
     this.twoLineActive = "active";
     this.widthSevenActive = "active";
+    this.videoActice = "active";
+    this.FreesiaUPCActive = "active";
     
     
     if (/Android|iPhone/i.test(window.navigator.userAgent)) {
@@ -84,13 +88,18 @@ export class OptionsComponent implements OnInit {
   }
 
   setFont(fontStyle) {
+    this.FreesiaUPCActive = this.THNiramitASActive = this.AngsanaNewActive = this.CordiaNewActive = "";
 
+    if(fontStyle == "FreesiaUPC"){this.FreesiaUPCActive = "active"}
+    if(fontStyle == "THNiramitAS"){this.THNiramitASActive = "active"}
+    if(fontStyle == "AngsanaNew"){this.AngsanaNewActive = "active"}
+    if(fontStyle == "CordiaNew"){this.CordiaNewActive = "active"}
 
     this.optionService.fontStyle = this.fontStyle = fontStyle;
   }
 
   setMode(mode) {
-
+    this.textOnlyActive = this.videoActice = ""
 
     if (mode == "text-only") {
       if (this.mode != "text-only") {
@@ -103,7 +112,9 @@ export class OptionsComponent implements OnInit {
         this.optionService.video = "hide";
        
       }
-      this.mode = "text-only"
+      this.mode = "text-only";
+      this.textOnlyActive = "active";
+   
 
     }
     if (mode == "video-text") {
@@ -118,20 +129,22 @@ export class OptionsComponent implements OnInit {
       }
 
       this.mode = "video-text"
-
+      this.videoActice = "active";
     }
   }
 
   setWidth(CaptionedWidth) {
     this.widths = CaptionedWidth;
+    this.widthHundredActive = this.widthSevenActive = "";
+
     if (CaptionedWidth == 100) {
       this.optionService.classCaptionedWidth = this.classCaptionedWidth = "captioned-width-100";
       this.widthHundredActive = "active";
-      this.widthSevenActive = "";
+      
     }
     else if (CaptionedWidth == 70) {
       this.optionService.classCaptionedWidth = this.classCaptionedWidth = "captioned-width-70";
-      this.widthHundredActive = "";
+       
       this.widthSevenActive = "active";
     }
 
@@ -139,14 +152,15 @@ export class OptionsComponent implements OnInit {
 
   setCaptionedLine(CaptionedLine) {
     this.CaptionedLine = CaptionedLine;
+    this.twoLineActive = this.threeLineActive = "";
+    
     if (CaptionedLine == 3) {
       this.optionService.classCaptionedLine = this.classCaptionedLine = "captioned-line-3";
       this.threeLineActive = "active";
-      this.twoLineActive = "";
+     
     }
     else if (CaptionedLine == 2) {
       this.optionService.classCaptionedLine = this.classCaptionedLine = "captioned-line-2";
-      this.threeLineActive = "";
       this.twoLineActive = "active";
     }
   }

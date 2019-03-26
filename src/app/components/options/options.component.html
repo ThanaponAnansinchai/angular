@@ -71,8 +71,8 @@
           <div ngbDropdownToggle class=" btn-outline-primary">
             <a class="btn" id="dropdownBasic3">การรับชม</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
-              <div class="btn" [ngClass]="" (click)="setMode('video-text')" ngbDropdownItem> ภาพเคลื่อนไหวเสียงและคำบรรยาย </div>
-              <div class="btn" [ngClass]="" (click)="setMode('text-only')" ngbDropdownItem> คำบรรยาย </div>
+              <div class="btn" [ngClass]="this.videoActice" (click)="setMode('video-text')" ngbDropdownItem> ภาพเคลื่อนไหวเสียงและคำบรรยาย </div>
+              <div class="btn" [ngClass]="this.textOnlyActive" (click)="setMode('text-only')" ngbDropdownItem> คำบรรยาย </div>
                 
             </div>
           </div>
@@ -82,10 +82,10 @@
           <div ngbDropdownToggle class="btn-outline-primary">
             <a class="btn" id="dropdownBasic3">ตัวอักษร</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
-              <div class="btn" [ngClass]="" (click)="setFont('FreesiaUPC')" ngbDropdownItem>FreesiaUPC</div>
-              <div class="btn" [ngClass]="" (click)="setFont('THNiramitAS')" ngbDropdownItem>Th Niramit AS</div>
-              <div class="btn" [ngClass]="" (click)="setFont('AngsanaNew')" ngbDropdownItem>Angsana New</div>
-              <div class="btn" [ngClass]="" (click)="setFont('CordiaNew')" ngbDropdownItem>Cordia New</div>
+              <div class="btn" [ngClass]="this.FreesiaUPCActive" (click)="setFont('FreesiaUPC')" ngbDropdownItem>FreesiaUPC</div>
+              <div class="btn" [ngClass]="this.THNiramitASActive" (click)="setFont('THNiramitAS')" ngbDropdownItem>Th Niramit AS</div>
+              <div class="btn" [ngClass]="this.AngsanaNewActive" (click)="setFont('AngsanaNew')" ngbDropdownItem>Angsana New</div>
+              <div class="btn" [ngClass]="this.CordiaNewActive" (click)="setFont('CordiaNew')" ngbDropdownItem>Cordia New</div>
             </div>
           </div>
         </div>
