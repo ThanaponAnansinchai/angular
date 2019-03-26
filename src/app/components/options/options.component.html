@@ -47,8 +47,8 @@
       <a class="btn" id="dropdownBasic2" ngbDropdownToggle><i id="choice" class="fa fa-gear dropbtn"></i></a>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
 
-        <div ngbDropdownItem ngbDropdown placement="left-bottom" [ngClass]="this.settingCaptionedLine">
-          <div ngbDropdownToggle class=" btn-outline-primary">
+        <div ngbDropdownItem ngbDropdown placement="left-bottom" [ngClass]="this.settingCaptionedLine" autoClose="inside"> 
+          <div ngbDropdownToggle class=" btn-outline-primary" >
             <a class="btn" id="dropdownBasic3">จำนวนบรรทัดคำบรรยาย</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
               <div class="btn" [ngClass]="this.twoLineActive" (click)="setCaptionedLine(2)" ngbDropdownItem>2 บรรทัด</div>
