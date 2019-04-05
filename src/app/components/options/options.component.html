@@ -47,7 +47,7 @@
       <a class="btn" id="dropdownBasic2" ngbDropdownToggle><i id="choice" class="fa fa-gear dropbtn"></i></a>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
 
-        <div ngbDropdownItem ngbDropdown placement="left-bottom" [ngClass]="this.settingCaptionedLine" autoClose="inside"> 
+        <div ngbDropdownItem ngbDropdown placement="left-bottom" [ngClass]="this.settingCaptionedLine"> 
           <div ngbDropdownToggle class=" btn-outline-primary" >
             <a class="btn" id="dropdownBasic3">จำนวนบรรทัดคำบรรยาย</a>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
@@ -97,15 +97,15 @@
             <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
 
               <button class="btn" ngbDropdownItem [(colorPicker)]="this.optionService.color"
-                [style.background]="this.optionService.color" [cpDisableInput]=true [cpSaveClickOutside]
+                 [cpDisableInput]=true [cpSaveClickOutside]
                 [cpPosition]="'left'" >สีอักษร</button>
 
               <button class="btn" ngbDropdownItem [(colorPicker)]="this.optionService.captionBG"
-                [style.background]="this.optionService.captionBG" [cpDisableInput]=true [cpSaveClickOutside]
+                 [cpDisableInput]=true [cpSaveClickOutside]
                 [cpPosition]="'left'" >สีแคปชั่น</button>
 
               <button class="btn" ngbDropdownItem [(colorPicker)]="this.optionService.bgColor"
-                [style.background]="this.optionService.bgColor" [cpDisableInput]=true [cpSaveClickOutside]
+                 [cpDisableInput]=true [cpSaveClickOutside]
                 [cpPosition]="'left'" >สีพื้นหลัง</button>
 
             </div>

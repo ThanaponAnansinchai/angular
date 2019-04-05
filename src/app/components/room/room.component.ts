@@ -12,16 +12,17 @@ import { fromEvent, Observable, Subscription } from 'rxjs';
 export class RoomComponent implements OnInit {
 
   
-  public present_time;
+  public presentTime;
   public rooms: any[] = [];
-  public start_time: string[][] = [];
-  public end_time: string[][] = [];
+  public startTime: string[][] = [];
+  public endTime: string[][] = [];
   public status: any[] = [];
   public timeStatus: any[] = [];
   public startPeriod: any[]=[];
   public endPeriod: any[]=[];
   public searchText: string;
-  public statusColor: any;
+  public statusColor: any[]=[];
+  public title: any[] = [];
 
   public isMobile ;
   public noConnection;
@@ -61,12 +62,17 @@ export class RoomComponent implements OnInit {
   }
 
   getAllData() { 
+
     this.apiService.getAllData().subscribe((data) => {  
       this.roomData(data['result'])
     },
     (error) => {
       this.noConnection = true;
     })
+
+   
+  
+
   }
   
   getData(id) {
@@ -93,10 +99,11 @@ export class RoomComponent implements OnInit {
     
     this.rooms.forEach(room => {
      
-      this.start_time.push((room.time.start_time).slice(0, -8).split("T"));
-      this.end_time.push((room.time.end_time).slice(0, -8).split("T"));
+      this.startTime.push((room.time.start_time).split(" "));
+      this.endTime.push((room.time.end_time).split(" "));
+
       
-      this.initializeClock(index, room.time.start_time, room.time.end_time,parseInt(room.status));
+      this.initializeClock(index, room.time.start_time, room.time.end_time,(room.status));
 
       index++;
     });
@@ -114,51 +121,59 @@ export class RoomComponent implements OnInit {
   }
   
   getTimeRemaining(time) {
+    console.log(time);
+    
+    this.presentTime = new Date();
 
-      
-    this.present_time = new Date();
-    let total = Date.parse(time) - Date.parse(this.present_time);
+    
+    let total = Date.parse(time) - Date.parse(this.presentTime);
+    
     let minute = Math.floor((total / 1000 / 60) % 60);
     let hour = Math.floor((total / (1000 * 60 * 60)));
+
+    minute = Math.abs(minute)
+    hour = Math.abs(hour)
+  
+    
+
     if(hour < 12){
       return {
-        'total': total, 'hour': hour, 'minute': minute, 'period':"AM"
+        'total': total, 'hour': hour, 'minute': minute
       };
     }
     else{
-        //hour = hour % 12;
+       // hour = hour % 12;
         return {
-          'total': total, 'hour': hour, 'minute': minute,'period':"PM"
+          'total': total, 'hour': hour, 'minute': minute
         };
     }
     
   }
   updateClock(index, startTime, endTime,roomStatus) {
+   
 
     let start = this.getTimeRemaining(startTime);
     let end = this.getTimeRemaining(endTime);
-    this.startPeriod.push(start.period);
-    this.endPeriod.push(end.period);
-
+   
     if (roomStatus == 6 || roomStatus == 7) {
       this.status[index] = "การถ่ายทอดสดสิ้นสุดแล้ว";
       this.timeStatus[index] = '';
-      this.statusColor = "#cccccc"
+      this.statusColor[index] = "#cccccc"
     }
     else if (roomStatus == 3) {
       this.status[index] = '';
       this.timeStatus[index] = start.hour + " ชั่วโมง " + start.minute + " นาทีจะทำการถ่ายทอดสด";
-      this.statusColor = "#ecd31f"
+      this.statusColor[index] = "#ecd31f"
     }
     else if (roomStatus == 4 || roomStatus == 5) {
       this.status[index] = 'กำลังทำการถ่ายทอดสด';
      //this.timeStatus[index] = end.hour + " ชั่วโมง " + end.minute + " นาทีจะสิ้นสุดการถ่ายทอดสด";
-      this.statusColor = "#5cb85c"
+      this.statusColor[index] = "#5cb85c"
     }
     else {
       this.status[index] = '';
       this.timeStatus[index] = start.hour + " ชั่วโมง " + start.minute + " นาทีจะทำการถ่ายทอดสด";
-      this.statusColor = "orange"
+      this.statusColor[index] = "orange"
     }
   }
 

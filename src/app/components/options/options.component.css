@@ -770,7 +770,7 @@
  .dropdown,.dropup{position:relative}
  .dropdown-toggle::after{display:inline-block;width:0;height:0;margin-left:.255em;vertical-align:.255em;content:""}
  .dropdown-toggle:empty::after{margin-left:0}
- .dropdown-menu{position:absolute;top:100%;left:0;z-index:1000;display:none;float:left;min-width:10rem;padding:.5rem 0;font-size:1rem;color:#212529;text-align:left;list-style:none;background-color:rgba(0,0,0,.85);background-clip:padding-box;border:1px solid rgba(0,0,0,.15);border-radius:.25rem}
+ .dropdown-menu{position:absolute;top:100%;left:0;z-index:1000;display:none;float:left;min-width:50px;padding:.5rem 0;font-size:1rem;color:#212529;text-align:left;list-style:none;background-color:rgba(0,0,0,.85);background-clip:padding-box;border:1px solid rgba(0,0,0,.15);border-radius:.25rem}
  
  .dropup .dropdown-menu{margin-top:0;margin-bottom:.125rem}
  .dropup .dropdown-toggle::after{display:inline-block;width:0;height:0;margin-left:.255em;vertical-align:.255em;content:""}

@@ -15,7 +15,7 @@ export class ShowComponent implements OnInit {
   public data; connectivity;
   public title = '';
   public description = '';
-  public start_time; Tstart; end_time; Tend; present_time; startPeriod; endPeriod;
+  public startTime; Tstart; endTime; Tend; presentTime; startPeriod; endPeriod;
   public caption ="เป็นเวลา 20 ปีมาแล้ว ในวันที่ท้องฟ้าถูกฉีกด้วยแสงจำนวนนับไม่ถ้วนที่ตกลงมายังโลกผมคิดว่าถึงเวลาสำหรับบทเรียนประวัติศาสตร์แล้วล่ะ";
 
   public status: any;
@@ -104,17 +104,18 @@ export class ShowComponent implements OnInit {
 
       this.id = +paramMap.get('roomid');
       console.log(paramMap.get('roomid'))
+
       this.apiService.getData(this.id).subscribe((data) => {
 
-        this.data = data['result'];
+        this.data = data
         this.title = this.data.title;
         this.connectivity = this.data.connectivity;
         this.description = this.data.description;
 
-        this.start_time = (this.data.time.start_time).slice(0, -8).split("T");
-        this.end_time = (this.data.time.end_time).slice(0, -8).split("T");
-        this.Tstart = this.start_time[1];
-        this.Tend = this.end_time[1];
+        this.startTime = (this.data.time.start_time).split(" ");
+        this.endTime = (this.data.time.end_time).split(" ");
+        this.Tstart = this.startTime[1];
+        this.Tend = this.endTime[1];
         this.initializeClock(this.data.time.start_time, this.data.time.end_time,this.data.status);
 
 
@@ -143,8 +144,8 @@ export class ShowComponent implements OnInit {
   getTimeRemaining(time) {
 
 
-    this.present_time = new Date();
-    let total = Date.parse(time) - Date.parse(this.present_time);
+    this.presentTime = new Date();
+    let total = Date.parse(time) - Date.parse(this.presentTime);
     let minute = Math.floor((total / 1000 / 60) % 60);
     let hour = Math.floor((total / (1000 * 60 * 60)));
     if (hour < 12) {

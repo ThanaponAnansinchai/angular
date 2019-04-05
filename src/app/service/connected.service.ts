@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Http, Response } from '@angular/http';
 import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 
 
@@ -13,6 +14,7 @@ export class Connection {
     
   getRoomData  =  'http://35.247.189.242:8080/v2/rooms';
   getRoomStatus = 'http://35.247.189.242:8080/v2/status';
+  private _jsonURL = '../../assets/js/test.json';
  
   constructor(private  httpClient:  HttpClient,private http: Http
     ) {}
