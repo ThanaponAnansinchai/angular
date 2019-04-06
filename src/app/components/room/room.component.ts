@@ -99,9 +99,11 @@ export class RoomComponent implements OnInit {
     
     this.rooms.forEach(room => {
      
-      this.startTime.push((room.time.start_time).split(" "));
-      this.endTime.push((room.time.end_time).split(" "));
+      let temp1 = (room.time.start_time).split(" ");
+      this.startTime.push(temp1[1].slice(0 , -3));
 
+      let temp2 = (room.time.end_time).split(" ");
+      this.endTime.push(temp2[1].slice(0 , -3));
       
       this.initializeClock(index, room.time.start_time, room.time.end_time,(room.status));
 
@@ -121,8 +123,7 @@ export class RoomComponent implements OnInit {
   }
   
   getTimeRemaining(time) {
-    console.log(time);
-    
+
     this.presentTime = new Date();
 
     

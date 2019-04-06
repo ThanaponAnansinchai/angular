@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class Connection {
     
-  getRoomData  =  'http://35.247.189.242:8080/v2/rooms';
+  getRoomData  =  'https://api.debug.rtt.in.th/v2/rooms';
   getRoomStatus = 'http://35.247.189.242:8080/v2/status';
   private _jsonURL = '../../assets/js/test.json';
  

@@ -114,8 +114,8 @@ export class ShowComponent implements OnInit {
 
         this.startTime = (this.data.time.start_time).split(" ");
         this.endTime = (this.data.time.end_time).split(" ");
-        this.Tstart = this.startTime[1];
-        this.Tend = this.endTime[1];
+        this.Tstart = this.startTime[1].slice(0 , -3);
+        this.Tend = this.endTime[1].slice(0 , -3);
         this.initializeClock(this.data.time.start_time, this.data.time.end_time,this.data.status);
 
 
@@ -143,30 +143,37 @@ export class ShowComponent implements OnInit {
 
   getTimeRemaining(time) {
 
-
     this.presentTime = new Date();
+
+    
     let total = Date.parse(time) - Date.parse(this.presentTime);
+    
     let minute = Math.floor((total / 1000 / 60) % 60);
     let hour = Math.floor((total / (1000 * 60 * 60)));
-    if (hour < 12) {
-      return {
-        'total': total, 'hour': hour, 'minute': minute, 'period': "AM"
-      };
-    }
-    else {
-      //hour = hour % 12;
-      return {
-        'total': total, 'hour': hour, 'minute': minute, 'period': "PM"
-      };
-    }
 
+    minute = Math.abs(minute)
+    hour = Math.abs(hour)
+  
+    
+
+    if(hour < 12){
+      return {
+        'total': total, 'hour': hour, 'minute': minute
+      };
+    }
+    else{
+       // hour = hour % 12;
+        return {
+          'total': total, 'hour': hour, 'minute': minute
+        };
+    }
+    
   }
   updateClock(startTime, endTime,roomStatus) {
 
     let start = this.getTimeRemaining(startTime);
     let end = this.getTimeRemaining(endTime);
-    this.startPeriod = (start.period);
-    this.endPeriod = (end.period);
+
 
     if (roomStatus == 6 || roomStatus == 7) {
       this.status = "การถ่ายทอดสดสิ้นสุดแล้ว";
