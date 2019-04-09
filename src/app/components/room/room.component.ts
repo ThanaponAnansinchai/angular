@@ -63,17 +63,21 @@ export class RoomComponent implements OnInit {
 
   getAllData() { 
 
-    this.apiService.getAllData().subscribe((data) => {  
-      this.roomData(data['result'])
-    },
-    (error) => {
-      this.noConnection = true;
-    })
-
-   
+    /*  this.apiService.getAllData().subscribe((data) => {  
+        this.roomData(data['result'])
+      },
+      (error) => {
+        this.noConnection = true;
+      })
   
-
-  }
+     */
+      this.apiService.getJSON().subscribe((data) => {
+        this.roomData(data['result'])
+      }
+      )
+    
+  
+    }
   
   getData(id) {
     //this.w3_close()

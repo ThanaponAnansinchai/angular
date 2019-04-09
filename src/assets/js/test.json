@@ -1,217 +1,148 @@
 {
-	"result":[
-		{	
-			"id":3000,
-			"title":"ห้องทดสอบ",
-			"description":"What a test room.",
-			"text_delay":75,
-			"chunk_time":4,
-			"practice_room_id":0,
-			"owner":{
-				"id":1,
-				"firstname":"firstname admin"
+	"result": [
+		{
+			"id": 3000,
+			"title": "Scheme 2 - experimental room",
+			"description": "รายละเอียดฮะ",
+			"text_delay": 75,
+			"chunk_time": 4,
+			"practice_room_id": 0,
+			"owner": {
+				"id": 1,
+				"firstname": "ชื่อ admin"
 			},
-			"teams":[
+			"teams": [
 				{
-					"id":1,
-					"name":"ทีมทดสอบ",
-					"users":[
+					"id": 1,
+					"name": "ทีมทดสอบ",
+					"users": [
 						{
-							"order":1,
-							"user_id":2,
-							"firstname":"guest1"
+							"order": 1,
+							"user_id": 2,
+							"firstname": "guest1"
 						},
 						{
-							"order":2,
-							"user_id":3,
-							"firstname":"guest2"
+							"order": 2,
+							"user_id": 3,
+							"firstname": "guest2"
 						},
 						{
-							"order":3,
-							"user_id":4,
-							"firstname":"guest3"
+							"order": 3,
+							"user_id": 4,
+							"firstname": "guest3"
 						},
 						{
-							"order":4,
-							"user_id":5,
-							"firstname":"guest4"
+							"order": 4,
+							"user_id": 5,
+							"firstname": "guest4"
 						}
 					],
-					"order":1
+					"order": 1
 				}
 			],
-			"short_keys":[
+			"short_keys": [
 				"key1",
 				"key2",
 				"key3",
 				"key4",
 				"key5",
-				"key6",
-				"key7",
+				"key6key",
+				"key7key",
 				"key8",
 				"key9",
 				"key10"
 			],
-			"time":{
-				"start_time":"2019-4-1 09:36",
-				"end_time":"2019-4-1 22:11",
-				"start_unix":1542767760,
-				"end_unix":1574392260,
-				"update_status_time":"2019-03-27 11:16:21",
-				"update_status_unix":1553660181
+			"time": {
+				"start_time": "2019-01-06 09:30:00",
+				"end_time": "2019-05-09 10:30:00",
+				"start_unix": 1546741800,
+				"end_unix": 1557372600,
+				"update_status_time": "2019-04-05 17:51:23",
+				"update_status_unix": 1554461483
 			},
-			"connectivity":{
-				"host":"api.rtt.in.th","queue_port":10001,
-				"webrtc_proxy_port":10002,
-				"text_stream_port":10003,
-				"kurento_port":10004,
-				"rtp_start_port":10005,
-				"rtp_end_port":10035
+			"connectivity": {
+				"host": "api.debug.rtt.in.th",
+				"queue_port": 10001,
+				"webrtc_proxy_port": 10002,
+				"text_stream_port": 10003,
+				"kurento_port": 10004,
+				"rtp_start_port": 10005,
+				"rtp_end_port": 10035
 			},
-			"type":1,
-			"status":4
+			"type": 1,
+			"status": 9
 		},
 		{
-			"id":3001,
-			"title":"ห้องทดสอบ 2",
-			"description":"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-			"text_delay":75,
-			"chunk_time":4,
-			"practice_room_id":0,
-			"owner":{
-				"id":1,
-				"firstname":"firstname admin"
+			"id": 3001,
+			"title": "สร้างห้องทดสอบ",
+			"description": "สร้างห้องทดสอบ",
+			"text_delay": 75,
+			"chunk_time": 4,
+			"practice_room_id": 0,
+			"owner": {
+				"id": 1,
+				"firstname": "ชื่อ admin"
 			},
-			"teams":[
+			"teams": [
 				{
-					"id":1,
-					"name":"ทีมทดสอบ",
-					"users":[
+					"id": 1,
+					"name": "ทีมทดสอบ",
+					"users": [
 						{
-							"order":1,
-							"user_id":2,
-							"firstname":"guest1"
+							"order": 1,
+							"user_id": 2,
+							"firstname": "guest1"
 						},
 						{
-							"order":2,
-							"user_id":3,
-							"firstname":"guest2"
+							"order": 2,
+							"user_id": 3,
+							"firstname": "guest2"
 						},
 						{
-							"order":3,
-							"user_id":4,
-							"firstname":"guest3"
+							"order": 3,
+							"user_id": 4,
+							"firstname": "guest3"
 						},
 						{
-							"order":4,
-							"user_id":5,
-							"firstname":"guest4"
+							"order": 4,
+							"user_id": 5,
+							"firstname": "guest4"
 						}
 					],
-					"order":1
+					"order": 1
 				}
 			],
-			"short_keys":[
-				"key1",
-				"key2",
-				"key3",
-				"key4",
-				"key5",
-				"key6",
-				"key7",
-				"key8",
-				"key9",
-				"key10"
+			"short_keys": [
+				"พิธีพลีกรรมตักน้ำ",
+				"",
+				"",
+				"",
+				"",
+				"[เสียงปรบมือ]",
+				"[ภาษาท้องถิ่น]",
+				"[ภาษาต่างประเทศ]",
+				"[เสียงดนตรี]",
+				"[เสียงหัวเราะ]"
 			],
-			"time":{
-				"start_time":"2019-4-1 20:30",
-				"end_time":"2019-4-1 23:30",
-				"start_unix":1542767760,
-				"end_unix":1574392260,
-				"update_status_time":"2019-03-27 11:16:21",
-				"update_status_unix":1553660181
+			"time": {
+				"start_time": "2019-04-04 19:13:00",
+				"end_time": "2019-04-30 19:13:00",
+				"start_unix": 1554379980,
+				"end_unix": 1556626380,
+				"update_status_time": "2019-04-05 18:01:26",
+				"update_status_unix": 1554462086
 			},
-			"connectivity":{
-				"host":"api.rtt.in.th","queue_port":10001,
-				"webrtc_proxy_port":10002,
-				"text_stream_port":10003,
-				"kurento_port":10004,
-				"rtp_start_port":10005,
-				"rtp_end_port":10035
+			"connectivity": {
+				"host": "api.debug.rtt.in.th",
+				"queue_port": 10036,
+				"webrtc_proxy_port": 10037,
+				"text_stream_port": 10038,
+				"kurento_port": 10039,
+				"rtp_start_port": 10040,
+				"rtp_end_port": 10130
 			},
-			"type":1,
-			"status":3
-		},
-		{
-			"id":3002,
-			"title":"ห้องทดสอบ 3",
-			"description":"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-			"text_delay":75,
-			"chunk_time":4,
-			"practice_room_id":0,
-			"owner":{
-				"id":1,
-				"firstname":"firstname admin"
-			},
-			"teams":[
-				{
-					"id":1,
-					"name":"ทีมทดสอบ",
-					"users":[
-						{
-							"order":1,
-							"user_id":2,
-							"firstname":"guest1"
-						},
-						{
-							"order":2,
-							"user_id":3,
-							"firstname":"guest2"
-						},
-						{
-							"order":3,
-							"user_id":4,
-							"firstname":"guest3"
-						},
-						{
-							"order":4,
-							"user_id":5,
-							"firstname":"guest4"
-						}
-					],
-					"order":1
-				}
-			],
-			"short_keys":[
-				"key1",
-				"key2",
-				"key3",
-				"key4",
-				"key5",
-				"key6",
-				"key7",
-				"key8",
-				"key9",
-				"key10"
-			],
-			"time":{
-				"start_time":"2019-4-1 08:00",
-				"end_time":"2019-4-1 10:00",
-				"start_unix":1542767760,
-				"end_unix":1574392260,
-				"update_status_time":"2019-03-27 11:16:21",
-				"update_status_unix":1553660181
-			},
-			"connectivity":{
-				"host":"api.rtt.in.th","queue_port":10001,
-				"webrtc_proxy_port":10002,
-				"text_stream_port":10003,
-				"kurento_port":10004,
-				"rtp_start_port":10005,
-				"rtp_end_port":10035
-			},
-			"type":1,
-			"status":7
+			"type": 1,
+			"status": 9
 		}
 	]
 }

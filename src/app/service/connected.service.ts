@@ -28,7 +28,9 @@ export class Connection {
   searchData(title){
     return this.httpClient.get(`${this.getRoomData}?task=title&search=`+title);
   }
-  
+  public getJSON(): Observable<any> {
+    return this.httpClient.get(this._jsonURL);
+  }
 }
 
 @Injectable() 
