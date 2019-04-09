@@ -21,6 +21,24 @@
     
 }
 
+#incFont,#decFont,#incFont2,#decFont2 {
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#incFont {
+    float: left;
+    height: 40px;
+    width: 20%;
+    margin-right: 0.5%;
+}
+#decFont {
+    height: 40px;
+    float: left;
+    width: 20%;
+}
+
 .dropup-content {
     position: absolute;
     background-color:  rgba(255, 255, 255, 0.205);
@@ -49,12 +67,7 @@
 
 
 
-@media screen and (min-width: 1367px) {
-    #choice{
-        display: none;
-        
-    }
-}
+
 
 /* Modal setting */
 
@@ -189,17 +202,7 @@
     #input-font {
         display: none;
     }
-    #incFont {
-        float: left;
-        height: 40px;
-        width: 20%;
-        margin-right: 0.5%;
-    }
-    #decFont {
-        height: 40px;
-        float: left;
-        width: 20%;
-    }
+    
     #size-font-m {
         background: #FFFFFF;
         height: 40px;
@@ -391,17 +394,7 @@
     #m_inputFont {
         display: none;
     }
-    #incFont {
-        float: left;
-        height: 40px;
-        width: 20%;
-        margin-right: 0.5%;
-    }
-    #decFont {
-        height: 40px;
-        float: left;
-        width: 20%;
-    }
+
     #choice {
         height: 40px;
         float: right;
@@ -595,17 +588,7 @@
     #m_inputFont {
         display: none;
     }
-    #incFont {
-        float: left;
-        height: 40px;
-        width: 20%;
-        margin-right: 0.5%;
-    }
-    #decFont {
-        height: 40px;
-        float: left;
-        width: 20%;
-    }
+  
     #choice {
        
         height: 40px;

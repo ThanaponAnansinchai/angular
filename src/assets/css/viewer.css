@@ -206,11 +206,7 @@
     display: none;
 }
 
-#incFont,#decFont,#incFont2,#decFont2 {
-    border: none;
-    cursor: pointer;
-    z-index: 1;
-}
+
 
 #fullScreen {
     cursor: pointer;

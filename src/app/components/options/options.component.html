@@ -1,39 +1,7 @@
 <!-- OPTIONS MODE WEB-->
 <div class="w3-row">
   <!--<i class="fa fa-floppy-o fa-lg" id="btnSaveText" aria-hidden="true"></i>-->
-  <select id="settingCaptionedLine" [ngClass]="this.settingCaptionedLine" [(ngModel)]="CaptionedLine"
-    (ngModelChange)="setCaptionedLine(CaptionedLine)">
-    <option value="">จำนวนบรรทัดคำบรรยาย</option>
-    <option value="2">2 บรรทัด</option>
-    <option value="3">3 บรรทัด</option>
-  </select>
-  <select id="settingCaptionedWidth" [ngClass]="this.settingCaptionedWidth" [(ngModel)]="CaptionedWidth"
-    (ngModelChange)="setWidth(CaptionedWidth)">
-    <option value="">ความยาวของคำบรรยาย</option>
-    <option value="70">70% ของจอ</option>
-    <option value="100">100% ของจอ</option>
-  </select>
-  <select id="viewerMode" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
-    <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
-    <option value="text-only">คำบรรยาย</option>
-  </select>
-  <select id="changeFontFamily" [(ngModel)]="font" (ngModelChange)="setFont(font)">
-    <option value="FreesiaUPC">FreesiaUPC</option>
-    <option value="THNiramitAS">Th Niramit AS</option>
-    <option value="AngsanaNew">Angsana New</option>
-    <option value="CordiaNew">Cordia New</option>
-  </select>
-  <button id="color" [(colorPicker)]="color" [style.background]="color" [cpDisableInput]=true [cpSaveClickOutside]
-    [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(255, 255, 255);">A</button>
-  <button id="captionBG" [(colorPicker)]="captionBG" [style.background]="captionBG" [cpDisableInput]=true
-    [cpSaveClickOutside] [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(0, 0, 0);">C</button>
-
-  <button id="bgColor" [(colorPicker)]="bgColor" [style.background]="bgColor" [cpDisableInput]=true [cpSaveClickOutside]
-    [cpPosition]="'left'" [cpPositionOffset]="'100%'" style="background: rgb(0, 0, 0);">&nbsp;&nbsp;</button>
-  <input id="inputFont" type="text" size="1" maxlength="3" list="size" [(ngModel)]="size">
-  <datalist id="size">
-    <option *ngFor="let size of atextSize" value="{{size}}"></option>
-  </datalist>
+  
   <button id="incFont" (click)="toIntPlus(size,1)">A+</button>
   <button id="decFont" (click)="toIntMinus(size,1)">A-</button>
 
