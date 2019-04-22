@@ -172,7 +172,7 @@ export class ShowComponent implements OnInit {
   updateClock(startTime, endTime,roomStatus) {
 
     let start = this.getTimeRemaining(startTime);
-    let end = this.getTimeRemaining(endTime);
+    //let end = this.getTimeRemaining(endTime);
 
 
     if (roomStatus == 6 || roomStatus == 7) {

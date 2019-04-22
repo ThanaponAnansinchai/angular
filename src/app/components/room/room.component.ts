@@ -158,7 +158,7 @@ export class RoomComponent implements OnInit {
    
 
     let start = this.getTimeRemaining(startTime);
-    let end = this.getTimeRemaining(endTime);
+    //let end = this.getTimeRemaining(endTime);
    
     if (roomStatus == 6 || roomStatus == 7) {
       this.status[index] = "การถ่ายทอดสดสิ้นสุดแล้ว";
