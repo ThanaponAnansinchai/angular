@@ -55,7 +55,7 @@ export class ShowComponent implements OnInit {
 
   @ViewChild('fullScreen') fullScreen;
 
-  @ViewChild(OptionsComponent) option;
+ 
 
 
 
@@ -135,7 +135,7 @@ export class ShowComponent implements OnInit {
 
     this.updateClock(startTime, endTime,roomStatus);
     
-    let timeInterval = setInterval(() => {
+    setInterval(() => {
       this.updateClock(startTime,endTime,roomStatus)
     }, 1000 * 60
     )
@@ -247,11 +247,11 @@ export class ShowComponent implements OnInit {
 
   toFullScreen() {
 
-    this.exitFullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = "show-inline";
+    this.exitFullscreen = this.viewerMode2 = "show-inline";
 
     this.full = "hide";
-    this.optionService.fullscreenHeight = "full-height";
-    this.isFullscreen = true;
+    this.optionService.fullscreenHeight = this.fullscreenHeight = "full-height";
+    this.isFullscreen = this.optionService.isFullscreen = true;
     this.choice = "show-block";
 
     let elem = this.fullScreen.nativeElement;
@@ -271,11 +271,10 @@ export class ShowComponent implements OnInit {
 
   exitFullScreen() {
 
-    this.exitFullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = "hide";
+    this.exitFullscreen =  this.viewerMode2 = "hide";
     this.full = "show-inline";
-    this.optionService.fullscreenHeight = "normal-height";
-    this.fullscreenHeight = "normal-height";
-    this.isFullscreen = false;
+    this.optionService.fullscreenHeight =  this.fullscreenHeight =  "normal-height";
+    this.isFullscreen = this.optionService.isFullscreen = false;
     this.choice = "hide";
 
     if (document['exitFullscreen']) {
@@ -302,10 +301,25 @@ export class ShowComponent implements OnInit {
     }
     this.optionVideoMode = this.statusStreaming = this.terminateViewer = "show-inline";
     
-    setTimeout(() => {
-      this.full = this.optionVideoMode = this.statusStreaming = this.terminateViewer = "hide";
-      this.exitFullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = "hide"
-    }, 5000);
+  }
+
+  enter(){
+    if (this.isFullscreen) {
+      this.full = "hide";
+      this.exitFullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = "show-inline"
+    }
+    else { 
+      this.full = "show-inline" 
+
+    }
+    this.optionVideoMode = this.statusStreaming = this.terminateViewer = this.options = "show-inline";
+  }
+
+  leave(){
+    if(this.optionService.optionStatus == "Inactive"){
+      this.optionVideoMode = this.statusStreaming = this.terminateViewer = this.options = "hide";
+    }
+   
   }
 }
 

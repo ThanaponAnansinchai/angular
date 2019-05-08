@@ -174,12 +174,12 @@ export class OptionsComponent implements OnInit {
     this.myModal = "hide"
   }
 
-  toggleOption() {
-    if (this.optionService.dropupContent == "hide") {
-      this.optionService.dropupContent = "show-block"
+  toggleActive() {
+    if(this.optionService.optionStatus == "Inactive"){
+      this.optionService.optionStatus = "Active";
     }
-    else {
-      this.optionService.dropupContent = "hide"
+    else if(this.optionService.optionStatus == "Active"){
+      this.optionService.optionStatus = "Inactive";
     }
   }
 

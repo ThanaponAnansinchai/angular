@@ -4,39 +4,34 @@ import { Http, Response } from '@angular/http';
 import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs';
 
-
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class Connection {
-    
-  getRoomData  =  'https://api.debug.rtt.in.th/v2/rooms';
-  getRoomStatus = 'http://35.247.189.242:8080/v2/status';
-  private _jsonURL = '../../assets/js/test.json';
- 
-  constructor(private  httpClient:  HttpClient,private http: Http
-    ) {}
 
-  getAllData(){
+  getRoomData = 'https://api.debug.rtt.in.th/v2/rooms';
+  getRoomStatus = 'https://api.debug.rtt.in.th/v2/rooms/status';
+  private _jsonURL = '../../assets/js/test.json';
+  getRoomAPIDebug = 'https://api.debug.rtt.in.th/v2/rooms';
+
+  constructor(private httpClient: HttpClient, private http: Http) { }
+
+  getAllData() {
     return this.httpClient.get(`${this.getRoomData}`);
   }
-  getData(id){
-    return  this.httpClient.get(`${this.getRoomData}/`+id);
+  getData(id) {
+    return this.httpClient.get(`${this.getRoomAPIDebug}/` + id);
   }
-  searchData(title){
-    return this.httpClient.get(`${this.getRoomData}?task=title&search=`+title);
+  searchData(title) {
+    return this.httpClient.get(`${this.getRoomData}?task=title&search=` + title);
   }
   public getJSON(): Observable<any> {
     return this.httpClient.get(this._jsonURL);
   }
 }
 
-@Injectable() 
+@Injectable()
 export class optionService {
-  
-
   isMobile = false;
   atextSize = [10, 16, 18, 22, 24, 26, 28, 36, 48, 72, 84, 96, 100];
   size = 36;
@@ -50,11 +45,14 @@ export class optionService {
   captioned_default = "captioned_default";
   temp: any[] = [];
   optionVideoMode; myModal; m_options; m_optionVideoMode; choice;
-  statusStreaming; terminateViewer; 
-  video = "show-inline"; 
+  statusStreaming; terminateViewer;
+  video = "show-inline";
   videoTextOnly = "hide";
   fullscreenHeight = "normal-height";
   isFullscreen = false;
   dropupContent = "hide"
+  optionStatus = "Inactive"
 }
+
+
 

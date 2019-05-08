@@ -1,173 +1,178 @@
 <!-- OPTIONS MODE WEB-->
-<div class="w3-row">
-  <!--<i class="fa fa-floppy-o fa-lg" id="btnSaveText" aria-hidden="true"></i>-->
+
   
-  <button id="incFont" (click)="toIntPlus(size,1)">A+</button>
-  <button id="decFont" (click)="toIntMinus(size,1)">A-</button>
+ 
 
-  <button id="choice" *ngIf="this.isMobile"  (click)="openModal()">ตัวเลือกเพิ่มเติม </button>
+<button id="choice" *ngIf="this.isMobile"  (click)="openModal()">ตัวเลือกเพิ่มเติม </button>
 
-  <!--<i id="choice" class="fa fa-gear dropbtn"></i>-->
+<!--<i id="choice" class="fa fa-gear dropbtn"></i>-->
 
 
-  <div class="text-right" *ngIf="!this.isMobile">
-    <div ngbDropdown placement="top-right" autoClose="outside" class="d-inline-block">
-      <a class="btn" id="dropdownBasic2" ngbDropdownToggle><i id="choice" class="fa fa-gear dropbtn"></i></a>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+<div class="text-right" *ngIf="!this.isMobile">
+  <div ngbDropdown placement="top-right" autoClose="outside" class="d-inline-block">
 
-        <div ngbDropdownItem ngbDropdown placement="left-bottom" [ngClass]="this.settingCaptionedLine"> 
-          <div ngbDropdownToggle class=" btn-outline-primary">
-            <a class="btn" id="dropdownBasic3">จำนวนบรรทัดคำบรรยาย</a>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
-              <div class="btn" [ngClass]="this.twoLineActive" (click)="setCaptionedLine(2)" ngbDropdownItem>2 บรรทัด</div>
-              <div class="btn" [ngClass]="this.threeLineActive" (click)="setCaptionedLine(3)" ngbDropdownItem>3 บรรทัด</div>
-            </div>
+    <a class="btn" id="dropdownBasic2" ngbDropdownToggle>  <i class="material-icons" (click)="toggleActive()">settings</i></a>
+    <a class="btn" ><i class="material-icons" style="font-size: 30px;">fullscreen</i></a>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+
+      <div ngbDropdownItem ngbDropdown placement="left-bottom" [ngClass]="this.settingCaptionedLine"> 
+        <div ngbDropdownToggle class=" btn-outline-primary">
+          <a class="btn" id="dropdownBasic3">จำนวนบรรทัดคำบรรยาย</a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
+            <div class="btn" [ngClass]="this.twoLineActive" (click)="setCaptionedLine(2)" ngbDropdownItem>2 บรรทัด</div>
+            <div class="btn" [ngClass]="this.threeLineActive" (click)="setCaptionedLine(3)" ngbDropdownItem>3 บรรทัด</div>
           </div>
         </div>
-
-        <div ngbDropdownItem ngbDropdown placement="left-bottom" [ngClass]="this.settingCaptionedWidth">
-          <div ngbDropdownToggle class=" btn-outline-primary">
-            <a class="btn" id="dropdownBasic3">ความยาวของคำบรรยาย</a>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
-              <div class="btn" [ngClass]="this.widthSevenActive" (click)="setWidth(70)" ngbDropdownItem>70% ของจอ</div>
-              <div class="btn" [ngClass]="this.widthHundredActive" (click)="setWidth(100)" ngbDropdownItem>100% ของจอ</div>
-            </div>
-          </div>
-        </div>
-
-        <div ngbDropdownItem ngbDropdown placement="left-bottom">
-          <div ngbDropdownToggle class=" btn-outline-primary">
-            <a class="btn" id="dropdownBasic3">การรับชม</a>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
-              <div class="btn" [ngClass]="this.videoActice" (click)="setMode('video-text')" ngbDropdownItem> ภาพเคลื่อนไหวเสียงและคำบรรยาย </div>
-              <div class="btn" [ngClass]="this.textOnlyActive" (click)="setMode('text-only')" ngbDropdownItem> คำบรรยาย </div>
-                
-            </div>
-          </div>
-        </div>
-
-        <div ngbDropdownItem ngbDropdown placement="left-bottom">
-          <div ngbDropdownToggle class="btn-outline-primary">
-            <a class="btn" id="dropdownBasic3">ตัวอักษร</a>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
-              <div class="btn" [ngClass]="this.FreesiaUPCActive" (click)="setFont('FreesiaUPC')" ngbDropdownItem>FreesiaUPC</div>
-              <div class="btn" [ngClass]="this.THNiramitASActive" (click)="setFont('THNiramitAS')" ngbDropdownItem>Th Niramit AS</div>
-              <div class="btn" [ngClass]="this.AngsanaNewActive" (click)="setFont('AngsanaNew')" ngbDropdownItem>Angsana New</div>
-              <div class="btn" [ngClass]="this.CordiaNewActive" (click)="setFont('CordiaNew')" ngbDropdownItem>Cordia New</div>
-            </div>
-          </div>
-        </div>
-
-        <div ngbDropdownItem ngbDropdown placement="left-bottom" autoClose="outside">
-          <div ngbDropdownToggle class=" btn-outline-primary">
-            <a class="btn" id="dropdownBasic3">สี</a>
-
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
-
-              <button class="btn" ngbDropdownItem [(colorPicker)]="this.optionService.color"
-                 [cpDisableInput]=true [cpSaveClickOutside]
-                [cpPosition]="'left'" >สีอักษร</button>
-
-              <button class="btn" ngbDropdownItem [(colorPicker)]="this.optionService.captionBG"
-                 [cpDisableInput]=true [cpSaveClickOutside]
-                [cpPosition]="'left'" >สีแคปชั่น</button>
-
-              <button class="btn" ngbDropdownItem [(colorPicker)]="this.optionService.bgColor"
-                 [cpDisableInput]=true [cpSaveClickOutside]
-                [cpPosition]="'left'" >สีพื้นหลัง</button>
-
-            </div>
-          </div>
-        </div>
-
-
       </div>
 
+      <div ngbDropdownItem ngbDropdown placement="left-bottom" [ngClass]="this.settingCaptionedWidth">
+        <div ngbDropdownToggle class=" btn-outline-primary">
+          <a class="btn" id="dropdownBasic3">ความยาวของคำบรรยาย</a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
+            <div class="btn" [ngClass]="this.widthSevenActive" (click)="setWidth(70)" ngbDropdownItem>70% ของจอ</div>
+            <div class="btn" [ngClass]="this.widthHundredActive" (click)="setWidth(100)" ngbDropdownItem>100% ของจอ</div>
+          </div>
+        </div>
+      </div>
+
+      <div ngbDropdownItem ngbDropdown placement="left-bottom">
+        <div ngbDropdownToggle class=" btn-outline-primary">
+          <a class="btn" id="dropdownBasic3">การรับชม</a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
+            <div class="btn" [ngClass]="this.videoActice" (click)="setMode('video-text')" ngbDropdownItem> ภาพเคลื่อนไหวเสียงและคำบรรยาย </div>
+            <div class="btn" [ngClass]="this.textOnlyActive" (click)="setMode('text-only')" ngbDropdownItem> คำบรรยาย </div>
+              
+          </div>
+        </div>
+      </div>
+
+      <div ngbDropdownItem ngbDropdown placement="left-bottom">
+        <div ngbDropdownToggle class="btn-outline-primary">
+          <a class="btn" id="dropdownBasic3">ตัวอักษร</a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
+            <div class="btn" [ngClass]="this.FreesiaUPCActive" (click)="setFont('FreesiaUPC')" ngbDropdownItem>FreesiaUPC</div>
+            <div class="btn" [ngClass]="this.THNiramitASActive" (click)="setFont('THNiramitAS')" ngbDropdownItem>Th Niramit AS</div>
+            <div class="btn" [ngClass]="this.AngsanaNewActive" (click)="setFont('AngsanaNew')" ngbDropdownItem>Angsana New</div>
+            <div class="btn" [ngClass]="this.CordiaNewActive" (click)="setFont('CordiaNew')" ngbDropdownItem>Cordia New</div>
+          </div>
+        </div>
+      </div>
+
+      <div ngbDropdownItem ngbDropdown placement="left-bottom" autoClose="outside">
+        <div ngbDropdownToggle class=" btn-outline-primary">
+          <a class="btn" id="dropdownBasic3">สี</a>
+
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
+
+            <button class="btn" ngbDropdownItem [(colorPicker)]="this.optionService.color"
+               [cpDisableInput]=true [cpSaveClickOutside]
+              [cpPosition]="'left'" >สีอักษร</button>
+
+            <button class="btn" ngbDropdownItem [(colorPicker)]="this.optionService.captionBG"
+               [cpDisableInput]=true [cpSaveClickOutside]
+              [cpPosition]="'left'" >สีแคปชั่น</button>
+
+            <button class="btn" ngbDropdownItem [(colorPicker)]="this.optionService.bgColor"
+               [cpDisableInput]=true [cpSaveClickOutside]
+              [cpPosition]="'left'" >สีพื้นหลัง</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-outline-primary"> <button id="incFont" (click)="toIntPlus(size,1)">A+</button>
+        <button id="decFont" (click)="toIntMinus(size,1)">A-</button></div>
+
+
     </div>
+
   </div>
 
+  
 </div>
+
+
 
 
 <!-- Mobile modal option -->
 <div class="modal" id="myModal" *ngIf="this.isMobile" [ngClass]="this.myModal">
 
-  <!--   Modal content -->
-  <div class="modal-content" [ngClass]="this.myModal">
-    <header class="modal-header">
-      <span class="close" (click)="closeModal()">×</span>
-      <h3 align="left">ตัวเลือกเพิ่มเติม</h3>
-    </header>
+<!--   Modal content -->
+<div class="modal-content" [ngClass]="this.myModal">
+  <header class="modal-header">
+    <span class="close" (click)="closeModal()">×</span>
+    <h3 align="left">ตัวเลือกเพิ่มเติม</h3>
+  </header>
 
-    <div class="ex-m" [style.background]="bgColor">
-      <div id="ex-font-m" [style.background]="this.optionService.captionBG" [style.color]="this.optionService.color"
-        [style.font-size.px]="size" [style.font-family]="fontStyle"> ตัวอย่างการแสดงผล </div>
+  <div class="ex-m" [style.background]="bgColor">
+    <div id="ex-font-m" [style.background]="this.optionService.captionBG" [style.color]="this.optionService.color"
+      [style.font-size.px]="size" [style.font-family]="fontStyle"> ตัวอย่างการแสดงผล </div>
+  </div>
+
+
+  <footer class="w3-container">
+    <div class="w3-row">
+      <div id="size-font-m">ขนาดตัวอักษร</div>
+
+      <button id="AA-m" (click)="toIntPlus(size,1)">A+</button>
+      <button id="A-m" (click)="toIntMinus(size,1)">A-</button>
+    </div>
+    <br>
+
+    <div class="w3-row">
+      <div id="watch-m">การรับชม</div>
+      <select id="modalViewerMode" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
+        <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
+        <option value="text-only">คำบรรยาย</option>
+      </select>
+    </div>
+    <br>
+
+    <div class="w3-row">
+      <div id="font-m">ตัวอักษร</div>
+      <select id="modalChangeFontFamily" [(ngModel)]="font" (ngModelChange)="setFont(font)">
+        <option value="FreesiaUPC">FreesiaUPC</option>
+        <option value="THNiramitAS">Th Niramit AS</option>
+        <option value="AngsanaNew">Angsana New</option>
+        <option value="CordiaNew">Cordia New</option>
+      </select>
+
     </div>
 
+    <br>
 
-    <footer class="w3-container">
-      <div class="w3-row">
-        <div id="size-font-m">ขนาดตัวอักษร</div>
+    <div class="w3-row">
+      <div id="font-color-m">สีอักษร</div>
+      <button [(colorPicker)]="this.optionService.color" [style.background]="this.optionService.color"
+        [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'"
+       >&nbsp;&nbsp;</button>
+    </div>
 
-        <button id="AA-m" (click)="toIntPlus(size,1)">A+</button>
-        <button id="A-m" (click)="toIntMinus(size,1)">A-</button>
-      </div>
-      <br>
+    <br>
 
-      <div class="w3-row">
-        <div id="watch-m">การรับชม</div>
-        <select id="modalViewerMode" [(ngModel)]="mode" (ngModelChange)="setMode(mode)">
-          <option value="video-text">ภาพเคลื่อนไหวเสียงและคำบรรยาย</option>
-          <option value="text-only">คำบรรยาย</option>
-        </select>
-      </div>
-      <br>
+    <div class="w3-row">
+      <div id="captioned-color-m">สีแคปชั่น</div>
+      <button [(colorPicker)]="this.optionService.captionBG" [style.background]="this.optionService.captionBG"
+        [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'"
+       >&nbsp;&nbsp;</button>
+    </div>
 
-      <div class="w3-row">
-        <div id="font-m">ตัวอักษร</div>
-        <select id="modalChangeFontFamily" [(ngModel)]="font" (ngModelChange)="setFont(font)">
-          <option value="FreesiaUPC">FreesiaUPC</option>
-          <option value="THNiramitAS">Th Niramit AS</option>
-          <option value="AngsanaNew">Angsana New</option>
-          <option value="CordiaNew">Cordia New</option>
-        </select>
+    <br>
 
-      </div>
+    <div class="w3-row">
+      <div id="bg-color-m">สีพื้นหลัง</div>
+      <button [(colorPicker)]="this.optionService.bgColor" [style.background]="this.optionService.bgColor"
+        [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'"
+       >&nbsp;&nbsp;</button>
 
-      <br>
+    </div>
+    <br>
 
-      <div class="w3-row">
-        <div id="font-color-m">สีอักษร</div>
-        <button [(colorPicker)]="this.optionService.color" [style.background]="this.optionService.color"
-          [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'"
-         >&nbsp;&nbsp;</button>
-      </div>
-
-      <br>
-
-      <div class="w3-row">
-        <div id="captioned-color-m">สีแคปชั่น</div>
-        <button [(colorPicker)]="this.optionService.captionBG" [style.background]="this.optionService.captionBG"
-          [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'"
-         >&nbsp;&nbsp;</button>
-      </div>
-
-      <br>
-
-      <div class="w3-row">
-        <div id="bg-color-m">สีพื้นหลัง</div>
-        <button [(colorPicker)]="this.optionService.bgColor" [style.background]="this.optionService.bgColor"
-          [cpDisableInput]=true [cpSaveClickOutside] [cpPosition]="'left'"
-         >&nbsp;&nbsp;</button>
-
-      </div>
-      <br>
-
-      <div class="w3-row">
-        <button class="w3-button w3-black" id="btnSaveText">save text</button>
-      </div>
-      <br>
-    </footer>
-  </div>
+    <div class="w3-row">
+      <button class="w3-button w3-black" id="btnSaveText">save text</button>
+    </div>
+    <br>
+  </footer>
+</div>
 
 </div>

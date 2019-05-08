@@ -31,9 +31,9 @@
       <hr>
     </div>
   </section>
-
+  
   <!-- FOR START VIEWER WEB-->
-  <section #fullScreen id="liveContainer" [ngClass]="this.liveContainer" on-mousemove='over()'>
+  <section #fullScreen id="liveContainer" [ngClass]="this.liveContainer" (mouseenter)='enter()'(mouseleave)='leave()'>
     <div class="w3-display-topleft" id="statusStreaming" [ngClass]="this.statusStreaming"></div>
     <div class="w3-display-topleft" id="views"></div>
     <div class="w3-display-topright">
@@ -45,8 +45,15 @@
 
     <div class="w3-display-bottomright">
       <div class="w3-row">
-        <i class="fa fa-compress fa-lg" id="exitFullScreen" [ngClass]="exitFullscreen" (click)="exitFullScreen()"></i>
+    <!--    <i class="fa fa-compress fa-lg" id="exitFullScreen" [ngClass]="exitFullscreen" (click)="exitFullScreen()"></i>
         <i class="fa fa-arrows-alt fa-lg" id="fullScreen" [ngClass]="full" (click)="toFullScreen()"></i>
+        -->
+        <div id="options" [ngClass]="this.options">
+          <app-options></app-options> 
+             
+          
+          
+        </div>
       </div>
 
     </div>
@@ -65,15 +72,14 @@
   </section>
 
 
-  <div id="options" [ngClass]="this.options">
-    <app-options></app-options>
-
-  </div>
+ 
 
 
   <!-- Description -->
 
   <div id="description" class="w3-container">{{description}}</div>
+
+
   <!-- print log error -->
   <div id="errorLog" class="w3-container"></div>
 

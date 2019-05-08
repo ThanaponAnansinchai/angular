@@ -30,13 +30,12 @@
 #incFont {
     float: left;
     height: 40px;
-    width: 20%;
+    width: 49%;
     margin-right: 0.5%;
 }
 #decFont {
     height: 40px;
-    float: left;
-    width: 20%;
+    width: 49%;
 }
 
 .dropup-content {
