@@ -232,6 +232,7 @@ export class OptionsComponent implements OnInit {
         this.ngbDropdown.close();
         this.optionService.optionStatus = "Inactive";
         this.optionService.optionPiority = false;
+        this.show.mouseOverVideo();
         
         if (!this.optionService.mouseEnter){ 
           //console.log("kmomkokmomm");
