@@ -1,5 +1,5 @@
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" [style.margin-left]="margin">
+<div class="w3-main" [style.margin-left]="margin" (mousemove)='mouseOverVideo()'>
   <!-- Push down content on small screens -->
   <div class="w3-hide-large" [style.margin-top]="topMargin"></div>
 
@@ -33,14 +33,15 @@
   </section>
   
   <!-- FOR START VIEWER WEB-->
-  <section #fullScreen id="liveContainer" [ngClass]="this.liveContainer" (mouseenter)='enter()'(mouseleave)='leave()'>
+  <section #fullScreen id="liveContainer" [ngClass]="this.liveContainer" (mouseenter)='enter()'(mouseleave)='leave()' (mousemove)='mouseOverVideo()'>
     <div class="w3-display-topleft" id="statusStreaming" [ngClass]="this.statusStreaming"></div>
     <div class="w3-display-topleft" id="views"></div>
     <div class="w3-display-topright">
       <button class="btn btn-info" id="muteVolume" >ปิดเสียง</button>
       <button class="btn btn-info" id="unmuteVolume" >เปิดเสียง</button>
-      <button class="btn btn-danger" id="terminateViewer" [ngClass]="this.terminateViewer"
-        (click)="viewerStop();exitFullScreen()">สิ้นสุด</button>
+      <a class="w3-btn" id="terminateViewer" [ngClass]="this.optionService.terminateViewer"
+        (click)="viewerStop();exitFullScreen()"><i class="material-icons">close</i>
+      </a>
     </div>
 
     <div class="w3-display-bottomright">
@@ -48,17 +49,14 @@
     <!--    <i class="fa fa-compress fa-lg" id="exitFullScreen" [ngClass]="exitFullscreen" (click)="exitFullScreen()"></i>
         <i class="fa fa-arrows-alt fa-lg" id="fullScreen" [ngClass]="full" (click)="toFullScreen()"></i>
         -->
-        <div id="options" [ngClass]="this.options">
+        <div id="options" [ngClass]="this.optionService.options">
           <app-options></app-options> 
-             
-          
-          
         </div>
       </div>
 
     </div>
 
-
+    <a [ngClass]="this.videoArea">
     <video id="video" [ngClass]="[this.optionService.video,this.optionService.fullscreenHeight]" playsinline="true"
       [style.background]="this.optionService.bgColor"
       src="../../../assets/video/Ace Combat Infinity - History Lessons.webm"></video>
@@ -69,6 +67,7 @@
       [ngClass]="[this.optionService.classCaptionedLine,this.optionService.classCaptionedWidth]" id="captioned"
       [style.color]="this.optionService.color" [style.background]="this.optionService.captionBG"
       [style.font-size.px]="this.optionService.size" [style.font-family]="this.optionService.fontStyle">{{caption}}</div>
+    </a>
   </section>
 
 

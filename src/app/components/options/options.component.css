@@ -22,20 +22,26 @@
 }
 
 #incFont,#decFont,#incFont2,#decFont2 {
-    border: none;
     cursor: pointer;
     z-index: 1;
+    color: #fff;
+    background-color: #000;
+    height: 40px;
+    width: 49%;
+}
+
+#incFont:hover,#decFont:hover,#incFont2:hover,#decFont2:hover {
+    color:#000 ;
+    background-color: #fff;
 }
 
 #incFont {
     float: left;
-    height: 40px;
-    width: 49%;
+   
     margin-right: 0.5%;
 }
 #decFont {
-    height: 40px;
-    width: 49%;
+    float: right;
 }
 
 .dropup-content {

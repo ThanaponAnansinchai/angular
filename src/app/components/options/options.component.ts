@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter , } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Connection, optionService } from '../../service/connected.service';
+import { ShowComponent } from '../show/show.component';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class OptionsComponent implements OnInit {
   public widthHundredActive;widthSevenActive;
   public videoActice;textOnlyActive;
   public FreesiaUPCActive;THNiramitASActive;AngsanaNewActive;CordiaNewActive;
+  public mouseEnter;
 
   // Fullscreen
 
@@ -38,7 +40,16 @@ export class OptionsComponent implements OnInit {
   public isFullscreen = false;
 
 
-  constructor(private _route: Router, private route: ActivatedRoute, private apiService: Connection, public optionService: optionService) { }
+  @ViewChild('settings') settings;
+  @ViewChild('myDrop') ngbDropdown;
+  
+  constructor(private _route: Router, private route: ActivatedRoute, private apiService: Connection, public optionService: optionService,public show:ShowComponent) { 
+      
+      document.addEventListener("click", () => {this.mouseUp()})
+      
+  }
+
+ 
 
   ngOnInit() {
 
@@ -174,13 +185,83 @@ export class OptionsComponent implements OnInit {
     this.myModal = "hide"
   }
 
+
+
+
   toggleActive() {
+
+   console.log("toggleActive");
+   
     if(this.optionService.optionStatus == "Inactive"){
       this.optionService.optionStatus = "Active";
+      this.optionService.optionPiority = true;
+      //this.ngbDropdown.open()
+      console.log("To Active");
     }
     else if(this.optionService.optionStatus == "Active"){
+      document.removeEventListener("click",() => {})
       this.optionService.optionStatus = "Inactive";
+      this.optionService.optionPiority = false;
+      this.ngbDropdown.close();
+      console.log("To Inctive");
+    }
+
+
+    
+  }
+
+  enter(){
+    this.optionService.mouseOptionEnter = true;
+   // console.log("asdsad");
+  }
+
+  leave(){
+    this.optionService.mouseOptionEnter = false;
+   // console.log("1231231231313131");
+  }
+
+
+  mouseUp(){
+    console.log(this.show.isFullscreen);
+    
+    if(this.ngbDropdown.isOpen()){
+      if(this.optionService.mouseOptionEnter){
+        //document.removeEventListener("click", ()=>{});
+      }
+      else {
+        this.ngbDropdown.close();
+        this.optionService.optionStatus = "Inactive";
+        this.optionService.optionPiority = false;
+        
+        if (!this.optionService.mouseEnter){ 
+          //console.log("kmomkokmomm");
+          
+          this.optionService.statusStreaming = this.optionService.terminateViewer = this.optionService.options = "hide";
+        }
+      }
     }
   }
+
+  
+  toFullScreen() {
+    this.show.toFullScreen();
+    this.optionService.full = "hide"
+    this.optionService.exitFullscreen =  "show-inline";
+    console.log(this.optionService.full);
+    console.log(this.optionService.exitFullscreen);
+    
+  }
+
+  exitFullScreen() {
+    this.show.exitFullScreen();
+    this.full = "show-inline";
+    this.exitFullscreen = "hide";
+    console.log(this.optionService.full);
+    console.log(this.optionService.exitFullscreen);
+    
+    
+  }
+
+  
 
 }

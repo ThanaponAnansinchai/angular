@@ -8,12 +8,13 @@
 <!--<i id="choice" class="fa fa-gear dropbtn"></i>-->
 
 
-<div class="text-right" *ngIf="!this.isMobile">
-  <div ngbDropdown placement="top-right" autoClose="outside" class="d-inline-block">
+<div class="text-right" *ngIf="!this.isMobile" >
+  <div ngbDropdown placement="top-right" [autoClose]="false" class="d-inline-block" #myDrop="ngbDropdown" (mouseenter)='enter()'(mouseleave)='leave()'>
 
-    <a class="btn" id="dropdownBasic2" ngbDropdownToggle>  <i class="material-icons" (click)="toggleActive()">settings</i></a>
-    <a class="btn" ><i class="material-icons" style="font-size: 30px;">fullscreen</i></a>
-    <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+    <a class="btn" id="dropdownBasic2" ngbDropdownToggle (click)='toggleActive()'>  <i class="material-icons">settings</i></a>
+    <a [ngClass]="this.optionService.full"><a class="btn" (click)="toFullScreen()" ><i class="material-icons" style="font-size: 30px;">fullscreen</i></a></a>
+    <a [ngClass]="this.optionService.exitFullscreen"><a class="btn" (click)="exitFullScreen()" ><i class="material-icons" style="font-size: 30px;">fullscreen_exit</i></a></a>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic2" #settings>
 
       <div ngbDropdownItem ngbDropdown placement="left-bottom" [ngClass]="this.settingCaptionedLine"> 
         <div ngbDropdownToggle class=" btn-outline-primary">
@@ -80,8 +81,9 @@
         </div>
       </div>
 
-      <div class="btn-outline-primary"> <button id="incFont" (click)="toIntPlus(size,1)">A+</button>
-        <button id="decFont" (click)="toIntMinus(size,1)">A-</button></div>
+      <div class="btn-outline-primary" ngbDropdownItem ngbDropdown > 
+        <button class="btn" id="incFont" (click)="toIntPlus(size,1)">A+</button>
+        <button class="btn" id="decFont" (click)="toIntMinus(size,1)">A-</button></div>
 
 
     </div>

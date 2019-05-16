@@ -7,7 +7,21 @@
     display: inline;
 }
 .hide{
-    display: none;
+    display:none;
+}
+.show-smooth{
+    transition: opacity 0.3s ease-out;
+    opacity: 1;
+}
+.hide-smooth{
+    transition: opacity 0.3s ease-out;
+    opacity: 0; 
+}
+.cursor-show{
+    cursor: default;
+}
+.cursor-hide{
+    cursor: none;
 }
 .full-height{
     height: 100%;

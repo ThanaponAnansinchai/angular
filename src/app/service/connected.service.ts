@@ -44,14 +44,19 @@ export class optionService {
   classCaptionedWidth = "captioned-width-70";
   captioned_default = "captioned_default";
   temp: any[] = [];
-  optionVideoMode; myModal; m_options; m_optionVideoMode; choice;
+  optionVideoMode; myModal; m_options; m_optionVideoMode; choice; options;
   statusStreaming; terminateViewer;
+  full = "show-inline";
+  exitFullscreen = "hide";
   video = "show-inline";
   videoTextOnly = "hide";
   fullscreenHeight = "normal-height";
   isFullscreen = false;
-  dropupContent = "hide"
-  optionStatus = "Inactive"
+  dropupContent = "hide";
+  optionStatus = "Inactive";
+  optionPiority = false;
+  mouseEnter = false;
+  mouseOptionEnter = false;
 }
 
 

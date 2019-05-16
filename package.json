@@ -1,5 +1,5 @@
 {
-  "name": "abc",
+  "name": "viewer_angular",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -29,6 +29,7 @@
     "cors": "^2.8.5",
     "enhanced-resolve": "^4.1.0",
     "express": "^4.16.4",
+    "material-design-icons": "^3.0.1",
     "ngx-color-picker": "^7.3.1",
     "path": "^0.12.7",
     "rxjs": "~6.3.3",

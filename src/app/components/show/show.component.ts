@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Connection , optionService} from '../../service/connected.service';
-import { OptionsComponent } from '../options/options.component';
+import { ActivatedRoute } from '@angular/router';
+import { Connection, optionService } from '../../service/connected.service';
+
 
 
 
@@ -16,7 +16,7 @@ export class ShowComponent implements OnInit {
   public title = '';
   public description = '';
   public startTime; Tstart; endTime; Tend; presentTime; startPeriod; endPeriod;
-  public caption ="เป็นเวลา 20 ปีมาแล้ว ในวันที่ท้องฟ้าถูกฉีกด้วยแสงจำนวนนับไม่ถ้วนที่ตกลงมายังโลกผมคิดว่าถึงเวลาสำหรับบทเรียนประวัติศาสตร์แล้วล่ะ";
+  public caption = "เป็นเวลา 20 ปีมาแล้ว ในวันที่ท้องฟ้าถูกฉีกด้วยแสงจำนวนนับไม่ถ้วนที่ตกลงมายังโลกผมคิดว่าถึงเวลาสำหรับบทเรียนประวัติศาสตร์แล้วล่ะ";
 
   public status: any;
   public timeStatus: any;
@@ -34,7 +34,7 @@ export class ShowComponent implements OnInit {
   public captioned_width = "captioned-width-70";
   public captioned_default = "captioned_default";
   private temp: any[] = [];
-  public videoplayer
+  public videoplayer;videoArea
   public classCaptionedWidth
   public classCaptionedLine
 
@@ -51,24 +51,28 @@ export class ShowComponent implements OnInit {
   public exitFullscreen; incFont2; decFont2; inputFont2; viewerMode2; full;
   public fullscreenHeight = "normal-height";
   public isFullscreen = false;
+  public timeout = null;
+  public time = 0;
 
 
   @ViewChild('fullScreen') fullScreen;
 
+
+
+
+
+
+  constructor(private route: ActivatedRoute, private apiService: Connection, public optionService: optionService) {
+
  
 
 
-
-  constructor(private route: ActivatedRoute, private apiService: Connection,public optionService: optionService) { 
-    
-   
-
   }
 
-   
-  
-  ngOnInit() {
 
+
+  ngOnInit() {
+    
 
     this.route.paramMap.subscribe(paramMap => {
 
@@ -88,8 +92,8 @@ export class ShowComponent implements OnInit {
       window.scrollTo(0, 0);
 
       this.liveContainer = this.m_liveContainer = this.options = this.m_options = this.m_optionVideoMode = this.myModal = this.terminateViewer = this.statusStreaming = "hide";
-      this.exitFullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = this.choice = "hide"
-      this.full = "hide"
+      this.full = this.exitFullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = this.choice = "hide"
+    
       this.beforeStreaming = "show-block"
       this.optionService.dropupContent = "hide"
 
@@ -98,7 +102,7 @@ export class ShowComponent implements OnInit {
       this.videoTextOnly = "hide";
 
 
-      this.videoplayer = <HTMLVideoElement> document.getElementById("video");
+      this.videoplayer = <HTMLVideoElement>document.getElementById("video");
       this.videoplayer.pause();
       this.videoplayer.currentTime = 0;
 
@@ -114,9 +118,9 @@ export class ShowComponent implements OnInit {
 
         this.startTime = (this.data.time.start_time).split(" ");
         this.endTime = (this.data.time.end_time).split(" ");
-        this.Tstart = this.startTime[1].slice(0 , -3);
-        this.Tend = this.endTime[1].slice(0 , -3);
-        this.initializeClock(this.data.time.start_time, this.data.time.end_time,this.data.status);
+        this.Tstart = this.startTime[1].slice(0, -3);
+        this.Tend = this.endTime[1].slice(0, -3);
+        this.initializeClock(this.data.time.start_time, this.data.time.end_time, this.data.status);
 
 
 
@@ -127,16 +131,16 @@ export class ShowComponent implements OnInit {
     });
   }
 
-  
+
 
   // Detail section //
 
-  initializeClock(startTime, endTime,roomStatus) {
+  initializeClock(startTime, endTime, roomStatus) {
 
-    this.updateClock(startTime, endTime,roomStatus);
-    
+    this.updateClock(startTime, endTime, roomStatus);
+
     setInterval(() => {
-      this.updateClock(startTime,endTime,roomStatus)
+      this.updateClock(startTime, endTime, roomStatus)
     }, 1000 * 60
     )
   }
@@ -145,31 +149,31 @@ export class ShowComponent implements OnInit {
 
     this.presentTime = new Date();
 
-    
+
     let total = Date.parse(time) - Date.parse(this.presentTime);
-    
+
     let minute = Math.floor((total / 1000 / 60) % 60);
     let hour = Math.floor((total / (1000 * 60 * 60)));
 
     minute = Math.abs(minute)
     hour = Math.abs(hour)
-  
-    
 
-    if(hour < 12){
+
+
+    if (hour < 12) {
       return {
         'total': total, 'hour': hour, 'minute': minute
       };
     }
-    else{
-       // hour = hour % 12;
-        return {
-          'total': total, 'hour': hour, 'minute': minute
-        };
+    else {
+      // hour = hour % 12;
+      return {
+        'total': total, 'hour': hour, 'minute': minute
+      };
     }
-    
+
   }
-  updateClock(startTime, endTime,roomStatus) {
+  updateClock(startTime, endTime, roomStatus) {
 
     let start = this.getTimeRemaining(startTime);
     //let end = this.getTimeRemaining(endTime);
@@ -187,7 +191,7 @@ export class ShowComponent implements OnInit {
     }
     else if (roomStatus == 4 || roomStatus == 5) {
       this.status = 'กำลังทำการถ่ายทอดสด';
-     //this.timeStatus = end.hour + " ชั่วโมง " + end.minute + " นาทีจะสิ้นสุดการถ่ายทอดสด";
+      //this.timeStatus = end.hour + " ชั่วโมง " + end.minute + " นาทีจะสิ้นสุดการถ่ายทอดสด";
       this.statusColor = "#5cb85c"
     }
     else {
@@ -201,58 +205,55 @@ export class ShowComponent implements OnInit {
   // Viewer section //
 
   viewerStart() {
-
+   
     if (this.isMobile) {
 
       this.m_liveContainer = this.m_options = this.m_optionVideoMode = "show-block";
     }
     if (!this.isMobile) {
 
-       this.liveContainer = this.options = "show-block";
+      this.liveContainer = this.options = "show-block";
       this.optionVideoMode = "show-inline"
 
     }
 
-
-
-    if(this.isFullscreen){
-      
-    }
     this.full = "show-inline"
     this.video = this.statusStreaming = this.terminateViewer = "show-block";
     this.beforeStreaming = this.videoTextOnly = "hide";
-
-    
+    clearTimeout(this.timeout);
+    this.videoArea = "cursor-show"
     this.videoplayer.play();
 
   }
 
   viewerStop() {
+    clearTimeout(this.timeout);
     if (this.isMobile) {
-      this.m_liveContainer  = this.m_optionVideoMode = "hide";
+      this.m_liveContainer = this.m_optionVideoMode = "hide";
     }
     else {
       this.liveContainer = this.optionVideoMode = this.options = "hide";
     }
-
+    this.exitFullScreen();
     this.optionService.dropupContent = this.statusStreaming = this.terminateViewer = "hide";
     this.beforeStreaming = "show-block";
 
     this.videoplayer.pause();
     this.videoplayer.currentTime = 0;
-     
-
+    this.optionService.optionStatus = "Inactive";
+    this.isFullscreen = false;
 
   }
 
   toFullScreen() {
 
-    this.exitFullscreen = this.viewerMode2 = "show-inline";
+    this.optionService.exitFullscreen = this.viewerMode2 = "show-inline";
 
-    this.full = "hide";
+    this.optionService.full = "hide";
     this.optionService.fullscreenHeight = this.fullscreenHeight = "full-height";
     this.isFullscreen = this.optionService.isFullscreen = true;
     this.choice = "show-block";
+    this.time = 3000;
 
     let elem = this.fullScreen.nativeElement;
     if (elem.requestFullscreen) {
@@ -270,12 +271,15 @@ export class ShowComponent implements OnInit {
   }
 
   exitFullScreen() {
-
-    this.exitFullscreen =  this.viewerMode2 = "hide";
-    this.full = "show-inline";
-    this.optionService.fullscreenHeight =  this.fullscreenHeight =  "normal-height";
+    this.time = 0;
+    this.optionService.exitFullscreen = this.viewerMode2 = "hide";
+    this.optionService.full = "show-inline";
+    this.optionService.fullscreenHeight = this.fullscreenHeight = "normal-height";
     this.isFullscreen = this.optionService.isFullscreen = false;
     this.choice = "hide";
+    this.videoArea = "cursor-show"
+    clearTimeout(this.timeout);
+
 
     if (document['exitFullscreen']) {
       document['exitFullscreen']();
@@ -289,37 +293,45 @@ export class ShowComponent implements OnInit {
   }
 
 
-  over() {
+  enter() {
+    this.optionService.statusStreaming = this.optionService.terminateViewer = this.optionService.options = "show-smooth";
+    this.optionService.mouseEnter = true;
+   // console.log("enter");
+
+  }
+
+  leave() {
+   // console.log("leave");
+    this.optionService.mouseEnter = false;
+    if (!this.optionService.optionPiority) {
+      this.optionService.statusStreaming = this.optionService.terminateViewer = this.optionService.options = "hide-smooth";
+
+    }
+  }
+
+  mouseOverVideo() {
+    clearTimeout(this.timeout);
 
     if (this.isFullscreen) {
-      this.full = "hide";
-      this.exitFullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = "show-inline"
+      if(this.optionService.optionPiority || this.optionService.mouseOptionEnter){
+        this.optionService.statusStreaming = this.optionService.terminateViewer = this.optionService.options = "show-smooth"
+        this.videoArea = "cursor-show"
+      }
+      else if (!this.optionService.mouseOptionEnter) {
+        
+        this.optionService.statusStreaming = this.optionService.terminateViewer = this.optionService.options = "show-smooth";
+        this.videoArea = "cursor-show"
+        this.timeout = setTimeout(() => {
+          this.optionService.statusStreaming = this.optionService.terminateViewer = this.optionService.options = "hide-smooth"
+          this.videoArea = "cursor-hide"
+        }, this.time)
+      }
     }
-    else { 
-      this.full = "show-inline" 
-
+    else{
+      this.videoArea = "cursor-show"
     }
-    this.optionVideoMode = this.statusStreaming = this.terminateViewer = "show-inline";
-    
   }
 
-  enter(){
-    if (this.isFullscreen) {
-      this.full = "hide";
-      this.exitFullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = "show-inline"
-    }
-    else { 
-      this.full = "show-inline" 
 
-    }
-    this.optionVideoMode = this.statusStreaming = this.terminateViewer = this.options = "show-inline";
-  }
-
-  leave(){
-    if(this.optionService.optionStatus == "Inactive"){
-      this.optionVideoMode = this.statusStreaming = this.terminateViewer = this.options = "hide";
-    }
-   
-  }
 }
 
