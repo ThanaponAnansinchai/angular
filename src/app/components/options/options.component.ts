@@ -125,8 +125,6 @@ export class OptionsComponent implements OnInit {
       }
       this.mode = "text-only";
       this.textOnlyActive = "active";
-   
-
     }
     if (mode == "video-text") {
 
@@ -138,7 +136,6 @@ export class OptionsComponent implements OnInit {
         this.optionService.video = "show-inline";
        
       }
-
       this.mode = "video-text"
       this.videoActice = "active";
     }
@@ -151,14 +148,12 @@ export class OptionsComponent implements OnInit {
     if (CaptionedWidth == 100) {
       this.optionService.classCaptionedWidth = this.classCaptionedWidth = "captioned-width-100";
       this.widthHundredActive = "active";
-      
     }
     else if (CaptionedWidth == 70) {
       this.optionService.classCaptionedWidth = this.classCaptionedWidth = "captioned-width-70";
        
       this.widthSevenActive = "active";
     }
-
   }
 
   setCaptionedLine(CaptionedLine) {
@@ -185,84 +180,52 @@ export class OptionsComponent implements OnInit {
     this.myModal = "hide"
   }
 
-
-
-
   toggleActive() {
-
-   console.log("toggleActive");
-   
     if(this.optionService.optionStatus == "Inactive"){
       this.optionService.optionStatus = "Active";
       this.optionService.optionPiority = true;
-      //this.ngbDropdown.open()
-      console.log("To Active");
     }
     else if(this.optionService.optionStatus == "Active"){
       document.removeEventListener("click",() => {})
       this.optionService.optionStatus = "Inactive";
       this.optionService.optionPiority = false;
       this.ngbDropdown.close();
-      console.log("To Inctive");
     }
-
-
-    
   }
 
   enter(){
     this.optionService.mouseOptionEnter = true;
-   // console.log("asdsad");
   }
 
   leave(){
     this.optionService.mouseOptionEnter = false;
-   // console.log("1231231231313131");
+
   }
 
-
   mouseUp(){
-    console.log(this.show.isFullscreen);
-    
     if(this.ngbDropdown.isOpen()){
-      if(this.optionService.mouseOptionEnter){
-        //document.removeEventListener("click", ()=>{});
-      }
-      else {
+      if(!this.optionService.mouseOptionEnter) {
         this.ngbDropdown.close();
         this.optionService.optionStatus = "Inactive";
         this.optionService.optionPiority = false;
         this.show.mouseOverVideo();
         
         if (!this.optionService.mouseEnter){ 
-          //console.log("kmomkokmomm");
-          
-          this.optionService.statusStreaming = this.optionService.terminateViewer = this.optionService.options = "hide";
+          this.optionService.statusStreaming = this.optionService.terminateViewer = this.optionService.options = "hide-smooth2";
         }
       }
     }
   }
 
-  
   toFullScreen() {
     this.show.toFullScreen();
     this.optionService.full = "hide"
     this.optionService.exitFullscreen =  "show-inline";
-    console.log(this.optionService.full);
-    console.log(this.optionService.exitFullscreen);
-    
   }
 
   exitFullScreen() {
     this.show.exitFullScreen();
     this.full = "show-inline";
     this.exitFullscreen = "hide";
-    console.log(this.optionService.full);
-    console.log(this.optionService.exitFullscreen);
-    
-    
   }
-
-  
-
 }

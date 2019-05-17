@@ -137,8 +137,6 @@ export class RoomComponent implements OnInit {
     //minute = Math.abs(minute)
     //hour = Math.abs(hour)
 
-
-
     if (hour < 12) {
       return {
         'total': total, 'hour': hour, 'minute': minute

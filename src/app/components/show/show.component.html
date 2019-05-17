@@ -34,7 +34,7 @@
   
   <!-- FOR START VIEWER WEB-->
   <section #fullScreen id="liveContainer" [ngClass]="this.liveContainer" (mouseenter)='enter()'(mouseleave)='leave()' (mousemove)='mouseOverVideo()'>
-    <div class="w3-display-topleft" id="statusStreaming" [ngClass]="this.statusStreaming"></div>
+    <div class="w3-display-topleft" id="statusStreaming" [ngClass]="this.optionService.statusStreaming"></div>
     <div class="w3-display-topleft" id="views"></div>
     <div class="w3-display-topright">
       <button class="btn btn-info" id="muteVolume" >ปิดเสียง</button>
@@ -80,7 +80,7 @@
 
 
   <!-- print log error -->
-  <div id="errorLog" class="w3-container"></div>
+  <div id="errorLog" class="w3-container">{{errorLog}}</div>
 
 
 </div>

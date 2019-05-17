@@ -34,7 +34,7 @@ export class ShowComponent implements OnInit {
   public captioned_width = "captioned-width-70";
   public captioned_default = "captioned_default";
   private temp: any[] = [];
-  public videoplayer;videoArea
+  public videoplayer; videoArea
   public classCaptionedWidth
   public classCaptionedLine
 
@@ -64,7 +64,7 @@ export class ShowComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private apiService: Connection, public optionService: optionService) {
 
- 
+
 
 
   }
@@ -72,8 +72,6 @@ export class ShowComponent implements OnInit {
 
 
   ngOnInit() {
-    
-
     this.route.paramMap.subscribe(paramMap => {
 
       if (/Android|iPhone/i.test(window.navigator.userAgent)) {
@@ -93,7 +91,7 @@ export class ShowComponent implements OnInit {
 
       this.liveContainer = this.m_liveContainer = this.options = this.m_options = this.m_optionVideoMode = this.myModal = this.terminateViewer = this.statusStreaming = "hide";
       this.full = this.exitFullscreen = this.incFont2 = this.decFont2 = this.inputFont2 = this.viewerMode2 = this.choice = "hide"
-    
+
       this.beforeStreaming = "show-block"
       this.optionService.dropupContent = "hide"
 
@@ -121,13 +119,7 @@ export class ShowComponent implements OnInit {
         this.Tstart = this.startTime[1].slice(0, -3);
         this.Tend = this.endTime[1].slice(0, -3);
         this.initializeClock(this.data.time.start_time, this.data.time.end_time, this.data.status);
-
-
-
       });
-
-
-
     });
   }
 
@@ -148,8 +140,6 @@ export class ShowComponent implements OnInit {
   getTimeRemaining(time) {
 
     this.presentTime = new Date();
-
-
     let total = Date.parse(time) - Date.parse(this.presentTime);
 
     let minute = Math.floor((total / 1000 / 60) % 60);
@@ -157,8 +147,6 @@ export class ShowComponent implements OnInit {
 
     minute = Math.abs(minute)
     hour = Math.abs(hour)
-
-
 
     if (hour < 12) {
       return {
@@ -173,11 +161,11 @@ export class ShowComponent implements OnInit {
     }
 
   }
+
   updateClock(startTime, endTime, roomStatus) {
 
     let start = this.getTimeRemaining(startTime);
     //let end = this.getTimeRemaining(endTime);
-
 
     if (roomStatus == 6 || roomStatus == 7) {
       this.status = "การถ่ายทอดสดสิ้นสุดแล้ว";
@@ -201,13 +189,11 @@ export class ShowComponent implements OnInit {
     }
   }
 
-
   // Viewer section //
 
   viewerStart() {
-   
-    if (this.isMobile) {
 
+    if (this.isMobile) {
       this.m_liveContainer = this.m_options = this.m_optionVideoMode = "show-block";
     }
     if (!this.isMobile) {
@@ -296,12 +282,10 @@ export class ShowComponent implements OnInit {
   enter() {
     this.optionService.statusStreaming = this.optionService.terminateViewer = this.optionService.options = "show-smooth";
     this.optionService.mouseEnter = true;
-   // console.log("enter");
 
   }
 
   leave() {
-   // console.log("leave");
     this.optionService.mouseEnter = false;
     if (!this.optionService.optionPiority) {
       this.optionService.statusStreaming = this.optionService.terminateViewer = this.optionService.options = "hide-smooth";
@@ -313,12 +297,12 @@ export class ShowComponent implements OnInit {
     clearTimeout(this.timeout);
 
     if (this.isFullscreen) {
-      if(this.optionService.optionPiority || this.optionService.mouseOptionEnter){
+      if (this.optionService.optionPiority || this.optionService.mouseOptionEnter) {
         this.optionService.statusStreaming = this.optionService.terminateViewer = this.optionService.options = "show-smooth"
         this.videoArea = "cursor-show"
       }
       else if (!this.optionService.mouseOptionEnter) {
-        
+
         this.optionService.statusStreaming = this.optionService.terminateViewer = this.optionService.options = "show-smooth";
         this.videoArea = "cursor-show"
         this.timeout = setTimeout(() => {
@@ -327,7 +311,7 @@ export class ShowComponent implements OnInit {
         }, this.time)
       }
     }
-    else{
+    else {
       this.videoArea = "cursor-show"
     }
   }
