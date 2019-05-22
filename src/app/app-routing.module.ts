@@ -4,7 +4,7 @@ import { ShowComponent } from './components/show/show.component';
 
 const routes: Routes = [
   {
-    path: 'v2/room/:roomid',
+    path: ':roomid',
     component: ShowComponent
   }
 ];
