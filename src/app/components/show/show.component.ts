@@ -220,7 +220,9 @@ export class ShowComponent implements OnInit {
     else {
       this.liveContainer = this.optionVideoMode = this.options = "hide";
     }
-    this.exitFullScreen();
+
+    if(this.isFullscreen){this.exitFullScreen();}
+    
     this.optionService.dropupContent = this.statusStreaming = this.terminateViewer = "hide";
     this.beforeStreaming = "show-block";
 

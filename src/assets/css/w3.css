@@ -1204,6 +1204,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate, input[type=radio].w3-radio:
     position: absolute;
     right: 3%; 
     bottom: 3%;
+    z-index: 1;
 }
 
 .w3-display-middle {

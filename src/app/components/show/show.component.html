@@ -35,24 +35,22 @@
   <!-- FOR START VIEWER WEB-->
   <section #fullScreen id="liveContainer" [ngClass]="this.liveContainer" (mouseenter)='enter()'(mouseleave)='leave()' (mousemove)='mouseOverVideo()'>
     <div class="w3-display-topleft" id="statusStreaming" [ngClass]="this.optionService.statusStreaming"></div>
-    <div class="w3-display-topleft" id="views"></div>
-    <div class="w3-display-topright">
+    <div class="w3-display-topleft" id="views"> </div>
+    
+    <!--<div class="w3-display-topright">
       <button class="btn btn-info" id="muteVolume" >ปิดเสียง</button>
       <button class="btn btn-info" id="unmuteVolume" >เปิดเสียง</button>
       <a class="w3-btn" id="terminateViewer" [ngClass]="this.optionService.terminateViewer"
-        (click)="viewerStop();exitFullScreen()"><i class="material-icons">close</i>
+        (click)="viewerStop()"><i class="material-icons">close</i>
       </a>
     </div>
-
+-->
     <div class="w3-display-bottomright">
-      <div class="w3-row">
-    <!--    <i class="fa fa-compress fa-lg" id="exitFullScreen" [ngClass]="exitFullscreen" (click)="exitFullScreen()"></i>
-        <i class="fa fa-arrows-alt fa-lg" id="fullScreen" [ngClass]="full" (click)="toFullScreen()"></i>
-        -->
+      
         <div id="options" [ngClass]="this.optionService.options">
           <app-options></app-options> 
         </div>
-      </div>
+      
 
     </div>
 
@@ -80,7 +78,7 @@
 
 
   <!-- print log error -->
-  <div id="errorLog" class="w3-container"></div>
+  <div id="errorLog" class="w3-container">{{errorLog}}</div>
 
 
 </div>
