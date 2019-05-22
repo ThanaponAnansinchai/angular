@@ -17,6 +17,7 @@ export class ShowComponent implements OnInit {
   public description = '';
   public startTime; Tstart; endTime; Tend; presentTime; startPeriod; endPeriod;
   public caption = "เป็นเวลา 20 ปีมาแล้ว ในวันที่ท้องฟ้าถูกฉีกด้วยแสงจำนวนนับไม่ถ้วนที่ตกลงมายังโลกผมคิดว่าถึงเวลาสำหรับบทเรียนประวัติศาสตร์แล้วล่ะ";
+  public errorLog = '';
 
   public status: any;
   public timeStatus: any;
